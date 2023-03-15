@@ -348,7 +348,10 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/script/height.cs"
+"Assets/script/mapMaker.cs"
 "Assets/script/move.cs"
+"Assets/script/oilManager.cs"
 -langversion:9.0
 
 /deterministic
