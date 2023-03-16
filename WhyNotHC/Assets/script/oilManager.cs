@@ -6,10 +6,11 @@ public class oilManager : MonoBehaviour
 {
     public Image bar;
     bool landing = false;
+    public height he;
     void Update()
     {
         if(landing == false)
-            bar.fillAmount -= 0.1f * Time.deltaTime;
+            bar.fillAmount -= he.y*0.0003f;
     }
     public void OnCollisionEnter(Collision collision)
     {
@@ -24,7 +25,10 @@ public class oilManager : MonoBehaviour
         if (collision.gameObject.tag == "building")
         {
             landing = false;
-            collision.gameObject.tag = "null building";
+            if (collision.gameObject.GetComponentInParent<GameObject>().name != "building")
+            {
+                collision.gameObject.tag = "null building";
+            }
         }
     }
 }

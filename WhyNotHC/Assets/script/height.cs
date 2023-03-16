@@ -10,7 +10,10 @@ public class height : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     [SerializeField] public Rigidbody go_Player;
     [SerializeField] public float moveSpeed = 5;
     private bool isTouch = false;
-    float y = 0;
+    public float y = 0;
+    public Rigidbody wing;
+    public Rigidbody wing2;
+    public Image bar;
     void Start()
     {
         radius = rect_Background.rect.height * 0.5f;
@@ -18,8 +21,19 @@ public class height : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
 
     void Update()
     {
-        go_Player.AddForce(Vector3.up * y);
-        Debug.Log(y);
+        if (bar.fillAmount != 0)
+        {
+            go_Player.AddForce(Vector3.up * y);
+            if (y > 0.1f)
+            {
+                wing.AddTorque(Vector3.up * y * 60);
+                wing2.AddTorque(Vector3.right * y * 60);
+            }
+        }
+        else
+        {
+            y = 0;
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -34,10 +48,14 @@ public class height : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector2 value = (eventData.position - (Vector2)rect_Background.position) * 1;
-        
-        value = Vector2.ClampMagnitude(value, radius);
-        rect_Joystick.localPosition = new Vector2(0, value.y);
-        y = rect_Joystick.anchoredPosition.y * 10 * Time.deltaTime * moveSpeed;
+
+        if (bar.fillAmount != 0)
+        {
+            Vector2 value = (eventData.position - (Vector2)rect_Background.position) * 1;
+
+            value = Vector2.ClampMagnitude(value, radius);
+            rect_Joystick.localPosition = new Vector2(0, value.y);
+            y = rect_Joystick.anchoredPosition.y * 10 * Time.deltaTime * moveSpeed;
+        }
     }
 }

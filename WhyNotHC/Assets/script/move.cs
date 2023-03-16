@@ -15,8 +15,8 @@ public class move : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
     void Start()
     {
         radius = rect_Background.rect.width * 0.5f;
-        //gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, Screen.width * -0.25f);
-        //gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.height * 0.5f, Screen.width);
+        gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, Screen.height * -0.25f);
+        gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, Screen.height * 0.5f);
     }
 
     void Update()
