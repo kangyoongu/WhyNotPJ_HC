@@ -7,9 +7,8 @@ public class mapMaker : MonoBehaviour
 {
     public Transform player;
     public GameObject build;
-    int z = -3;
-    int l = -75;
-    public Text sc;
+    public int z = -3;
+    public int l = -75;
     public GameObject low;
     void Update()
     {
@@ -23,6 +22,5 @@ public class mapMaker : MonoBehaviour
             l += 1;
             Instantiate(low, new Vector3(Random.Range(-15f, 15), Random.Range(-3, 3), (l+37) * 2), Quaternion.identity);
         }
-        sc.text = (z-1).ToString("0");
     }
 }
