@@ -12,6 +12,10 @@ public class move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
     private bool isTouch = false;
     float y = 0;
     float x = 0;
+    public Transform wing;
+    public Transform wing2;
+    float wingspeed = 0;
+    public Image oil;
     void Start()
     {
         radius = rect_Background.rect.width * 0.5f;
@@ -23,10 +27,32 @@ public class move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
     {
         if (isTouch)
         {
-            go_Player.AddForce(Vector3.forward * y);
-            go_Player.AddForce(Vector3.up * y);
-            go_Player.AddForce(Vector3.right * x);
+            if (oil.fillAmount > 0)
+            {
+                wingspeed += Time.deltaTime * 2;
+                go_Player.AddForce(Vector3.forward * y);
+                go_Player.AddForce(Vector3.up * Time.deltaTime * 500);
+                go_Player.AddForce(Vector3.right * x);
+                oil.fillAmount -= Time.deltaTime * 0.14f;
+            }
+            else
+            {
+                isTouch = false;
+            }
         }
+        else
+        {
+            if (wingspeed <= 0)
+            {
+                wingspeed = 0;
+            }
+            else
+            {
+                wingspeed -= Time.deltaTime * 2.5f;
+            }
+        }
+        wing.Rotate(Vector3.forward * wingspeed);
+        wing2.Rotate(Vector3.right * wingspeed);
     }
 
     public void OnPointerDown(PointerEventData eventData)
