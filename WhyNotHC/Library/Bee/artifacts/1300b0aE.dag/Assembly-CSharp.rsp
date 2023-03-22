@@ -352,6 +352,7 @@
 "Assets/script/height.cs"
 "Assets/script/mapMaker.cs"
 "Assets/script/move.cs"
+"Assets/script/move1.cs"
 "Assets/script/oilManager.cs"
 -langversion:9.0
 
