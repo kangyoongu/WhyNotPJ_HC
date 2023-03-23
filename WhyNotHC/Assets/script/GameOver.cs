@@ -8,28 +8,38 @@ public class GameOver : MonoBehaviour
     float timer = 0;
     public GameObject back;
     public Image bar;
-    public mapMaker map;
-    public height height;
+    public MapMaker map;
+    public Height height;
     public Text nows;
     public Text bests;
-    public oilManager oil;
+    public Text playing;
+    public OilManager oil;
     public GameObject[] main;
     public GameObject[] play;
     public GameObject setting;
     void Start()
     {
-        
+        if (!PlayerPrefs.HasKey("best"))
+        {
+            PlayerPrefs.SetInt("best", 0);//최고 기록값
+        }
     }
     void Update()
     {
         if(bar.fillAmount == 0)
         {
             timer += Time.deltaTime;
-            if(timer >= 7)
+            if(timer >= 7)//게임 오버 되면
             {
                 timer = 0;
                 Time.timeScale = 0;
                 back.SetActive(true);
+                nows.text = "your score\n<size=150>" + playing.text + "</size>";//기록 글자들 바꾸기
+                if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
+                {
+                    PlayerPrefs.SetInt("best", int.Parse(playing.text));
+                }
+                bests.text = "best score\n<size=180>" + PlayerPrefs.GetInt("best") + "</size>";
             }
         }
         else
@@ -37,7 +47,7 @@ public class GameOver : MonoBehaviour
             timer = 0;
         }
     }
-    public void OnClickrestart()
+    public void OnClickrestart()//다시시작 버튼을 눌렀을 때
     {
         transform.position = new Vector3(0, -1.62f, 0.82f);
         GameObject[] g = GameObject.FindGameObjectsWithTag("maps");
@@ -52,7 +62,7 @@ public class GameOver : MonoBehaviour
         back.SetActive(false);
         oil.score = 0;
     }
-    public void OnClickMain()
+    public void OnClickMain()//메인으로 가는 버튼을 눌렀을 때
     {
         for(int i = 0; i < main.Length; i++)
         {
@@ -70,7 +80,7 @@ public class GameOver : MonoBehaviour
             Destroy(g[i]);
         }
     }
-    public void OnCLickStart()
+    public void OnCLickStart()//메인에서 시작 눌렀을 때
     {
         for (int i = 0; i < main.Length; i++)
         {
@@ -83,11 +93,11 @@ public class GameOver : MonoBehaviour
         setting.SetActive(false);
         OnClickrestart();
     }
-    public void OnClickSetting()
+    public void OnClickSetting()//설정버튼 눌렀을 때
     {
         setting.SetActive(true);
     }
-    public void OnClickBack()
+    public void OnClickBack()//설정에서 뒤로가기 눌렀을 때
     {
         setting.SetActive(false);
     }
