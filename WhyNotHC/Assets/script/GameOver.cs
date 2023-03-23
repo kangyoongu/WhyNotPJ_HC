@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
@@ -90,5 +91,10 @@ public class GameOver : MonoBehaviour
     public void OnClickBack()
     {
         setting.SetActive(false);
+    }
+
+    public void OnclickCustom()
+    {
+        SceneManager.LoadScene(1);
     }
 }
