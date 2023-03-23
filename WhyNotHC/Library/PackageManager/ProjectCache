@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638144752270162660
+      ticks: 638144752270000000
     m_Hash: 2081676248
   m_LockFileStatus:
     m_FilePath: "C:/Users/ggmuser/OneDrive/\uBB38\uC11C/GitHub/WhyNotPJ_HC/WhyNotHC/Packages/packages-lock.json"
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638144752270172657
+      ticks: 638144752270000000
     m_Hash: 2408981072
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
