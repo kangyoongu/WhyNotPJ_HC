@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Oil : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Oil : MonoBehaviour
     [SerializeField] float oil;
     bool isNotUsingOil;
     bool isStopping = false;
+    public Image bar;
 
     
     void Start()
@@ -28,8 +30,10 @@ public class Oil : MonoBehaviour
         else
         {
             oil = 100;
+            bar.fillAmount = 1;
             if(!isStopping)
                 Invoke("oilup", 3);
+            
             //if (oilper == true)
             //{
 
@@ -49,12 +53,11 @@ public class Oil : MonoBehaviour
             other.gameObject.SetActive(false);
             isNotUsingOil = true;
             //oilper = true;
+
         }
     }
     
-    //oil 100 코루틴
     
-
     //oil 100 함수
     void oilup()
     {
