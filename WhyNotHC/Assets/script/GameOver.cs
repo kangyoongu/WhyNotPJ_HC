@@ -91,4 +91,14 @@ public class GameOver : MonoBehaviour
     {
         setting.SetActive(false);
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Boom")
+        {
+            other.gameObject.SetActive(false);
+            bar.fillAmount = 0;
+        }
+
+    }
 }

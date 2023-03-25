@@ -8,6 +8,7 @@ TagManager:
   - null building
   - maps
   - Oil
+  - Boom
   layers:
   - Default
   - TransparentFX
