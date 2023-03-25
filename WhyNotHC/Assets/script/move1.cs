@@ -88,5 +88,6 @@ public class move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
     private void OnTriggerEnter(Collider other)
     {
         gameObject.SetActive(false);
+
     }
 }

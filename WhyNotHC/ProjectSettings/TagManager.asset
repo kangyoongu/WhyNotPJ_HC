@@ -9,6 +9,7 @@ TagManager:
   - maps
   - Oil
   - Boom
+  - Plus
   layers:
   - Default
   - TransparentFX
