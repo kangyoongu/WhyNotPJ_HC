@@ -47,6 +47,7 @@ public class SlowSpeed : MonoBehaviour
             isSpeed = true;
             timer = time;
             other.gameObject.SetActive(false);
+            Debug.Log("slow");
         }
     }
 

@@ -15,27 +15,30 @@ public class Scale : MonoBehaviour
     {
 
     }
-    public void OnTriggerStay(Collider other)
+    public void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Plus")
         {
             other.gameObject.SetActive(false);
             this.transform.localScale += new Vector3(.1f, .1f, .1f);
             Invoke("MinusSize", 3);
-            other.gameObject.SetActive(true);
+            Debug.Log("Minus");
+            
         }
         if (other.gameObject.tag == "Minus")
         {
             other.gameObject.SetActive(false);
             this.transform.localScale -= new Vector3(.1f, .1f, .1f);
             Invoke("PlusSize", 3);
-            other.gameObject.SetActive(true);
+            Debug.Log("Plus");
+           
         }
     }
     void MinusSize()
     {
         this.transform.localScale -= new Vector3(.1f, .1f, .1f);
     }
+
     void PlusSize()
     {
         this.transform.localScale += new Vector3(.1f, .1f, .1f);

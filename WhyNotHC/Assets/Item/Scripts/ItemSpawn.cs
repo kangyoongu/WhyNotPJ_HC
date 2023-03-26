@@ -5,14 +5,14 @@ using UnityEngine;
 public class ItemSpawn : MonoBehaviour
 {
     
-    public GameObject item;
-    public float curtime;
+    [SerializeField] GameObject item;
+    [SerializeField] float curtime;
     
 
     
     void Start()
     {
-        //isItemspawn = false;
+        
         
     }
 
@@ -21,17 +21,20 @@ public class ItemSpawn : MonoBehaviour
     {
         
         curtime += Time.deltaTime;
-
-        if(curtime > 3)
+        
+        if(curtime > 10)
         {
-            float newX = Random.Range(-4.6f, 4.6f);
-            float newz = 20;
-            Instantiate(item, new Vector3(newX, -3, newz), Quaternion.identity);
-
-            item.transform.position = new Vector3(newX, -3, newz);
-            newz += 1;
+            float itemX = Random.Range(-4.6f, 4.6f);
+            float itemz = 20;
+            
+            item = Instantiate(item, new Vector3(itemX, -3, itemz), Quaternion.identity);
+            itemz += 1;
+            item.transform.position = new Vector3(itemX, -3, itemz);
+            Debug.Log("Item");
+            
             curtime = 0;
         }
 
     }
+
 }

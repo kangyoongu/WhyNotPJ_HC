@@ -27,7 +27,7 @@ public class oilManager : MonoBehaviour
             bar.fillAmount = 1;
             if (!isStopping)
                 Invoke("oilup", 10);
-
+            
             
 
         }
@@ -75,7 +75,8 @@ public class oilManager : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             isNotUsingOil = true;
-            //oilper = true;
+            Debug.Log("oil");
+            
 
         }
     }
