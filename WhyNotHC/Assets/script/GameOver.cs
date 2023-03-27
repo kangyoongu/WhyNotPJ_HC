@@ -17,6 +17,7 @@ public class GameOver : MonoBehaviour
     public GameObject[] main;
     public GameObject[] play;
     public GameObject setting;
+    public Transform gmp;
     void Start()
     {
         if (!PlayerPrefs.HasKey("best"))
@@ -61,6 +62,12 @@ public class GameOver : MonoBehaviour
         Time.timeScale = 1;
         back.SetActive(false);
         oil.score = 0;
+        gmp.position = new Vector3(0.02899998f, -1.599503f, -0.4820083f);
+        GameObject[] gold = GameObject.FindGameObjectsWithTag("gold");
+        for(int i = 1; i < gold.Length; i++)
+        {
+            Destroy(gold[i]);
+        }
     }
     public void OnClickMain()//메인으로 가는 버튼을 눌렀을 때
     {
