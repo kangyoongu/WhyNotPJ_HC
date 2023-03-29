@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SlowSpeed : MonoBehaviour
 {
     public float time = 3.0f;
@@ -11,7 +12,7 @@ public class SlowSpeed : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float curSpeed;
     public ParticleSystem par;
-    public move1 move;
+    public Move1 move;
     bool isEffect = false;
     
 

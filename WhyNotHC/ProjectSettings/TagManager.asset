@@ -8,6 +8,10 @@ TagManager:
   - null building
   - maps
   - gold
+  - Oil
+  - Fast
+  - Slow
+  - Coin
   layers:
   - Default
   - TransparentFX

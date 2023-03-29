@@ -11,7 +11,7 @@ public class FastSpeed : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float curSpeed;
     public ParticleSystem par;
-    public move1 move;
+    public Move1 move;
     bool isEffect = false;
     
     void Start()
