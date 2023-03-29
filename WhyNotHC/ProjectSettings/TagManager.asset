@@ -7,11 +7,7 @@ TagManager:
   - building
   - null building
   - maps
-  - Oil
-  - Boom
-  - Plus
-  - Fast
-  - Slow
+  - gold
   layers:
   - Default
   - TransparentFX

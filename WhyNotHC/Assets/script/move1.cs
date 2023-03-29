@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI; //이미지 절반 딱맞춤
 
-public class move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+public class Move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     [SerializeField] public RectTransform rect_Background;
     [SerializeField] public RectTransform rect_Joystick;
@@ -27,7 +27,7 @@ public class move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
     {
         if (isTouch)
         {
-            if (oil.fillAmount > 0)
+            if (oil.fillAmount > 0)//연료가 있으면 비행
             {
                 wingspeed += Time.deltaTime * 2;
                 go_Player.AddForce(Vector3.forward * y);
