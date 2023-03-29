@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - building
+  - null building
+  - maps
+  - gold
   layers:
   - Default
   - TransparentFX
