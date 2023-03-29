@@ -99,7 +99,12 @@ public class GameOver : MonoBehaviour
             other.gameObject.SetActive(false);
             bar.fillAmount = 0;
             Debug.Log("Boom");
+            gameOver();
         }
 
+    }
+    void gameOver()
+    {
+        back.SetActive(true);
     }
 }

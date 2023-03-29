@@ -20,7 +20,7 @@ public class Scale : MonoBehaviour
         if (other.gameObject.tag == "Plus")
         {
             other.gameObject.SetActive(false);
-            this.transform.localScale += new Vector3(.1f, .1f, .1f);
+            this.transform.localScale += new Vector3(.5f, .5f, .5f);
             Invoke("MinusSize", 3);
             Debug.Log("Minus");
             
@@ -28,7 +28,7 @@ public class Scale : MonoBehaviour
         if (other.gameObject.tag == "Minus")
         {
             other.gameObject.SetActive(false);
-            this.transform.localScale -= new Vector3(.1f, .1f, .1f);
+            this.transform.localScale -= new Vector3(.5f, .5f, .5f);
             Invoke("PlusSize", 3);
             Debug.Log("Plus");
            
@@ -36,12 +36,12 @@ public class Scale : MonoBehaviour
     }
     void MinusSize()
     {
-        this.transform.localScale -= new Vector3(.1f, .1f, .1f);
+        this.transform.localScale -= new Vector3(.5f, .5f, .5f);
     }
 
     void PlusSize()
     {
-        this.transform.localScale += new Vector3(.1f, .1f, .1f);
+        this.transform.localScale += new Vector3(.5f, .5f, .5f);
     }
     
 }

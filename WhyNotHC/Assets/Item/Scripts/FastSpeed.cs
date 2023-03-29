@@ -10,11 +10,11 @@ public class FastSpeed : MonoBehaviour
     bool isSpeed;
     [SerializeField] float speed = 5f;
     [SerializeField] float curSpeed;
-    
+    Rigidbody rigid;
     
     void Start()
     {
-        
+        rigid = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -25,12 +25,14 @@ public class FastSpeed : MonoBehaviour
             curSpeed = speed * 1.5f;
 
             timer -= Time.deltaTime;
+            transform.position += curSpeed * Vector3.forward * Time.deltaTime;
+            rigid.useGravity = false;
 
-            
 
             if (timer <= 0)
             {
                 isSpeed = false;
+                rigid.useGravity = true;
             }
         }
         else
@@ -38,7 +40,7 @@ public class FastSpeed : MonoBehaviour
             curSpeed = speed;
         }
         
-            transform.position += curSpeed * Vector3.right * Time.deltaTime;
+            
         
     }
     public void OnTriggerEnter(Collider other)
