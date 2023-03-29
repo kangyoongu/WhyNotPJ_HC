@@ -11,6 +11,7 @@ TagManager:
   - Boom
   - Plus
   - Fast
+  - Slow
   layers:
   - Default
   - TransparentFX

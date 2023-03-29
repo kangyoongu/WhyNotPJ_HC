@@ -10,11 +10,13 @@ public class FastSpeed : MonoBehaviour
     bool isSpeed;
     [SerializeField] float speed = 5f;
     [SerializeField] float curSpeed;
-    Rigidbody rigid;
+    public ParticleSystem par;
+    public move1 move;
+    bool isEffect = false;
     
     void Start()
     {
-        rigid = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -25,14 +27,20 @@ public class FastSpeed : MonoBehaviour
             curSpeed = speed * 1.5f;
 
             timer -= Time.deltaTime;
-            transform.position += curSpeed * Vector3.forward * Time.deltaTime;
-            rigid.useGravity = false;
+            move.moveSpeed = 700;
+            
+            if(isEffect == true)
+            {
+                par.Play();
+                isEffect = false;
+            }
 
 
             if (timer <= 0)
             {
                 isSpeed = false;
-                rigid.useGravity = true;
+                move.moveSpeed = 300;
+                par.Stop();
             }
         }
         else
@@ -48,6 +56,7 @@ public class FastSpeed : MonoBehaviour
         if(other.gameObject.tag == "Fast")
         {
             isSpeed = true;
+            isEffect = true;
             timer = time;
             Destroy(other.gameObject);
         }

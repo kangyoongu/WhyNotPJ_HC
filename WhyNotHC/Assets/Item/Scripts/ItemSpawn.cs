@@ -5,8 +5,10 @@ using UnityEngine;
 public class ItemSpawn : MonoBehaviour
 {
     
-    [SerializeField] GameObject item;
+    [SerializeField] Transform item;
     [SerializeField] float curtime;
+    [SerializeField] GameObject player;
+    [SerializeField] float z;
     
 
     
@@ -25,11 +27,10 @@ public class ItemSpawn : MonoBehaviour
         if(curtime > 10)
         {
             float itemX = Random.Range(-4.6f, 4.6f);
-            float itemz = 20;
+            z += Random.Range(50, 151);
+            item = Instantiate(item, new Vector3(itemX, 0, z), Quaternion.identity);
             
-            item = Instantiate(item, new Vector3(itemX, -3, itemz), Quaternion.identity);
-            itemz += 1;
-            item.transform.position = new Vector3(itemX, -3, itemz);
+            item.transform.position = new Vector3(itemX, 0, z);
             Debug.Log("Item");
             
             curtime = 0;
