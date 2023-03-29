@@ -346,6 +346,8 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/BirdTurn.cs"
+"Assets/BirdTurnGenerator.cs"
 "Assets/Quirky Series - Birds Bundle/_Scripts/Demo.cs"
 "Assets/Scripts/BirdContorller.cs"
 "Assets/Scripts/BirdGenerator.cs"
