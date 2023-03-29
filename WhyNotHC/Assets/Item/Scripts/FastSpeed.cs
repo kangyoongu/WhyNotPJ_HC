@@ -49,7 +49,7 @@ public class FastSpeed : MonoBehaviour
         {
             isSpeed = true;
             timer = time;
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
         }
     }
 

@@ -356,6 +356,7 @@
 "Assets/Item/Scripts/SlowSpeed.cs"
 "Assets/script/GameOver.cs"
 "Assets/script/height.cs"
+"Assets/script/itemMaker.cs"
 "Assets/script/mapMaker.cs"
 "Assets/script/move.cs"
 "Assets/script/move1.cs"
