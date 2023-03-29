@@ -6,15 +6,12 @@ public class BirdTurnGenerator : MonoBehaviour
 {
     public GameObject birdPrefab;
     float delta = 0;
-    float span = 5.0f;
+    float span = 0.0f;
+    float boob = 0.0f;
+    public bool isboom = true;
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        span = Random.Range(5, 15);
         delta += Time.deltaTime;
 
         if (delta >= span)
@@ -22,12 +19,38 @@ public class BirdTurnGenerator : MonoBehaviour
             delta = 0;
             GameObject Bird;
             Bird = Instantiate(birdPrefab);
+        }
+        
+    }
 
-            float x = 0;
-            float y = 8;
-            float z = Random.Range(0, 10);
+    // Update is called once per frame
+    void Update()
+    {
+        if (isboom == false)
+        {
+            span = Random.Range(5, 15);
+            delta += Time.deltaTime;
 
-            //Bird.transform.position = new(x, y, z);
+            if (delta >= span)
+            {
+                delta = 0;
+                GameObject Bird;
+                Bird = Instantiate(birdPrefab);
+                isboom = true;
+            }
         }
      }
+    public void Boom()
+    {
+        StartCoroutine(BoomTime());
+
+    }
+
+    IEnumerator BoomTime()
+    {
+        isboom = true;
+        boob = Random.Range(5, 15);
+        yield return new WaitForSeconds(boob);
+        isboom = false;
+    }
 }

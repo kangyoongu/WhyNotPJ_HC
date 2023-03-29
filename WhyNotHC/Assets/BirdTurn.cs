@@ -27,7 +27,7 @@ public class BirdTurn : MonoBehaviour
     {
         if (isDead == false)
         {
-            //currentPosition += Time.deltaTime * direction;
+            currentPosition += Time.deltaTime * direction;
             if (currentPosition >= rightMax)
             {
                 direction *= -1;
@@ -40,7 +40,7 @@ public class BirdTurn : MonoBehaviour
             }
             transform.position = new Vector3(currentPosition, 8, 5);
         }
-
+      
 
     }
 
@@ -53,6 +53,8 @@ public class BirdTurn : MonoBehaviour
 
     IEnumerator Dead()
     {
+        BirdTurnGenerator birdTurnGenerator = FindAnyObjectByType<BirdTurnGenerator>();
+        birdTurnGenerator.Boom();
         rb.useGravity = true;
         yield return new WaitForSeconds(deadtime);
         Destroy(gameObject);
