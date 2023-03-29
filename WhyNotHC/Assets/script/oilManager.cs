@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class oilManager : MonoBehaviour
+public class OilManager : MonoBehaviour
 {
-    public Image bar;
-    bool landing = false;
-    public height he;
-    public int score = 0;
-    public Text sc;
+    public Image bar;//오일 바
+    bool landing = false;//착륙 했는지 안했는지
+    public Height he;
+    public int score = 0;//게임 점수
+    public Text sc;//게임 점수 텍스트
     void Update()
     {
-        if(landing == false)
+        if(landing == false)//떠있다면 오일 깎는다
             bar.fillAmount -= he.y*0.0003f;
         sc.text = score.ToString("0");
     }
@@ -19,10 +19,9 @@ public class oilManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "building")
         {
-            Debug.Log(Vector3.Distance(transform.position, collision.transform.position));
             landing = true;
-            bar.fillAmount += 0.3f;
-            if (collision.transform.position.z >= -0.4)
+            bar.fillAmount += 0.3f;//착륙하면 연료채움
+            if (collision.transform.position.z >= -0.4)//착륙 얼마나 중앙에 가까운지에 따라 점수 줌
             {
                 if (Vector3.Distance(transform.position, collision.transform.position) <= 1.6f)
                 {
@@ -46,7 +45,7 @@ public class oilManager : MonoBehaviour
             landing = false;
             if (collision.transform.position.z >= -0.4)
             {
-                collision.gameObject.tag = "null building";
+                collision.gameObject.tag = "null building";//똑같은 빌딩에선 한번만 연료 넣을 수 있도록
             }
         }
     }

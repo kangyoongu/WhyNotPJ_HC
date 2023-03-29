@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI; //ÀÌ¹ÌÁö Àı¹İ µü¸ÂÃã
 
-public class height : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+public class Height : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     [SerializeField] public RectTransform rect_Background;
     [SerializeField] public RectTransform rect_Joystick;
