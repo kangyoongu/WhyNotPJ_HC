@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
@@ -16,10 +17,9 @@ public class GameOver : MonoBehaviour
     public OilManager oil;
     public GameObject[] main;
     public GameObject[] play;
-    public GameObject[] custom;
     public GameObject setting;
     public Transform gmp;
-    public Transform point;
+    public ItemSpawn item;
     void Start()
     {
         if (!PlayerPrefs.HasKey("best"))
@@ -49,10 +49,6 @@ public class GameOver : MonoBehaviour
         {
             timer = 0;
         }
-        if(custom[0].activeSelf == true)
-        {
-            point.localRotation = Quaternion.Euler(-15, point.localEulerAngles.y + Time.deltaTime * 60, 0);
-        }
     }
     public void OnClickrestart()//다시시작 버튼을 눌렀을 때
     {
@@ -74,6 +70,7 @@ public class GameOver : MonoBehaviour
         {
             Destroy(gold[i]);
         }
+        
     }
     public void OnClickMain()//메인으로 가는 버튼을 눌렀을 때
     {
@@ -114,30 +111,30 @@ public class GameOver : MonoBehaviour
     {
         setting.SetActive(false);
     }
-    public void OnCLickCustom()
+
+<<<<<<< HEAD
+    public void OnclickCustom()
     {
-        point.localPosition = new Vector3(0, -7, 0);
-        point.localRotation = Quaternion.Euler(-15, 0, 0);
-        for (int i = 0; i < main.Length; i++)
+        
+=======
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Boom")
         {
-            main[i].SetActive(false);
+            other.gameObject.SetActive(false);
+            bar.fillAmount = 0;
+            Debug.Log("Boom");
+            gameOver();
         }
-        for (int i = 0; i < play.Length; i++)
-        {
-            custom[i].SetActive(true);
-        }
+
     }
-    public void OnCLickCustom_out()
+    void gameOver()
     {
-        point.localPosition = new Vector3(0, 0, 0);
-        point.localRotation = Quaternion.Euler(0, 0, 0);
-        for (int i = 0; i < main.Length; i++)
-        {
-            main[i].SetActive(true);
-        }
-        for (int i = 0; i < play.Length; i++)
-        {
-            custom[i].SetActive(false);
-        }
+        back.SetActive(true);
+    }
+    public void reSpawnItem()
+    {
+        item.itemRespawn();
+>>>>>>> main
     }
 }
