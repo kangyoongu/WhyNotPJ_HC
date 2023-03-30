@@ -112,6 +112,6 @@ public class GameOver : MonoBehaviour
 
     public void OnclickCustom()
     {
-        SceneManager.LoadScene(1);
+        
     }
 }
