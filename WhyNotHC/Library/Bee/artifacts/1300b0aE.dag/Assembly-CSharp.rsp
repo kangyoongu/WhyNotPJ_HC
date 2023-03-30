@@ -570,7 +570,10 @@
 "Assets/script/CoinTurn.cs"
 "Assets/script/GameOver.cs"
 "Assets/script/Height.cs"
+<<<<<<< Updated upstream
 "Assets/script/itemMaker.cs"
+=======
+>>>>>>> Stashed changes
 "Assets/script/MapMaker.cs"
 "Assets/script/Move.cs"
 "Assets/script/Move1.cs"
