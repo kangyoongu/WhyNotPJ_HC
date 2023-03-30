@@ -112,11 +112,7 @@ public class GameOver : MonoBehaviour
         setting.SetActive(false);
     }
 
-<<<<<<< HEAD
-    public void OnclickCustom()
-    {
-        
-=======
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Boom")
@@ -135,6 +131,6 @@ public class GameOver : MonoBehaviour
     public void reSpawnItem()
     {
         item.itemRespawn();
->>>>>>> main
+
     }
 }
