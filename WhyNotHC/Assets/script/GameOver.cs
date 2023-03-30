@@ -19,6 +19,7 @@ public class GameOver : MonoBehaviour
     public GameObject[] play;
     public GameObject setting;
     public Transform gmp;
+    public ItemSpawn item;
     void Start()
     {
         if (!PlayerPrefs.HasKey("best"))
@@ -69,6 +70,7 @@ public class GameOver : MonoBehaviour
         {
             Destroy(gold[i]);
         }
+        
     }
     public void OnClickMain()//메인으로 가는 버튼을 눌렀을 때
     {
@@ -110,8 +112,29 @@ public class GameOver : MonoBehaviour
         setting.SetActive(false);
     }
 
+<<<<<<< HEAD
     public void OnclickCustom()
     {
         
+=======
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Boom")
+        {
+            other.gameObject.SetActive(false);
+            bar.fillAmount = 0;
+            Debug.Log("Boom");
+            gameOver();
+        }
+
+    }
+    void gameOver()
+    {
+        back.SetActive(true);
+    }
+    public void reSpawnItem()
+    {
+        item.itemRespawn();
+>>>>>>> main
     }
 }

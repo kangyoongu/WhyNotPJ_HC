@@ -85,4 +85,9 @@ public class Move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
         y = value.y * moveSpeed * distance * Time.deltaTime;
         x = value.x * moveSpeed * distance * Time.deltaTime;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        gameObject.SetActive(false);
+
+    }
 }
