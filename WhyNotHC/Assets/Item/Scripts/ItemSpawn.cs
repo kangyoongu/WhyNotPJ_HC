@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class ItemSpawn : MonoBehaviour
 {
-    
-    [SerializeField] Transform item;
-    [SerializeField] GameObject iTem;
+    [SerializeField] GameObject item;
     [SerializeField] float curtime;
     [SerializeField] GameObject player;
-    [SerializeField] float z;
-    [SerializeField] List<GameObject> itemSpawn = new List<GameObject>();
-    bool isSpawn = true;
     
-    
+    [SerializeField] string tagName;
+    private OilManager oilManager;
+    private float lastZ;
+    public bool isSpawn = true;
 
-    
-    void Start()
+    private void Awake()
     {
-        
-        
+        oilManager = player.transform.GetComponent<OilManager>();
     }
 
-    
+
     void Update()
     {
         
@@ -34,33 +30,32 @@ public class ItemSpawn : MonoBehaviour
             if (isSpawn == true)
             {
                 float itemX = Random.Range(-4.6f, 4.6f);
-                z += Random.Range(50, 76);
-                item = Instantiate(item, new Vector3(itemX, 0, z), Quaternion.identity);
-                itemSpawn.Add(iTem);
-                item.transform.position = new Vector3(itemX, 0, z);
+                lastZ = lastZ + Random.Range(10, 80);
+                GameObject temp = Instantiate(item, new Vector3(itemX, 0, lastZ), Quaternion.identity);
                 Debug.Log("Item");
-                if(z >= 3000)
-                {
-                    isSpawn = false;
-                    gameObject.SetActive(false);
-                    for(int i = 0; i > itemSpawn.Count; ++i)
-                    {
-                        itemSpawn.Remove(itemSpawn[i]);
-                    }
-                }
             }
             
             
             curtime = 0;
         }
-        
 
+        if (oilManager.bar.fillAmount <= 0f)
+        {
+            isSpawn = false;
+
+            GameObject[] delItems = GameObject.FindGameObjectsWithTag(tagName);
+            
+            foreach (var delItem in delItems)
+            {
+                Destroy(delItem);
+            }
+            gameObject.SetActive(false);
+        }
     }
     public void itemRespawn()
     {
-        isSpawn = true;
         gameObject.SetActive(true);
-        z = 0;
+        isSpawn = true; 
     }
 
 }

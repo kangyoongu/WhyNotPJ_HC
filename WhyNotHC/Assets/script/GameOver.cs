@@ -18,7 +18,7 @@ public class GameOver : MonoBehaviour
     public GameObject[] play;
     public GameObject setting;
     public Transform gmp;
-    public ItemSpawn item;
+    public ItemSpawn[] item;
     void Start()
     {
         if (!PlayerPrefs.HasKey("best"))
@@ -128,6 +128,10 @@ public class GameOver : MonoBehaviour
     }
     public void reSpawnItem()
     {
-        item.itemRespawn();
+        for (int i = 0; i < item.Length; i++)
+        {
+            item[i].itemRespawn();
+        }
+        
     }
 }
