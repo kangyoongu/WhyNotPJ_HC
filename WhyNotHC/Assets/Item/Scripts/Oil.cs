@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Oil : MonoBehaviour
 {
     
-    [SerializeField] float oil;
+    
     bool isNotUsingOil;
     bool isStopping = false;
     public Image bar;
@@ -16,7 +16,7 @@ public class Oil : MonoBehaviour
     void Start()
     {
     
-        oil = 100f;
+        
     }
 
     
@@ -25,21 +25,16 @@ public class Oil : MonoBehaviour
         //isoil이 false면 oil양 감소
         if (isNotUsingOil == false)
         {
-            oil -= 0.1f;
+            
         }
         else
         {
-            oil = 100;
+            
             bar.fillAmount = 1;
             if(!isStopping)
                 Invoke("oilup", 3);
             
-            //if (oilper == true)
-            //{
-
-            //    isoil = false;
-
-            //}
+            
 
         }
         
@@ -52,7 +47,7 @@ public class Oil : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             isNotUsingOil = true;
-            //oilper = true;
+            
 
         }
     }

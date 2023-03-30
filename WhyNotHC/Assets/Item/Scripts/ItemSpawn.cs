@@ -39,6 +39,15 @@ public class ItemSpawn : MonoBehaviour
                 itemSpawn.Add(iTem);
                 item.transform.position = new Vector3(itemX, 0, z);
                 Debug.Log("Item");
+                if(z >= 3000)
+                {
+                    isSpawn = false;
+                    gameObject.SetActive(false);
+                    for(int i = 0; i > itemSpawn.Count; ++i)
+                    {
+                        itemSpawn.Remove(itemSpawn[i]);
+                    }
+                }
             }
             
             

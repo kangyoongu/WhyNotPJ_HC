@@ -12,6 +12,7 @@ TagManager:
   - Fast
   - Slow
   - Coin
+  - Boom
   layers:
   - Default
   - TransparentFX
