@@ -30,7 +30,7 @@ public class ItemSpawn : MonoBehaviour
             if (isSpawn == true)
             {
                 float itemX = Random.Range(-4.6f, 4.6f);
-                lastZ = lastZ + Random.Range(10, 80);
+                lastZ = lastZ + Random.Range(100, 300);
                 GameObject temp = Instantiate(item, new Vector3(itemX, 0, lastZ), Quaternion.identity);
                 Debug.Log("Item");
             }
@@ -42,7 +42,7 @@ public class ItemSpawn : MonoBehaviour
         if (oilManager.bar.fillAmount <= 0f)
         {
             isSpawn = false;
-
+            lastZ = 0;
             GameObject[] delItems = GameObject.FindGameObjectsWithTag(tagName);
             
             foreach (var delItem in delItems)

@@ -19,6 +19,7 @@ public class GameOver : MonoBehaviour
     public GameObject setting;
     public Transform gmp;
     public ItemSpawn[] item;
+    
     void Start()
     {
         if (!PlayerPrefs.HasKey("best"))
@@ -101,6 +102,7 @@ public class GameOver : MonoBehaviour
         }
         setting.SetActive(false);
         OnClickrestart();
+        
     }
     public void OnClickSetting()//설정버튼 눌렀을 때
     {
