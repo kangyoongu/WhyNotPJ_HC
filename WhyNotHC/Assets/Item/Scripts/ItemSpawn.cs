@@ -31,7 +31,8 @@ public class ItemSpawn : MonoBehaviour
             {
                 float itemX = Random.Range(-4.6f, 4.6f);
                 lastZ = lastZ + Random.Range(100, 300);
-                GameObject temp = Instantiate(item, new Vector3(itemX, 0, lastZ), Quaternion.identity);
+                GameObject temp = Instantiate(item);
+                temp.transform.position = new Vector3(itemX, 0, lastZ);
                 Debug.Log("Item");
             }
             

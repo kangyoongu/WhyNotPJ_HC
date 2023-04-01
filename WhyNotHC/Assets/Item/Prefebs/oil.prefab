@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7939012357553387008}
   - component: {fileID: 7939012357553387015}
   - component: {fileID: 4280089382425314208}
-  - component: {fileID: 4865233314766911166}
   m_Layer: 0
   m_Name: oil
   m_TagString: Oil
@@ -99,15 +98,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1973893103929547111, guid: 1a405e1aa48ceb043b315486eaf29a00, type: 3}
---- !u!114 &4865233314766911166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939012357553387013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 696a0cf03d9bfa24a98af25d4cae41f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
