@@ -9,7 +9,7 @@ public class ScalePlus : MonoBehaviour
         if (other.gameObject.tag == "Plus")
         {
             other.gameObject.SetActive(false);
-            this.transform.localScale += new Vector3(.3f, .3f, .3f);
+            this.transform.localScale += new Vector3(.2f, .2f, .2f);
             Invoke("MinusSize", 3);
             Debug.Log("Minus");
             
@@ -18,6 +18,6 @@ public class ScalePlus : MonoBehaviour
     }
     void MinusSize()
     {
-        this.transform.localScale -= new Vector3(.3f, .3f, .3f);
+        this.transform.localScale -= new Vector3(.2f, .2f, .2f);
     }
 }
