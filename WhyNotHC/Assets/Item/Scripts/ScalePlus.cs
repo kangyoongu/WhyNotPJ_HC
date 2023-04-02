@@ -6,7 +6,7 @@ public class ScalePlus : MonoBehaviour
 {
   public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Plus")
+        if (other.gameObject.tag == "Plus")//헬기 사이즈 키우기
         {
             other.gameObject.SetActive(false);
             this.transform.localScale += new Vector3(.2f, .2f, .2f);

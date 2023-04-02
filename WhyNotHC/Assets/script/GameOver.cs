@@ -115,19 +115,16 @@ public class GameOver : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Boom")
+        if (other.gameObject.tag == "Boom")//Boom 태그에 닿으면
         {
             other.gameObject.SetActive(false);
-            bar.fillAmount = 0;
+            bar.fillAmount = 0;//오일 게이지 0
             Debug.Log("Boom");
-            gameOver();
+            back.SetActive(true);//게임오버 창 띄움
         }
 
     }
-    void gameOver()
-    {
-        back.SetActive(true);
-    }
+    
     public void reSpawnItem()
     {
         for (int i = 0; i < item.Length; i++)

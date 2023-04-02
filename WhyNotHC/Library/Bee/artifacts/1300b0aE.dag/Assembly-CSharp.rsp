@@ -354,6 +354,7 @@
 "Assets/Item/Scripts/Question.cs"
 "Assets/Item/Scripts/ScaleMinus.cs"
 "Assets/Item/Scripts/ScalePlus.cs"
+"Assets/Item/Scripts/ScaleTurn1.cs"
 "Assets/Item/Scripts/SlowSpeed.cs"
 "Assets/script/CoinTurn.cs"
 "Assets/script/GameOver.cs"
