@@ -25,13 +25,13 @@ public class ItemSpawn : MonoBehaviour
         
         curtime += Time.deltaTime;
         
-        if(curtime > 0.1)
+        if(curtime > 0.5)
         {
             
             if (isSpawn == true)
             {
                 float itemX = Random.Range(-4.6f, 4.6f);
-                lastZ = lastZ + Random.Range(100, 300);//아이템 거리
+                lastZ = lastZ + Random.Range(100, 500);//아이템 거리
                 GameObject temp = Instantiate(item);
                 temp.transform.position = new Vector3(itemX, 0, lastZ);
                 Debug.Log("Item");
