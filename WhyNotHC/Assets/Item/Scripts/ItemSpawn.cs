@@ -12,7 +12,9 @@ public class ItemSpawn : MonoBehaviour
     private OilManager oilManager;
     private float lastZ;
     public bool isSpawn = true;
-    
+    float itemX;
+
+
 
     private void Awake()
     {
@@ -30,7 +32,7 @@ public class ItemSpawn : MonoBehaviour
             
             if (isSpawn == true)
             {
-                float itemX = Random.Range(-4.6f, 4.6f);
+                itemX = Random.Range(-5f, 5f);
                 lastZ = lastZ + Random.Range(100, 500);//아이템 거리
                 GameObject temp = Instantiate(item);
                 temp.transform.position = new Vector3(itemX, 0, lastZ);
@@ -45,6 +47,7 @@ public class ItemSpawn : MonoBehaviour
         {
             isSpawn = false;
             lastZ = 0;//초기화
+            itemX = 0;
             GameObject[] delItems = GameObject.FindGameObjectsWithTag(tagName);
             
             foreach (var delItem in delItems)
