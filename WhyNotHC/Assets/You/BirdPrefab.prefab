@@ -103,7 +103,7 @@ MonoBehaviour:
   deadtime: 1
   push: 10
   direction: 1
-  speed: 5
+  speed: 9
 --- !u!54 &-275970020448554867
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -18,14 +18,14 @@ public class BirdContorller : MonoBehaviour
     
 
     private Vector3 _moveDir = new Vector3(0, 0, 1f);
-    private Vector3 _moveDir1 = new Vector3(0, 0, -1f);
+
 
     void Start()
     {
        
         isDead = false;
         _rb = GetComponent<Rigidbody>();
-        if (transform.position.x <= -10)
+        if (transform.position.x <= -15)
         {
             direction = false;
             transform.rotation = Quaternion.Euler(0, 90, 0);
@@ -43,14 +43,14 @@ public class BirdContorller : MonoBehaviour
             if (direction == false)
             {
                 transform.Translate(_moveDir * speed * Time.deltaTime);
-                if (transform.position.x > 11)
+                if (transform.position.x > 15)
                     Destroy(gameObject);
             }
 
             else
             {
-                transform.Translate(_moveDir1 * speed * Time.deltaTime);
-                if (transform.position.x < -11)
+                transform.Translate(_moveDir * speed * Time.deltaTime);
+                if (transform.position.x < -15)
                     Destroy(gameObject);
             }
          

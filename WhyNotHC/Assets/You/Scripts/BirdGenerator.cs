@@ -28,13 +28,13 @@ public class BirdGenerator : MonoBehaviour
         {
  
             _randNum = Random.Range(0, 2);
-            float x = _randNum == 0 ? 10 : -10;
+            float x = _randNum == 0 ? 15 : -15;
             float y = Random.Range(_cube.position.y-1, _cube.position.y + 2); 
             float z = Random.Range(_cube.position.z + 8, _cube.position.z+11);
             GameObject Bird = Instantiate(birdPrefab);
             //curVector = new(x, y, z);
             Bird.transform.position = new(x, y, z);
-            span = Random.Range(2, 8);
+            span = Random.Range(3, 6);
             delta = 0;
 
         }
