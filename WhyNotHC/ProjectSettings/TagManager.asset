@@ -8,6 +8,8 @@ TagManager:
   - null building
   - maps
   - gold
+  - Right
+  - Left
   layers:
   - Default
   - TransparentFX
