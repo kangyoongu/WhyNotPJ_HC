@@ -60,11 +60,16 @@ public class BirdContorller : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         isDead = true;
-        if(direction == false)
-            collision.transform.GetComponent<Rigidbody>().AddForce(transform.right * push, ForceMode.Impulse);
+        if( collision.collider.CompareTag("Player"))
+        {
+            if(direction)
+                collision.transform.GetComponent<Rigidbody>().AddForce(-transform.right * push, ForceMode.Impulse);
+            else
+                collision.transform.GetComponent<Rigidbody>().AddForce(transform.right * push, ForceMode.Impulse);
+            StartCoroutine("Dead");
+        }
         else
-            collision.transform.GetComponent<Rigidbody>().AddForce(-transform.right * push, ForceMode.Impulse);
-        StartCoroutine("Dead");
+            StartCoroutine("Dead");
     }
 
 
