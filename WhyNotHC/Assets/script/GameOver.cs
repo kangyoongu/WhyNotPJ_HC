@@ -22,6 +22,7 @@ public class GameOver : MonoBehaviour
     
     void Start()
     {
+        
         if (!PlayerPrefs.HasKey("best"))
         {
             PlayerPrefs.SetInt("best", 0);//최고 기록값
@@ -37,12 +38,15 @@ public class GameOver : MonoBehaviour
                 timer = 0;
                 Time.timeScale = 0;
                 back.SetActive(true);
+                OilManager oil = FindObjectOfType<OilManager>();
                 nows.text = "your score\n<size=150>" + playing.text + "</size>";//기록 글자들 바꾸기
                 if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
                 {
                     PlayerPrefs.SetInt("best", int.Parse(playing.text));
                 }
                 bests.text = "best score\n<size=180>" + PlayerPrefs.GetInt("best") + "</size>";
+                oil.combo = 0;
+                oil.combo_text.text = "";
             }
         }
         else
@@ -121,12 +125,15 @@ public class GameOver : MonoBehaviour
             bar.fillAmount = 0;//오일 게이지 0
             Debug.Log("Boom");
             back.SetActive(true);//게임오버 창 띄움
+            OilManager oil = FindObjectOfType<OilManager>();
             nows.text = "your score\n<size=150>" + playing.text + "</size>";//기록 글자들 바꾸기
             if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
             {
                 PlayerPrefs.SetInt("best", int.Parse(playing.text));
             }
             bests.text = "best score\n<size=180>" + PlayerPrefs.GetInt("best") + "</size>";
+            oil.combo = 0;
+            oil.combo_text.text = "";
         }
 
     }

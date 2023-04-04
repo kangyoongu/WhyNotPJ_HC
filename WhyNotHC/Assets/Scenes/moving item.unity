@@ -1972,6 +1972,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5182143771525252399, guid: b7e05b9cc2361dc4bb85b192476732ff, type: 3}
+      propertyPath: m_margin.w
+      value: -177.42041
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182143771525252399, guid: b7e05b9cc2361dc4bb85b192476732ff, type: 3}
+      propertyPath: m_margin.z
+      value: -230.3219
+      objectReference: {fileID: 0}
     - target: {fileID: 5182143771794150155, guid: b7e05b9cc2361dc4bb85b192476732ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
