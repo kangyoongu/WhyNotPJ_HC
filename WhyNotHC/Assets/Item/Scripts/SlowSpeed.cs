@@ -16,17 +16,8 @@ public class SlowSpeed : MonoBehaviour
     bool isEffect = false;
     
 
-
-    void Start()
-    {
-        
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        var mainModule = par.main;
         if (isSpeed == true)
         {
             curSpeed = speed * 1.5f;
@@ -34,14 +25,11 @@ public class SlowSpeed : MonoBehaviour
             timer -= Time.deltaTime;
             move.moveSpeed = 100;
             
-            if (isEffect == true)
+            if(isEffect == true)
             {
                 par.Play();
-                mainModule.startSpeed = 50;
                 isEffect = false;
-                
             }
-
 
 
             if (timer <= 0)
@@ -63,9 +51,9 @@ public class SlowSpeed : MonoBehaviour
         if(other.gameObject.tag == "Slow")
         {
             isSpeed = true;
+            isEffect = true;
             timer = time;
-            other.gameObject.SetActive(false);
-            Debug.Log("slow");
+            Destroy(other.gameObject);
         }
     }
 

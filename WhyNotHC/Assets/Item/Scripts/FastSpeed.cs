@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class FastSpeed : MonoBehaviour
 {
     public float time = 3.0f;
@@ -14,12 +15,7 @@ public class FastSpeed : MonoBehaviour
     public Move1 move;
     bool isEffect = false;
     
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (isSpeed == true)
@@ -48,8 +44,7 @@ public class FastSpeed : MonoBehaviour
             curSpeed = speed;
         }
         
-            
-        
+         
     }
     public void OnTriggerEnter(Collider other)
     {

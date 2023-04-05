@@ -16,6 +16,11 @@ public class Move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
     public Transform wing2;
     float wingspeed = 0;
     public Image oil;
+    public int position;
+    
+    bool isMinus;
+    public bool isQuest;
+
     void Start()
     {
         radius = rect_Background.rect.width * 0.5f;
@@ -75,7 +80,25 @@ public class Move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector2 value = (eventData.position - (Vector2)rect_Background.position) * 1;
+
+        if (isQuest == true)
+        {
+            position = -1;
+            
+            if (isMinus == false)
+            {
+                Invoke("reposition", 5);
+                isMinus = true;
+
+            }
+            
+        }
+        else
+        {
+            
+            position = 1;
+        }
+        Vector2 value = (eventData.position - (Vector2)rect_Background.position) * position;
 
         value = Vector2.ClampMagnitude(value, radius);
         rect_Joystick.localPosition = value;
@@ -89,5 +112,10 @@ public class Move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
     {
         gameObject.SetActive(false);
 
+    }
+    void reposition()
+    {
+        isQuest = false;
+        isMinus = false;
     }
 }

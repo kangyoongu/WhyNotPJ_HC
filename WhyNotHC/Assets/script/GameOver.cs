@@ -20,13 +20,14 @@ public class GameOver : MonoBehaviour
     public GameObject[] custom;
     public GameObject setting;
     public Transform gmp;
-    public ItemSpawn item;
-    public Transform point;
+    public ItemSpawn[] item;
+    
     void Start()
     {
+        
         if (!PlayerPrefs.HasKey("best"))
         {
-            PlayerPrefs.SetInt("best", 0);//ÃÖ°í ±â·Ï°ª
+            PlayerPrefs.SetInt("best", 0);//ï¿½Ö°ï¿½ ï¿½ï¿½Ï°ï¿½
         }
     }
     void Update()
@@ -34,17 +35,20 @@ public class GameOver : MonoBehaviour
         if(bar.fillAmount == 0)
         {
             timer += Time.deltaTime;
-            if(timer >= 7)//°ÔÀÓ ¿À¹ö µÇ¸é
+            if(timer >= 7)//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½
             {
                 timer = 0;
                 Time.timeScale = 0;
                 back.SetActive(true);
-                nows.text = "your score\n<size=150>" + playing.text + "</size>";//±â·Ï ±ÛÀÚµé ¹Ù²Ù±â
+                OilManager oil = FindObjectOfType<OilManager>();
+                nows.text = "your score\n<size=150>" + playing.text + "</size>";//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ù²Ù±ï¿½
                 if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
                 {
                     PlayerPrefs.SetInt("best", int.Parse(playing.text));
                 }
                 bests.text = "best score\n<size=180>" + PlayerPrefs.GetInt("best") + "</size>";
+                oil.combo = 0;
+                oil.combo_text.text = "";
             }
         }
         else
@@ -56,7 +60,7 @@ public class GameOver : MonoBehaviour
             point.localRotation = Quaternion.Euler(-15, point.localEulerAngles.y + Time.deltaTime * 60, 0);
         }
     }
-    public void OnClickrestart()//´Ù½Ã½ÃÀÛ ¹öÆ°À» ´­·¶À» ¶§
+    public void OnClickrestart()//ï¿½Ù½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     {
         transform.position = new Vector3(0, -1.62f, 0.82f);
         GameObject[] g = GameObject.FindGameObjectsWithTag("maps");
@@ -78,7 +82,7 @@ public class GameOver : MonoBehaviour
         }
         
     }
-    public void OnClickMain()//¸ÞÀÎÀ¸·Î °¡´Â ¹öÆ°À» ´­·¶À» ¶§
+    public void OnClickMain()//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     {
         for(int i = 0; i < main.Length; i++)
         {
@@ -96,7 +100,7 @@ public class GameOver : MonoBehaviour
             Destroy(g[i]);
         }
     }
-    public void OnCLickStart()//¸ÞÀÎ¿¡¼­ ½ÃÀÛ ´­·¶À» ¶§
+    public void OnCLickStart()//ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     {
         for (int i = 0; i < main.Length; i++)
         {
@@ -108,8 +112,9 @@ public class GameOver : MonoBehaviour
         }
         setting.SetActive(false);
         OnClickrestart();
+        
     }
-    public void OnCLickCustom()//Ä¿½ºÅÒÃ¢ ¿­±â
+    public void OnCLickCustom()//Ä¿ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½
     {
         point.localPosition = new Vector3(0, -7, 0);
         for (int i = 0; i < main.Length; i++)
@@ -121,7 +126,7 @@ public class GameOver : MonoBehaviour
             custom[i].SetActive(true);
         }
     }
-    public void OnCLickCustom_out()//Ä¿½ºÅÒÃ¢ ´Ý±â
+    public void OnCLickCustom_out()//Ä¿ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½Ý±ï¿½
     {
         point.localPosition = new Vector3(0, 0, 0);
         point.localRotation = Quaternion.Euler(0, 0, 0);
@@ -134,11 +139,11 @@ public class GameOver : MonoBehaviour
             custom[i].SetActive(false);
         }
     }
-    public void OnClickSetting()//¼³Á¤¹öÆ° ´­·¶À» ¶§
+    public void OnClickSetting()//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     {
         setting.SetActive(true);
     }
-    public void OnClickBack()//¼³Á¤¿¡¼­ µÚ·Î°¡±â ´­·¶À» ¶§
+    public void OnClickBack()//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     {
         setting.SetActive(false);
     }
@@ -146,22 +151,31 @@ public class GameOver : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Boom")
+        if (other.gameObject.tag == "Boom")//Boom ï¿½Â±×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         {
             other.gameObject.SetActive(false);
-            bar.fillAmount = 0;
+            bar.fillAmount = 0;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0
             Debug.Log("Boom");
-            gameOver();
+            back.SetActive(true);//ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½
+            OilManager oil = FindObjectOfType<OilManager>();
+            nows.text = "your score\n<size=150>" + playing.text + "</size>";//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ù²Ù±ï¿½
+            if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
+            {
+                PlayerPrefs.SetInt("best", int.Parse(playing.text));
+            }
+            bests.text = "best score\n<size=180>" + PlayerPrefs.GetInt("best") + "</size>";
+            oil.combo = 0;
+            oil.combo_text.text = "";
         }
 
     }
-    void gameOver()
-    {
-        back.SetActive(true);
-    }
+    
     public void reSpawnItem()
     {
-        item.itemRespawn();
-
+        for (int i = 0; i < item.Length; i++)
+        {
+            item[i].itemRespawn();
+        }
+        
     }
 }

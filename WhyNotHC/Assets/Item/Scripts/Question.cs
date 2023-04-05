@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class Question : MonoBehaviour
 {
-    
 
+    public Move1 move;
+    
     Plane plane;
 
     private void Awake()
     {
-        plane.SetNormalAndPosition(Camera.main.transform.forward * -1, Camera.main.transform.position + Camera.main.transform.forward * 3);
+        //move = FindObjectOfType<Move1>();
+        //plane.SetNormalAndPosition(Camera.main.transform.forward * -1, Camera.main.transform.position + Camera.main.transform.forward * 3);
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetMouseButton(0))
+        Debug.Log("충돌");
+        if(other.gameObject.tag == "Quest")
         {
+            Debug.Log("반전");
+            move.isQuest = true;
+            other.gameObject.SetActive(false);
             
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            plane.Raycast(ray, out float distance);
-
-            Vector3 position = ray.GetPoint(distance);
-            transform.position = new Vector3(-position.x + Camera.main.transform.position.x * 2, -position.y + Camera.main.transform.position.y * 2, position.z);
         }
     }
 }
