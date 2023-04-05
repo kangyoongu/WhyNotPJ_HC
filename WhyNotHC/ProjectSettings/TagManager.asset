@@ -13,6 +13,9 @@ TagManager:
   - Slow
   - Coin
   - Boom
+  - Quest
+  - Minus
+  - Plus
   layers:
   - Default
   - TransparentFX

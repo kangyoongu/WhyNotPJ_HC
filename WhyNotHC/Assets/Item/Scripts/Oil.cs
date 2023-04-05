@@ -13,32 +13,16 @@ public class Oil : MonoBehaviour
     public Image bar;
 
     
-    void Start()
-    {
-    
-        
-    }
 
-    
     void Update()
     {
-        //isoil이 false면 oil양 감소
-        if (isNotUsingOil == false)
+        //isoil이 true면 오일 다 채우기
+        if (isNotUsingOil == true)
         {
-            
-        }
-        else
-        {
-            
             bar.fillAmount = 1;
             if(!isStopping)
                 Invoke("oilup", 3);
-            
-            
-
         }
-        
-
     }
     
     public void OnTriggerEnter(Collider other)
@@ -47,8 +31,6 @@ public class Oil : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             isNotUsingOil = true;
-            
-
         }
     }
     

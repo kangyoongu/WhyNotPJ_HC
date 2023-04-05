@@ -4,63 +4,63 @@ using UnityEngine;
 
 public class ItemSpawn : MonoBehaviour
 {
-    
-    [SerializeField] Transform item;
-    [SerializeField] GameObject iTem;
+    [SerializeField] GameObject item;
     [SerializeField] float curtime;
     [SerializeField] GameObject player;
-    [SerializeField] float z;
-    [SerializeField] List<GameObject> itemSpawn = new List<GameObject>();
-    bool isSpawn = true;
     
-    
+    [SerializeField] string tagName;
+    private OilManager oilManager;
+    private float lastZ;
+    public bool isSpawn = true;
+    float itemX;
 
-    
-    void Start()
+
+
+    private void Awake()
     {
-        
-        
+        oilManager = player.transform.GetComponent<OilManager>();
     }
 
-    
+
     void Update()
     {
         
         curtime += Time.deltaTime;
         
-        if(curtime > 0.1)
+        if(curtime > 0.5)
         {
             
             if (isSpawn == true)
             {
-                float itemX = Random.Range(-4.6f, 4.6f);
-                z += Random.Range(50, 76);
-                item = Instantiate(item, new Vector3(itemX, 0, z), Quaternion.identity);
-                itemSpawn.Add(iTem);
-                item.transform.position = new Vector3(itemX, 0, z);
+                itemX = Random.Range(-5f, 5f);
+                lastZ = lastZ + Random.Range(100, 500);//아이템 거리
+                GameObject temp = Instantiate(item);
+                temp.transform.position = new Vector3(itemX, 0, lastZ);
                 Debug.Log("Item");
-                if(z >= 3000)
-                {
-                    isSpawn = false;
-                    gameObject.SetActive(false);
-                    for(int i = 0; i > itemSpawn.Count; ++i)
-                    {
-                        itemSpawn.Remove(itemSpawn[i]);
-                    }
-                }
             }
-            
-            
-            curtime = 0;
-        }
-        
 
+            curtime = 0;
+            
+        }
+
+        if (oilManager.bar.fillAmount <= 0f)
+        {
+            isSpawn = false;
+            lastZ = 0;//초기화
+            itemX = 0;
+            GameObject[] delItems = GameObject.FindGameObjectsWithTag(tagName);
+            
+            foreach (var delItem in delItems)
+            {
+                Destroy(delItem);//아이템 전부 삭제
+            }
+            gameObject.SetActive(false);
+        }
     }
-    public void itemRespawn()
+    public void itemRespawn()//버튼 함수
     {
-        isSpawn = true;
         gameObject.SetActive(true);
-        z = 0;
+        isSpawn = true; 
     }
 
 }
