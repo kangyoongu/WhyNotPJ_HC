@@ -8,8 +8,14 @@ TagManager:
   - null building
   - maps
   - gold
-  - Right
-  - Left
+  - Oil
+  - Fast
+  - Slow
+  - Coin
+  - Boom
+  - Quest
+  - Minus
+  - Plus
   layers:
   - Default
   - TransparentFX

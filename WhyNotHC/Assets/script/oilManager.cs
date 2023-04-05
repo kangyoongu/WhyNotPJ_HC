@@ -10,7 +10,7 @@ public class OilManager : MonoBehaviour
     public Height he;
     public int score = 0;//게임 점수
     public Text sc;//게임 점수 텍스트
-    int combo = 0;
+    public int combo = 0;
     public TextMeshProUGUI combo_text;
     void Update()
     {
