@@ -21,6 +21,8 @@ public class GameOver : MonoBehaviour
     public GameObject setting;
     public Transform gmp;
     public ItemSpawn[] item;
+    public Transform point;
+
     
     void Start()
     {
@@ -55,10 +57,10 @@ public class GameOver : MonoBehaviour
         {
             timer = 0;
         }
-        if(custom[0].activeSelf == true)
-        {
-            point.localRotation = Quaternion.Euler(-15, point.localEulerAngles.y + Time.deltaTime * 60, 0);
-        }
+        //if(custom[0].activeSelf == true)
+        //{
+        //    point.localRotation = Quaternion.Euler(-15, point.localEulerAngles.y + Time.deltaTime * 60, 0);
+        //}
     }
     public void OnClickrestart()//�ٽý��� ��ư�� ������ ��
     {
