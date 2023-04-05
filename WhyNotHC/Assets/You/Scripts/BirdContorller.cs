@@ -15,14 +15,14 @@ public class BirdContorller : MonoBehaviour
     private Rigidbody _rb;
     public bool direction = true;
     public float speed = 0.1f;
-    
+
 
     private Vector3 _moveDir = new Vector3(0, 0, 1f);
 
 
     void Start()
     {
-       
+
         isDead = false;
         _rb = GetComponent<Rigidbody>();
         if (transform.position.x <= -15)
@@ -35,10 +35,10 @@ public class BirdContorller : MonoBehaviour
 
     }
 
-    
+
     void Update()
     {
-        if(isDead == false)
+        if (isDead == false)
         {
             if (direction == false)
             {
@@ -53,16 +53,16 @@ public class BirdContorller : MonoBehaviour
                 if (transform.position.x < -15)
                     Destroy(gameObject);
             }
-         
+
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         isDead = true;
-        if( collision.collider.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
-            if(direction)
+            if (direction)
                 collision.transform.GetComponent<Rigidbody>().AddForce(-transform.right * push, ForceMode.Impulse);
             else
                 collision.transform.GetComponent<Rigidbody>().AddForce(transform.right * push, ForceMode.Impulse);

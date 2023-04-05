@@ -11,6 +11,9 @@ public class CubeController : MonoBehaviour
 
     float Directioin;
 
+    private OilManager oilManager;
+    [SerializeField] GameObject player;
+
     public float windTime;//바람불기전 대기
     public float windForceTime;//바람불떄
     private Rigidbody _rb;
@@ -18,10 +21,25 @@ public class CubeController : MonoBehaviour
     {
         Wind = GetComponent<ConstantForce>();
         _rb = GetComponent<Rigidbody>();
+    }
+    private void Awake()
+    {
+        oilManager = player.transform.GetComponent<OilManager>();
+    }
+
+    private void Update()
+    {
+        if (oilManager.bar.fillAmount <= 0f)
+        {
+            StopCoroutine(WindCo());
+        }
+    }
+    public void windSpawn()
+    {
         StartCoroutine(WindCo());
     }
 
-    
+
 
 
     IEnumerator WindCo()
@@ -29,11 +47,11 @@ public class CubeController : MonoBehaviour
         while (true)
         {
             windTime = Random.Range(10, 20);
-            windForceTime = Random.Range(3,6);
+            windForceTime = Random.Range(3, 6);
             Directioin = Random.Range(0, 2);
 
             yield return new WaitForSeconds(windTime);
-            if(Directioin == 0)
+            if (Directioin == 0)
             {
                 windRIght.Play();
                 Wind.force = new Vector3(3, 0, 0);
