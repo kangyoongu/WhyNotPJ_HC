@@ -363,7 +363,7 @@
 "Assets/script/Height.cs"
 "Assets/script/itemMaker.cs"
 "Assets/script/MapMaker.cs"
-"Assets/script/Move.cs"
+"Assets/script/move.cs"
 "Assets/script/Move1.cs"
 "Assets/script/OilManager.cs"
 "Assets/script/Quit.cs"
