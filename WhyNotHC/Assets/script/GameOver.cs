@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
-public class GameOver : MonoBehaviour
+public class GameOver : MonoBehaviour//화면 이동담당
 {
     float timer = 0;
     public GameObject back;
@@ -68,6 +69,7 @@ public class GameOver : MonoBehaviour
         map.l = -75;
         bar.fillAmount = 1;
         Time.timeScale = 1;
+        oil.combo = 0;
         back.SetActive(false);
         oil.score = 0;
         gmp.position = new Vector3(0.02899998f, -1.599503f, -0.4820083f);

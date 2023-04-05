@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class OilManager : MonoBehaviour
+public class OilManager : MonoBehaviour//게임 충돌, 점수, 오일 관리
 {
     public Image bar;//오일 바
     bool landing = false;//착륙 했는지 안했는지
     public Height he;
     public int score = 0;//게임 점수
     public Text sc;//게임 점수 텍스트
-    int combo = 0;
+    public int combo = 0;
     public TextMeshProUGUI combo_text;
     void Update()
     {
