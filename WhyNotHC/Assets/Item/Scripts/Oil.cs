@@ -21,7 +21,7 @@ public class Oil : MonoBehaviour
         {
             bar.fillAmount = 1;
             if(!isStopping)
-                Invoke("oilup", 3);
+                Invoke("oilup", 5);
         }
     }
     
