@@ -26,7 +26,7 @@ public class OilManager : MonoBehaviour
             landing = true;
             if (collision.transform.position.z >= -0.4)//착륙 얼마나 중앙에 가까운지에 따라 점수 줌
             {
-                if (Vector3.Distance(transform.position, collision.transform.position) <= 1.6f)
+                if (Vector3.Distance(transform.position, collision.transform.position) <= 1.6f * collision.transform.root.transform.localScale.x)
                 {
                     score += 3;
                     combo += 1;
@@ -36,7 +36,7 @@ public class OilManager : MonoBehaviour
                     }
                     combo_text.text = combo.ToString() + " combo";
                 }
-                else if (Vector3.Distance(transform.position, collision.transform.position) <= 2.5f)
+                else if (Vector3.Distance(transform.position, collision.transform.position) <= 2.5f * collision.transform.root.transform.localScale.x)
                 {
                     score += 2;
                     combo = 0;

@@ -13,12 +13,15 @@ public class MapMaker : MonoBehaviour
     GameObject b;
     public Transform gp;
     public GameObject gold;
+    public OilManager oilManager;
     void Update()
     {
         if(player.position.z/25 > z)
         {
             z += 1;
             b = Instantiate(build, new Vector3(Random.Range(-8f, 8f), 0, (z + 3) * 25), Quaternion.identity);//앞으로 갈때마다 빌딩 생성
+            float scale = (600 - oilManager.score) * 0.0016666f > 0.5f ? (600 - oilManager.score) * 0.0016666f : 0.5f;
+            b.transform.root.transform.localScale = new Vector3(scale, 1, scale);
             b = b.transform.GetChild(0).GetChild(0).gameObject;
             Vector3 end = b.transform.position;
             Vector3 str = gp.position;
