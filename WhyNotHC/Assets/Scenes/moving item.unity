@@ -139,6 +139,11 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4449202377023098855, guid: 196c81673c5cfc94f91ebac83995e422, type: 3}
   m_PrefabInstance: {fileID: 288183918}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &147729994 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1614272547500941501, guid: 31c0902224e1c7749a79d10e00d3466a, type: 3}
+  m_PrefabInstance: {fileID: 4100687500352945698}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &288183918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1613,6 +1618,10 @@ PrefabInstance:
       propertyPath: bests
       value: 
       objectReference: {fileID: 1489618602}
+    - target: {fileID: 4100687499833059590, guid: 31c0902224e1c7749a79d10e00d3466a, type: 3}
+      propertyPath: point
+      value: 
+      objectReference: {fileID: 147729994}
     - target: {fileID: 4100687499833059590, guid: 31c0902224e1c7749a79d10e00d3466a, type: 3}
       propertyPath: height
       value: 
