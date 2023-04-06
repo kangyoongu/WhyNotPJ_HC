@@ -12,6 +12,7 @@ public class Coin : MonoBehaviour
         {
             PlayerPrefs.SetInt("coin", 0);
         }
+        coin.text = "coin : " + PlayerPrefs.GetInt("coin");
     }
     //coin태그에 닿으면 coin +1
     public void OnTriggerEnter(Collider other)

@@ -22,12 +22,14 @@ public class GameOver : MonoBehaviour
     public Transform gmp;
     public ItemSpawn item;
     public Transform point;
+    public Text main_best;
     void Start()
     {
         if (!PlayerPrefs.HasKey("best"))
         {
             PlayerPrefs.SetInt("best", 0);//최고 기록값
         }
+        main_best.text = "best score\n<size=160>" + PlayerPrefs.GetInt("best") + "</size>";
     }
     void Update()
     {
@@ -45,6 +47,7 @@ public class GameOver : MonoBehaviour
                     PlayerPrefs.SetInt("best", int.Parse(playing.text));
                 }
                 bests.text = "best score\n<size=180>" + PlayerPrefs.GetInt("best") + "</size>";
+                main_best.text = "best score\n<size=160>" + PlayerPrefs.GetInt("best") + "</size>";
             }
         }
         else
@@ -70,6 +73,8 @@ public class GameOver : MonoBehaviour
         Time.timeScale = 1;
         back.SetActive(false);
         oil.score = 0;
+        oil.combo = 0;
+        oil.combo_text.text = "";
         gmp.position = new Vector3(0.02899998f, -1.599503f, -0.4820083f);
         GameObject[] gold = GameObject.FindGameObjectsWithTag("Coin");
         for(int i = 1; i < gold.Length; i++)

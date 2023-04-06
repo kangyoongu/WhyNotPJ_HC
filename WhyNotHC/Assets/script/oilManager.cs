@@ -10,12 +10,13 @@ public class OilManager : MonoBehaviour
     public Height he;
     public int score = 0;//게임 점수
     public Text sc;//게임 점수 텍스트
-    int combo = 0;
+    [HideInInspector]
+    public int combo = 0;
     public TextMeshProUGUI combo_text;
     void Update()
     {
         if(landing == false)//떠있다면 오일 깎는다
-            bar.fillAmount -= he.y*0.0003f;
+            bar.fillAmount -= he.y*0.0007f;
         sc.text = score.ToString("0");
     }
     public void OnCollisionEnter(Collision collision)
@@ -50,7 +51,7 @@ public class OilManager : MonoBehaviour
             }
             if (combo <= 7)
             {
-                bar.fillAmount += 0.3f * 1 + (combo * 0.1f); //콤보에 따라 연료 줌
+                bar.fillAmount += 0.3f *( 1 + (combo * 0.1f)); //콤보에 따라 연료 줌
             }
             else
             {

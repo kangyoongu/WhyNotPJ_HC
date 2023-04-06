@@ -359,6 +359,7 @@
 "Assets/Item/Scripts/SlowSpeed.cs"
 "Assets/script/back.cs"
 "Assets/script/CoinTurn.cs"
+"Assets/script/CustomManager.cs"
 "Assets/script/GameOver.cs"
 "Assets/script/Height.cs"
 "Assets/script/itemMaker.cs"
