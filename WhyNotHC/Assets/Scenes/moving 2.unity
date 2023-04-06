@@ -780,6 +780,10 @@ PrefabInstance:
       value: birdGenerator
       objectReference: {fileID: 0}
     - target: {fileID: 4382688530611858401, guid: 40632a05fac57e140aa27c85e48a3ee7, type: 3}
+      propertyPath: span
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382688530611858401, guid: 40632a05fac57e140aa27c85e48a3ee7, type: 3}
       propertyPath: _cube
       value: 
       objectReference: {fileID: 543450653442398291}
@@ -2709,7 +2713,7 @@ MonoBehaviour:
   Wind: {fileID: 543450653442398303}
   windRIght: {fileID: 221992706}
   windLeft: {fileID: 120191115}
-  player: {fileID: 0}
+  player: {fileID: 291733720}
   windTime: 0
   windForceTime: 0
 --- !u!1001 &633627722083815301

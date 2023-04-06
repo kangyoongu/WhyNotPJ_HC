@@ -12,11 +12,28 @@ public class OilManager : MonoBehaviour
     public Text sc;//게임 점수 텍스트
     public int combo = 0;
     public TextMeshProUGUI combo_text;
+    public bool buildingCount = false;
+    public int buildingScore;
+    public CubeController cubeController;
+
+    private void Start()
+    {
+        cubeController = GetComponent<CubeController>();
+    }
     void Update()
     {
         if(landing == false)//떠있다면 오일 깎는다
             bar.fillAmount -= he.y*0.0003f;
         sc.text = score.ToString("0");
+
+        
+        
+        if (buildingScore >= 24)
+        {
+            buildingScore = 0;
+            buildingCount = false;
+        }
+
     }
     public void OnCollisionEnter(Collision collision)
     {
@@ -29,21 +46,28 @@ public class OilManager : MonoBehaviour
                 {
                     score += 3;
                     combo += 1;
+                    buildingScore += 3;
+
+
+
                     if (combo % 5 == 0)
                     {
                         score += 1;
+                        buildingScore += 1;
                     }
                     combo_text.text = combo.ToString() + " combo";
                 }
                 else if (Vector3.Distance(transform.position, collision.transform.position) <= 2.5f)
                 {
                     score += 2;
+                    buildingScore += 2;
                     combo = 0;
                     combo_text.text = "";
                 }
                 else
                 {
                     score += 1;
+                    buildingScore += 1;
                     combo = 0;
                     combo_text.text = "";
                 }
@@ -55,6 +79,10 @@ public class OilManager : MonoBehaviour
             else
             {
                 bar.fillAmount += 0.54f;
+            }
+            if (buildingScore >= 20 && buildingScore <= 22)
+            {
+                cubeController.AddPower();
             }
         }
     }
