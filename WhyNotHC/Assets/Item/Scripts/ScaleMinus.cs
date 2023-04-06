@@ -11,8 +11,6 @@ public class ScaleMinus : MonoBehaviour
             other.gameObject.SetActive(false);
             this.transform.localScale -= new Vector3(.2f, .2f, .2f);
             Invoke("PlusSize", 10);
-            Debug.Log("Plus");
-
         }
     }
     
