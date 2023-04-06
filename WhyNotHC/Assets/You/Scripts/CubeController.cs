@@ -46,8 +46,8 @@ public class CubeController : MonoBehaviour
     {
         while (true)
         {
-            windTime = Random.Range(10, 20);
-            windForceTime = Random.Range(3, 6);
+            windTime = Random.Range(10, (500 - oilManager.score) * 0.2f < 20 ? 20 : (500 - oilManager.score) * 0.2f);
+            windForceTime = Random.Range(3, 5);
             Directioin = Random.Range(0, 2);
 
             yield return new WaitForSeconds(windTime);

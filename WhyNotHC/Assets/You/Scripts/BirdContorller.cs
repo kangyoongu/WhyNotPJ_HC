@@ -57,15 +57,15 @@ public class BirdContorller : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
         isDead = true;
-        if (collision.collider.CompareTag("Player"))
+        if (other.collider.CompareTag("Player"))
         {
             if (direction)
-                collision.transform.GetComponent<Rigidbody>().AddForce(-transform.right * push, ForceMode.Impulse);
+                other.transform.GetComponent<Rigidbody>().AddForce(transform.right * -push, ForceMode.Impulse);
             else
-                collision.transform.GetComponent<Rigidbody>().AddForce(transform.right * push, ForceMode.Impulse);
+                other.transform.GetComponent<Rigidbody>().AddForce(transform.right * push, ForceMode.Impulse);
             StartCoroutine("Dead");
         }
         else

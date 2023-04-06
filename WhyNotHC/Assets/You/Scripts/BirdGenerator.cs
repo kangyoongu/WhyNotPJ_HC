@@ -13,31 +13,38 @@ public class BirdGenerator : MonoBehaviour
     private OilManager oilManager;
     [SerializeField] GameObject player;
     private BirdContorller bird;
+    float startTime;
+    float playTime;
 
 
     private void Awake()
     {
         oilManager = player.transform.GetComponent<OilManager>();
         bird = birdPrefab.transform.GetComponent<BirdContorller>();
+        
     }
     void Update()
     {
+       ;
 
-        delta += Time.deltaTime;
-        if (delta >= span)
-        {
+            delta += Time.deltaTime;
+            if (delta >= span)
+            {
 
-            _randNum = Random.Range(0, 2);
-            float x = _randNum == 0 ? 15 : -15;
-            float y = Random.Range(_cube.position.y - 1, _cube.position.y + 2);
-            float z = Random.Range(_cube.position.z + 8, _cube.position.z + 11);
-            GameObject Bird = Instantiate(birdPrefab);
-            //curVector = new(x, y, z);
-            Bird.transform.position = new(x, y, z);
-            span = Random.Range(3, 6);
-            delta = 0;
+                _randNum = Random.Range(0, 2);
+                float x = _randNum == 0 ? 15 : -15;
+                float y = Random.Range(_cube.position.y - 1, _cube.position.y + 2);
+                float z = Random.Range(_cube.position.z + 8, _cube.position.z + 11);
+                GameObject Bird = Instantiate(birdPrefab);
+                Bird.transform.position = new(x, y, z);
+                span = Random.Range(5, (400-oilManager.score)*0.4f < 10 ? 10 : (500 - oilManager.score) * 0.4f);
+                delta = 0;
 
+            
         }
+
+
+
         if (oilManager.bar.fillAmount <= 0f)
         {
             gameObject.SetActive(false);
