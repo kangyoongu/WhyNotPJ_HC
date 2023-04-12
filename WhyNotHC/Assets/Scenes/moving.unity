@@ -418,7 +418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAD70\uC6A9\uD5EC\uAE30 100\uACE8\uB4DC"
+  m_text: "\uAD70\uC6A9 \uD5EC\uAE30 \uBCF4\uC720"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a2129d74546de7341981e0ea1c9f32aa, type: 2}
   m_sharedMaterial: {fileID: -6071538733937351021, guid: a2129d74546de7341981e0ea1c9f32aa, type: 2}
@@ -2077,8 +2077,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 79e86e77a59aa9c4497642985333b0ef, type: 2}
   - {fileID: 2100000, guid: 352198cfc20135e46b95cea550952626, type: 2}
   play: {fileID: 1548635377}
-  mil: {fileID: 452438490}
   rain: {fileID: 941582893}
+  coin: {fileID: 937054221}
 --- !u!4 &2048222869
 Transform:
   m_ObjectHideFlags: 0
@@ -2948,7 +2948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5182143770423498919, guid: b7e05b9cc2361dc4bb85b192476732ff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5182143770457019618, guid: b7e05b9cc2361dc4bb85b192476732ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
