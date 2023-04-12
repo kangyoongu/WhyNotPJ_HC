@@ -22,7 +22,8 @@ public class GameOver : MonoBehaviour
     public Transform gmp;
     public ItemSpawn[] item;
     public Transform point;
-
+    public ParticleSystem bomb;
+    public bool isbomb = false;
     
     void Start()
     {
@@ -34,7 +35,14 @@ public class GameOver : MonoBehaviour
     }
     void Update()
     {
-        if(bar.fillAmount == 0)
+        if (isbomb == true)
+        {
+            bomb.Play();
+            isbomb = false;
+        }
+        
+
+        if (bar.fillAmount == 0)
         {
             timer += Time.deltaTime;
             if(timer >= 7)//���� ���� �Ǹ�
@@ -155,12 +163,14 @@ public class GameOver : MonoBehaviour
     {
         if (other.gameObject.tag == "Boom")//Boom �±׿� ������
         {
+            isbomb = true;
             other.gameObject.SetActive(false);
             bar.fillAmount = 0;//���� ������ 0
+            
             Debug.Log("Boom");
-            back.SetActive(true);//���ӿ��� â ���
             OilManager oil = FindObjectOfType<OilManager>();
             nows.text = "your score\n<size=150>" + playing.text + "</size>";//��� ���ڵ� �ٲٱ�
+
             if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
             {
                 PlayerPrefs.SetInt("best", int.Parse(playing.text));
