@@ -13,7 +13,7 @@ public class Coin : MonoBehaviour
             PlayerPrefs.SetInt("coin", 0);
         }
     }
-    //coinÅÂ±×¿¡ ´êÀ¸¸é coin +1
+    //coinï¿½Â±×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ coin +1
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.transform.name);
@@ -21,7 +21,7 @@ public class Coin : MonoBehaviour
         {
             
             PlayerPrefs.SetInt("coin", PlayerPrefs.GetInt("coin") + 1);
-            coin.text = "coin : " + PlayerPrefs.GetInt("coin");
+            coin.text = ":" + PlayerPrefs.GetInt("coin");
             other.gameObject.SetActive(false);
             
         }
