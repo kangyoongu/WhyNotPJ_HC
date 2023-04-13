@@ -36,7 +36,6 @@ public class ItemSpawn : MonoBehaviour
                 lastZ = lastZ + Random.Range(100, 500);//아이템 거리
                 GameObject temp = Instantiate(item);
                 temp.transform.position = new Vector3(itemX, 0, lastZ);
-                Debug.Log("Item");
             }
 
             curtime = 0;

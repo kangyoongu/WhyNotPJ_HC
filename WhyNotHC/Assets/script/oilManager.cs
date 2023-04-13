@@ -12,6 +12,7 @@ public class OilManager : MonoBehaviour//게임 충돌, 점수, 오일 관리
     public Text sc;//게임 점수 텍스트
     public int combo = 0;
     public TextMeshProUGUI combo_text;
+    public bool vivrateon = true;
     void Update()
     {
         if(landing == false)//떠있다면 오일 깎는다
@@ -29,6 +30,10 @@ public class OilManager : MonoBehaviour//게임 충돌, 점수, 오일 관리
                 {
                     score += 3;
                     combo += 1;
+                    if(vivrateon == true)
+                    {
+                        Handheld.Vibrate();
+                    }
                     if (combo % 5 == 0)
                     {
                         score += 1;
@@ -70,4 +75,17 @@ public class OilManager : MonoBehaviour//게임 충돌, 점수, 오일 관리
             }
         }
     }
+    public void vivration()
+    {
+        if(vivrateon == false) 
+        {
+            Handheld.Vibrate();
+            vivrateon = true;
+        }
+        else
+        {
+            vivrateon = false;
+        }
+    }
 }
+ 
