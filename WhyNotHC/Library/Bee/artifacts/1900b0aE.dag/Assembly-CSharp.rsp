@@ -357,6 +357,7 @@
 "Assets/Item/Scripts/ScalePlus.cs"
 "Assets/Item/Scripts/ScaleTurn1.cs"
 "Assets/Item/Scripts/SlowSpeed.cs"
+"Assets/Quirky Series - Birds Bundle/_Scripts/Demo.cs"
 "Assets/script/back.cs"
 "Assets/script/CoinTurn.cs"
 "Assets/script/GameOver.cs"
@@ -368,6 +369,11 @@
 "Assets/script/OilManager.cs"
 "Assets/script/Quit.cs"
 "Assets/script/SoundManager.cs"
+"Assets/You/Scripts/BirdContorller.cs"
+"Assets/You/Scripts/BirdGenerator.cs"
+"Assets/You/Scripts/BirdTurn.cs"
+"Assets/You/Scripts/BirdTurnGenerator.cs"
+"Assets/You/Scripts/CubeController.cs"
 -langversion:9.0
 
 /deterministic
