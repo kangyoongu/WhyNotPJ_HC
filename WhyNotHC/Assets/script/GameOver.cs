@@ -23,6 +23,7 @@ public class GameOver : MonoBehaviour
     public ItemSpawn item;
     public Transform point;
     public Text main_best;
+
     void Start()
     {
         if (!PlayerPrefs.HasKey("best"))
