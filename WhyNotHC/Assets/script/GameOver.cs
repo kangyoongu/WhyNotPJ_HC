@@ -23,14 +23,14 @@ public class GameOver : MonoBehaviour//È­¸é ÀÌµ¿´ã´ç
     public Transform gmp;
     public ItemSpawn[] item;
     public Transform point;
+    AudioSource audioSoure;
 
-    
     void Start()
     {
-        
+        audioSoure = GetComponent<AudioSource>();
         if (!PlayerPrefs.HasKey("best"))
         {
-            PlayerPrefs.SetInt("best", 0);//ï¿½Ö°ï¿½ ï¿½ï¿½Ï°ï¿½
+            PlayerPrefs.SetInt("best", 0);//ï¿½Ö°ï¿½ ï¿½ï¿½Ï°ï¿?
         }
     }
     void Update()
@@ -44,7 +44,7 @@ public class GameOver : MonoBehaviour//È­¸é ÀÌµ¿´ã´ç
                 Time.timeScale = 0;
                 back.SetActive(true);
                 OilManager oil = FindObjectOfType<OilManager>();
-                nows.text = "your score\n<size=150>" + playing.text + "</size>";//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ù²Ù±ï¿½
+                nows.text = "your score\n<size=150>" + playing.text + "</size>";//ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ù²Ù±ï¿½
                 if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
                 {
                     PlayerPrefs.SetInt("best", int.Parse(playing.text));
@@ -84,7 +84,7 @@ public class GameOver : MonoBehaviour//È­¸é ÀÌµ¿´ã´ç
         {
             Destroy(gold[i]);
         }
-        
+        audioSoure.Play();
     }
     public void OnClickMain()//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     {
@@ -103,6 +103,7 @@ public class GameOver : MonoBehaviour//È­¸é ÀÌµ¿´ã´ç
         {
             Destroy(g[i]);
         }
+        audioSoure.Play();
     }
     public void OnCLickStart()//ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     {
@@ -116,7 +117,7 @@ public class GameOver : MonoBehaviour//È­¸é ÀÌµ¿´ã´ç
         }
         setting.SetActive(false);
         OnClickrestart();
-        
+        audioSoure.Play();
     }
     public void OnCLickCustom()//Ä¿ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½
     {
@@ -129,6 +130,7 @@ public class GameOver : MonoBehaviour//È­¸é ÀÌµ¿´ã´ç
         {
             custom[i].SetActive(true);
         }
+        audioSoure.Play();
     }
     public void OnCLickCustom_out()//Ä¿ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½Ý±ï¿½
     {
@@ -142,14 +144,17 @@ public class GameOver : MonoBehaviour//È­¸é ÀÌµ¿´ã´ç
         {
             custom[i].SetActive(false);
         }
+        audioSoure.Play();
     }
     public void OnClickSetting()//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     {
         setting.SetActive(true);
+        audioSoure.Play();
     }
     public void OnClickBack()//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     {
         setting.SetActive(false);
+        audioSoure.Play();
     }
 
 
@@ -160,9 +165,9 @@ public class GameOver : MonoBehaviour//È­¸é ÀÌµ¿´ã´ç
             other.gameObject.SetActive(false);
             bar.fillAmount = 0;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0
             Debug.Log("Boom");
-            back.SetActive(true);//ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½
+            back.SetActive(true);//ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿?
             OilManager oil = FindObjectOfType<OilManager>();
-            nows.text = "your score\n<size=150>" + playing.text + "</size>";//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ù²Ù±ï¿½
+            nows.text = "your score\n<size=150>" + playing.text + "</size>";//ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ù²Ù±ï¿½
             if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
             {
                 PlayerPrefs.SetInt("best", int.Parse(playing.text));

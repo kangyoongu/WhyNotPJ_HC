@@ -34,6 +34,7 @@ public class OilManager : MonoBehaviour//게임 충돌, 점수, 오일 관리
                         score += 1;
                     }
                     combo_text.text = combo.ToString() + " combo";
+
                 }
                 else if (Vector3.Distance(transform.position, collision.transform.position) <= 2.5f)
                 {
