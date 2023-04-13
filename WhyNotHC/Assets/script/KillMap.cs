@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KillMap : MonoBehaviour
 {
+
     Transform play;
     private void Start()
     {

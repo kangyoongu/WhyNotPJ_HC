@@ -5,6 +5,7 @@ using TMPro;
 
 public class CustomManager : MonoBehaviour
 {
+
     public Material[] mat;
     public MeshRenderer play;
     public TextMeshProUGUI rain;

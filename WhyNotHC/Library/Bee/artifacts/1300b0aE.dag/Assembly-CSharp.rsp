@@ -363,10 +363,10 @@
 "Assets/script/Height.cs"
 "Assets/script/itemMaker.cs"
 "Assets/script/KillMap.cs"
-"Assets/script/MapMaker.cs"
+"Assets/script/mapMaker.cs"
 "Assets/script/Move.cs"
-"Assets/script/Move1.cs"
-"Assets/script/OilManager.cs"
+"Assets/script/move1.cs"
+"Assets/script/oilManager.cs"
 "Assets/script/Quit.cs"
 "Assets/script/SoundManager.cs"
 -langversion:9.0
