@@ -13,8 +13,8 @@ public class CubeController : MonoBehaviour
     private OilManager oilManager;
     [SerializeField] GameObject player;
 
-    public float windTime = 5;//바람불기전 대기
-    public float windForceTime=3;//바람불떄
+    public float windTime;//바람불기전 대기
+    public float windForceTime = 5;//바람불떄
     private Rigidbody _rb;
 
     private Vector3 RwindForce = new Vector3(2, 0, 0);

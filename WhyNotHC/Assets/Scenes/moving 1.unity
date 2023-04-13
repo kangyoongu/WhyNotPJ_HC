@@ -5224,6 +5224,8 @@ MonoBehaviour:
   wing: {fileID: 7825903778402015615}
   wing2: {fileID: 4159951961786295040}
   oil: {fileID: 1581585928}
+  position: 0
+  isQuest: 0
 --- !u!1 &1835467192
 GameObject:
   m_ObjectHideFlags: 0

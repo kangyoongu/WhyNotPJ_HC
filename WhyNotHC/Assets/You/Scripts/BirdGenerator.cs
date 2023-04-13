@@ -6,7 +6,7 @@ public class BirdGenerator : MonoBehaviour
 {
     public GameObject birdPrefab;
     float delta = 0;
-    public float span = 5;
+    public float span;
     public Transform _cube;
     public Vector3 curVector;
     int _randNum = 0;
