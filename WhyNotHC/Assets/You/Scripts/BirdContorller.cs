@@ -15,7 +15,7 @@ public class BirdContorller : MonoBehaviour
     private Rigidbody _rb;
     public bool direction = true;
     public float speed = 0.1f;
-
+    [SerializeField]AudioSource audioSource;
 
     private Vector3 _moveDir = new Vector3(0, 0, 1f);
 
@@ -32,7 +32,7 @@ public class BirdContorller : MonoBehaviour
         }
         else
             transform.rotation = Quaternion.Euler(0, -90, 0);
-
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -62,6 +62,7 @@ public class BirdContorller : MonoBehaviour
         isDead = true;
         if (other.collider.CompareTag("Player"))
         {
+            audioSource.Play();
             if (direction)
                 other.transform.GetComponent<Rigidbody>().AddForce(transform.right * -push, ForceMode.Impulse);
             else

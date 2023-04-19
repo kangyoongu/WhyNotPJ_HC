@@ -29,6 +29,7 @@ public class GameOver : MonoBehaviour
     public Text main_best;
 
     AudioSource audioSource;
+    public AudioSource boom;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -172,6 +173,7 @@ public class GameOver : MonoBehaviour
     {
         if (other.gameObject.tag == "Boom")//Boom �±׿� ������
         {
+            boom.Play();
             isbomb = true;
             other.gameObject.SetActive(false);
             bar.fillAmount = 0;//���� ������ 0
