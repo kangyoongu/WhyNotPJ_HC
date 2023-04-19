@@ -2153,11 +2153,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5182143771209830661, guid: b7e05b9cc2361dc4bb85b192476732ff, type: 3}
   m_PrefabInstance: {fileID: 5182143771766052130}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1555033843 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4873866291674731624, guid: ccabce0363c08bf469b8ad4142543ca3, type: 3}
-  m_PrefabInstance: {fileID: 4873866290947308187}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1558646551 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5182143771562897286, guid: b7e05b9cc2361dc4bb85b192476732ff, type: 3}
@@ -3235,7 +3230,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2096954176}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3596,7 +3591,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 824886193}
-  coinAudio: {fileID: 1555033843}
 --- !u!114 &543450653442398295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3804,15 +3798,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   back: {fileID: 1364884013}
---- !u!114 &543450653442398307 stripped
+--- !u!114 &543450653442398308
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4100687499833059584, guid: 31c0902224e1c7749a79d10e00d3466a, type: 3}
-  m_PrefabInstance: {fileID: 4100687500352945698}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291733720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 808d9b774c885d04cbb8d9d219c09d5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8eeeeb3d9c07cf946b33a200fa619203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &633627722083815301
@@ -5069,18 +5064,18 @@ PrefabInstance:
     - target: {fileID: 5182143772154913625, guid: b7e05b9cc2361dc4bb85b192476732ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 543450653442398307}
+      objectReference: {fileID: 543450653442398308}
     - target: {fileID: 5182143772154913625, guid: b7e05b9cc2361dc4bb85b192476732ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5182143772154913625, guid: b7e05b9cc2361dc4bb85b192476732ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: vivration
+      value: OnClickVive
       objectReference: {fileID: 0}
     - target: {fileID: 5182143772154913625, guid: b7e05b9cc2361dc4bb85b192476732ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: OilManager, Assembly-CSharp
+      value: Vive, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5182143772154913625, guid: b7e05b9cc2361dc4bb85b192476732ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

@@ -15,6 +15,7 @@ public class OilManager : MonoBehaviour
     public bool buildingCount = false;
     public int buildingScore;
     public CubeController cubeController;
+    public bool viveon = true;
 
     private void Start()
     {
@@ -47,7 +48,11 @@ public class OilManager : MonoBehaviour
                     score += 3;
                     combo += 1;
                     buildingScore += 3;
-
+                    if(viveon == true)
+                    {
+                        Handheld.Vibrate();
+                    }
+                    
 
 
                     if (combo % 5 == 0)

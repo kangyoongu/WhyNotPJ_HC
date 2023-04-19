@@ -14,6 +14,7 @@ public class Cradit : MonoBehaviour
         back.SetActive(true);
     }
     public void OnClickBack()
-    { back.SetActive(false); 
+    { 
+        back.SetActive(false); 
     }
 }

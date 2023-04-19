@@ -28,10 +28,11 @@ public class GameOver : MonoBehaviour
 
     public Text main_best;
 
-
+    AudioSource audioSource;
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+
         if (!PlayerPrefs.HasKey("best"))
         {
             PlayerPrefs.SetInt("best", 0);//�ְ� ��ϰ�
@@ -94,7 +95,7 @@ public class GameOver : MonoBehaviour
         {
             Destroy(gold[i]);
         }
-        
+        audioSource.Play();
     }
     public void OnClickMain()//�������� ���� ��ư�� ������ ��
     {
@@ -113,6 +114,7 @@ public class GameOver : MonoBehaviour
         {
             Destroy(g[i]);
         }
+        audioSource.Play();
     }
     public void OnCLickStart()//���ο��� ���� ������ ��
     {
@@ -125,8 +127,8 @@ public class GameOver : MonoBehaviour
             play[i].SetActive(true);
         }
         setting.SetActive(false);
+        audioSource.Play();
         OnClickrestart();
-        
     }
     public void OnCLickCustom()//Ŀ����â ����
     {
@@ -152,14 +154,17 @@ public class GameOver : MonoBehaviour
         {
             custom[i].SetActive(false);
         }
+        audioSource.Play();
     }
     public void OnClickSetting()//������ư ������ ��
     {
         setting.SetActive(true);
+        audioSource.Play();
     }
     public void OnClickBack()//�������� �ڷΰ��� ������ ��
     {
         setting.SetActive(false);
+        audioSource.Play();
     }
 
 
