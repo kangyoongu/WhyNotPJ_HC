@@ -6,6 +6,7 @@ using TMPro;
 public class Coin : MonoBehaviour
 {
     public TextMeshProUGUI coin;
+    public AudioSource audioSource;
     private void Start()
     {
         if (!PlayerPrefs.HasKey("coin"))
@@ -20,12 +21,10 @@ public class Coin : MonoBehaviour
         Debug.Log(other.transform.name);
         if (other.gameObject.tag == "Coin")
         {
-            
             PlayerPrefs.SetInt("coin", PlayerPrefs.GetInt("coin") + 1);
             coin.text = " : " + PlayerPrefs.GetInt("coin");
             other.gameObject.SetActive(false);
-            
+            audioSource.Play();
         }
-
     }
 }
