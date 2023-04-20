@@ -12,6 +12,11 @@ public class OilManager : MonoBehaviour
     public Text sc;//게임 점수 텍스트
     public int combo = 0;
     public TextMeshProUGUI combo_text;
+    ItemSpawn[] item;
+    private void Start()
+    {
+        item = FindObjectsOfType<ItemSpawn>();
+    }
     void Update()
     {
         if(landing == false)//떠있다면 오일 깎는다
@@ -23,6 +28,9 @@ public class OilManager : MonoBehaviour
         if (collision.gameObject.tag == "building")
         {
             landing = true;
+            
+            int rand = Random.Range(0, item.Length);
+            item[rand].StartCoroutine("itemSpawning");
             if (collision.transform.position.z >= -0.4)//착륙 얼마나 중앙에 가까운지에 따라 점수 줌
             {
                 if (Vector3.Distance(transform.position, collision.transform.position) <= 1.6f)
