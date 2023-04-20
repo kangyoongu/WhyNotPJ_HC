@@ -22,12 +22,18 @@ public class GameOver : MonoBehaviour
     public Transform gmp;
     public ItemSpawn[] item;
     public Transform point;
+
     public ParticleSystem bomb;
     public bool isbomb = false;
-    
+
+    public Text main_best;
+
+    AudioSource audioSource;
+    public AudioSource boom;
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+
         if (!PlayerPrefs.HasKey("best"))
         {
             PlayerPrefs.SetInt("best", 0);//�ְ� ��ϰ�
@@ -65,10 +71,10 @@ public class GameOver : MonoBehaviour
         {
             timer = 0;
         }
-        //if(custom[0].activeSelf == true)
-        //{
-        //    point.localRotation = Quaternion.Euler(-15, point.localEulerAngles.y + Time.deltaTime * 60, 0);
-        //}
+        if(custom[0].activeSelf == true)
+        {
+            point.localRotation = Quaternion.Euler(-15, point.localEulerAngles.y + Time.deltaTime * 60, 0);
+        }
     }
     public void OnClickrestart()//�ٽý��� ��ư�� ������ ��
     {
@@ -90,7 +96,7 @@ public class GameOver : MonoBehaviour
         {
             Destroy(gold[i]);
         }
-        
+        audioSource.Play();
     }
     public void OnClickMain()//�������� ���� ��ư�� ������ ��
     {
@@ -109,6 +115,7 @@ public class GameOver : MonoBehaviour
         {
             Destroy(g[i]);
         }
+        audioSource.Play();
     }
     public void OnCLickStart()//���ο��� ���� ������ ��
     {
@@ -121,8 +128,8 @@ public class GameOver : MonoBehaviour
             play[i].SetActive(true);
         }
         setting.SetActive(false);
+        audioSource.Play();
         OnClickrestart();
-        
     }
     public void OnCLickCustom()//Ŀ����â ����
     {
@@ -148,14 +155,17 @@ public class GameOver : MonoBehaviour
         {
             custom[i].SetActive(false);
         }
+        audioSource.Play();
     }
     public void OnClickSetting()//������ư ������ ��
     {
         setting.SetActive(true);
+        audioSource.Play();
     }
     public void OnClickBack()//�������� �ڷΰ��� ������ ��
     {
         setting.SetActive(false);
+        audioSource.Play();
     }
 
 
@@ -163,6 +173,7 @@ public class GameOver : MonoBehaviour
     {
         if (other.gameObject.tag == "Boom")//Boom �±׿� ������
         {
+            boom.Play();
             isbomb = true;
             other.gameObject.SetActive(false);
             bar.fillAmount = 0;//���� ������ 0

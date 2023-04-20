@@ -12,46 +12,67 @@ public class OilManager : MonoBehaviour
     public Text sc;//게임 점수 텍스트
     public int combo = 0;
     public TextMeshProUGUI combo_text;
-    ItemSpawn[] item;
+    public bool buildingCount = false;
+    public int buildingScore;
+    public CubeController cubeController;
+    public bool viveon = true;
+
     private void Start()
     {
-        item = FindObjectsOfType<ItemSpawn>();
+        cubeController = GetComponent<CubeController>();
     }
     void Update()
     {
         if(landing == false)//떠있다면 오일 깎는다
-            bar.fillAmount -= he.y*0.0003f;
+            bar.fillAmount -= he.y*0.0002f;
         sc.text = score.ToString("0");
+
+        
+        
+        if (buildingScore >= 24)
+        {
+            buildingScore = 0;
+            buildingCount = false;
+        }
+
     }
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "building")
         {
             landing = true;
-            
-            int rand = Random.Range(0, item.Length);
-            item[rand].StartCoroutine("itemSpawning");
             if (collision.transform.position.z >= -0.4)//착륙 얼마나 중앙에 가까운지에 따라 점수 줌
             {
                 if (Vector3.Distance(transform.position, collision.transform.position) <= 1.6f)
                 {
                     score += 3;
                     combo += 1;
+                    buildingScore += 3;
+                    if(viveon == true)
+                    {
+                        Handheld.Vibrate();
+                    }
+                    
+
+
                     if (combo % 5 == 0)
                     {
                         score += 1;
+                        buildingScore += 1;
                     }
                     combo_text.text = combo.ToString() + " combo";
                 }
                 else if (Vector3.Distance(transform.position, collision.transform.position) <= 2.5f)
                 {
                     score += 2;
+                    buildingScore += 2;
                     combo = 0;
                     combo_text.text = "";
                 }
                 else
                 {
                     score += 1;
+                    buildingScore += 1;
                     combo = 0;
                     combo_text.text = "";
                 }
@@ -63,6 +84,10 @@ public class OilManager : MonoBehaviour
             else
             {
                 bar.fillAmount += 0.54f;
+            }
+            if (buildingScore >= 20 && buildingScore <= 22)
+            {
+                cubeController.AddPower();
             }
         }
     }
