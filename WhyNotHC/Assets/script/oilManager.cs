@@ -24,7 +24,7 @@ public class OilManager : MonoBehaviour
     void Update()
     {
         if(landing == false)//떠있다면 오일 깎는다
-            bar.fillAmount -= he.y*0.0003f;
+            bar.fillAmount -= he.y*0.0002f;
         sc.text = score.ToString("0");
 
         
