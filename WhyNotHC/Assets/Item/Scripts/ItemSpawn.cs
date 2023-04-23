@@ -16,13 +16,10 @@ public class ItemSpawn : MonoBehaviour
     float itemX;
 
 
-
     private void Awake()
     {
         oilManager = player.transform.GetComponent<OilManager>();
     }
-
-
     void Update()
     {
 
@@ -32,7 +29,7 @@ public class ItemSpawn : MonoBehaviour
             lastZ = 0;//초기화
             itemX = 0;
             GameObject[] delItems = GameObject.FindGameObjectsWithTag(tagName);
-            
+
             foreach (var delItem in delItems)
             {
                 Destroy(delItem);//아이템 전부 삭제
@@ -56,5 +53,6 @@ public class ItemSpawn : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
     }
+    
 
 }

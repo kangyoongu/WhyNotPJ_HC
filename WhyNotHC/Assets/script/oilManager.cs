@@ -17,10 +17,12 @@ public class OilManager : MonoBehaviour
     public CubeController cubeController;
     public bool viveon = true;
     ItemSpawn[] item;
+    ItemSpawn items;
     private void Start()
     {
         cubeController = GetComponent<CubeController>();
         item = FindObjectsOfType<ItemSpawn>();
+        items = FindObjectOfType<ItemSpawn>();
     }
     void Update()
     {
@@ -41,8 +43,11 @@ public class OilManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "building")
         {
-            int rand = Random.Range(0, item.Length);
-            item[rand].StartCoroutine("itemSpawning");
+            if (bar.fillAmount != 0 && items.isSpawn == true)
+            {
+                int rand = Random.Range(0, item.Length);
+                item[rand].StartCoroutine("itemSpawning");
+            }
             landing = true;
             if (collision.transform.position.z >= -0.4)//착륙 얼마나 중앙에 가까운지에 따라 점수 줌
             {

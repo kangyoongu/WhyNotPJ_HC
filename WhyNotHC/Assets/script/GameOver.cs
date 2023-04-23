@@ -22,7 +22,6 @@ public class GameOver : MonoBehaviour
     public Transform gmp;
     public ItemSpawn[] item;
     public Transform point;
-
     public ParticleSystem bomb;
     public bool isbomb = false;
 
@@ -33,7 +32,6 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
         if (!PlayerPrefs.HasKey("best"))
         {
             PlayerPrefs.SetInt("best", 0);//�ְ� ��ϰ�
