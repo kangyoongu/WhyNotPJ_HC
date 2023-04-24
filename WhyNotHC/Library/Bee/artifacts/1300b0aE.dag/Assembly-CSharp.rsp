@@ -376,6 +376,7 @@
 "Assets/script/itemMaker.cs"
 "Assets/script/KillMap.cs"
 "Assets/script/MapMaker.cs"
+"Assets/script/MenuDrag.cs"
 "Assets/script/Move.cs"
 "Assets/script/Move1.cs"
 "Assets/script/OilManager.cs"
