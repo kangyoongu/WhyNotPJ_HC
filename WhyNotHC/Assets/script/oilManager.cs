@@ -46,11 +46,12 @@ public class OilManager : MonoBehaviour
             if (bar.fillAmount != 0 && items.isSpawn == true)
             {
                 int itemRandom = Random.Range(0, 100);
-                if (itemRandom <= 20)
+                if (itemRandom <= 100)
                 {
                     int rand = Random.Range(0, item.Length);
                     item[rand].StartCoroutine("itemSpawning");
                 }
+                
             }
             landing = true;
             if (collision.transform.position.z >= -0.4)//착륙 얼마나 중앙에 가까운지에 따라 점수 줌

@@ -16,7 +16,7 @@ public class Oil : MonoBehaviour
 
     void Update()
     {
-        //isoil이 true면 오일 다 채우기
+        //isNotUsingOil이 true면 오일 다 채우기
         if (isNotUsingOil == true)
         {
             bar.fillAmount = 1;
@@ -34,8 +34,6 @@ public class Oil : MonoBehaviour
         }
     }
     
-    
-    //oil 100 함수
     void oilup()
     {
         isNotUsingOil = false;
