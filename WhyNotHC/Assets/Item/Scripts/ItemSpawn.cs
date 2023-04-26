@@ -15,7 +15,6 @@ public class ItemSpawn : MonoBehaviour
     public bool isSpawn = true;
     float itemX;
 
-
     private void Awake()
     {
         oilManager = player.transform.GetComponent<OilManager>();
@@ -49,7 +48,7 @@ public class ItemSpawn : MonoBehaviour
             itemX = Random.Range(-5f, 5f);
             lastZ = lastZ + Random.Range(100, 500);//아이템 거리
             GameObject temp = Instantiate(item);
-            temp.transform.position = new Vector3(itemX, 0, lastZ);
+            temp.transform.position = new Vector3(itemX, Random.Range(4, 7), lastZ);
             yield return new WaitForSeconds(0.1f);
         }
     }

@@ -355,6 +355,7 @@
 "Assets/Item/Scripts/Coin.cs"
 "Assets/Item/Scripts/ExpCallback.cs"
 "Assets/Item/Scripts/FastSpeed.cs"
+"Assets/Item/Scripts/Item.cs"
 "Assets/Item/Scripts/ItemSpawn.cs"
 "Assets/Item/Scripts/Oil.cs"
 "Assets/Item/Scripts/Question.cs"
