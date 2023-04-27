@@ -1532,6 +1532,12 @@ MonoBehaviour:
   master: {fileID: 24100000, guid: ccffd09b571353c46af4e34208bc0256, type: 2}
   _bgmSlider: {fileID: 1777021776}
   _sfxSlider: {fileID: 1772233264}
+  _soundIcon: {fileID: 0}
+  _soundStopSprite: {fileID: 0}
+  _SoundOnSprite: {fileID: 0}
+  _bgmIcon: {fileID: 0}
+  _bgmStopSprite: {fileID: 0}
+  _bgmOnSprite: {fileID: 0}
 --- !u!4 &756787732
 Transform:
   m_ObjectHideFlags: 0
@@ -5072,6 +5078,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eeeeb3d9c07cf946b33a200fa619203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vibrationImage: {fileID: 0}
+  vibrationStopSprite: {fileID: 0}
+  vibrationOnSprite: {fileID: 0}
 --- !u!1001 &633627722083815301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5385,7 +5394,7 @@ PrefabInstance:
       objectReference: {fileID: 1586476689}
     - target: {fileID: 4100687499833059584, guid: 31c0902224e1c7749a79d10e00d3466a, type: 3}
       propertyPath: pos
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4100687499833059584, guid: 31c0902224e1c7749a79d10e00d3466a, type: 3}
       propertyPath: combo_text
