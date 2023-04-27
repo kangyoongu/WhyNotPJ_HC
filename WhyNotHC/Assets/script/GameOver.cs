@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameOver : MonoBehaviour
 {
@@ -30,10 +31,16 @@ public class GameOver : MonoBehaviour
 
     AudioSource audioSource;
     public AudioSource boom;
+
+    public UnityEvent OnStart = null;
+
+    public GameObject bird;
+
+    public GameObject IngameSetting;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
+        
         if (!PlayerPrefs.HasKey("best"))
         {
             PlayerPrefs.SetInt("best", 0);//�ְ� ��ϰ�
@@ -119,6 +126,7 @@ public class GameOver : MonoBehaviour
     }
     public void OnCLickStart()//���ο��� ���� ������ ��
     {
+        Debug.Log("Start");
         for (int i = 0; i < main.Length; i++)
         {
             main[i].SetActive(false);
@@ -127,6 +135,7 @@ public class GameOver : MonoBehaviour
         {
             play[i].SetActive(true);
         }
+        OnStart?.Invoke();
         setting.SetActive(false);
         audioSource.Play();
         OnClickrestart();
@@ -159,8 +168,15 @@ public class GameOver : MonoBehaviour
     }
     public void OnClickSetting()//������ư ������ ��
     {
-        setting.SetActive(true);
-        audioSource.Play();
+        if (bird.activeInHierarchy == false) {
+            setting.SetActive(true);
+            audioSource.Play();
+        }
+        else
+        {
+            IngameSetting.SetActive(true);
+            TimeController.Instance.TimeSet(0);
+        }
     }
     public void OnClickBack()//�������� �ڷΰ��� ������ ��
     {

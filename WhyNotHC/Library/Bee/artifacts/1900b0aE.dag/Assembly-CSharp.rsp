@@ -380,6 +380,7 @@
 "Assets/You/Scripts/BirdTurn.cs"
 "Assets/You/Scripts/BirdTurnGenerator.cs"
 "Assets/You/Scripts/CubeController.cs"
+"Assets/You/TimeController.cs"
 -langversion:9.0
 
 /deterministic

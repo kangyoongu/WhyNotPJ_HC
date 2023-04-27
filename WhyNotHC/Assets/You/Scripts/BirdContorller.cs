@@ -18,20 +18,18 @@ public class BirdContorller : MonoBehaviour
     [SerializeField]AudioSource audioSource;
 
     private Vector3 _moveDir = new Vector3(0, 0, 1f);
+    float x1;
+    float x2;
+
 
 
     void Start()
     {
 
+        x1 = GetComponent<BirdGenerator>().x1;
+        x2 = GetComponent<BirdGenerator>().x2;
         isDead = false;
         _rb = GetComponent<Rigidbody>();
-        if (transform.position.x <= -15)
-        {
-            direction = false;
-            transform.rotation = Quaternion.Euler(0, 90, 0);
-        }
-        else
-            transform.rotation = Quaternion.Euler(0, -90, 0);
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -40,18 +38,27 @@ public class BirdContorller : MonoBehaviour
     {
         if (isDead == false)
         {
+            if (transform.position.x == x2)
+            {
+                direction = false;
+                transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
+            else if (transform.position.x == x1) ;
+            {
+                direction = true;
+                transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
+               
             if (direction == false)
             {
                 transform.Translate(_moveDir * speed * Time.deltaTime);
-                if (transform.position.x > 15)
-                    Destroy(gameObject);
+                
             }
 
             else
             {
                 transform.Translate(_moveDir * speed * Time.deltaTime);
-                if (transform.position.x < -15)
-                    Destroy(gameObject);
+                
             }
 
         }
@@ -64,9 +71,9 @@ public class BirdContorller : MonoBehaviour
         {
             audioSource.Play();
             if (direction)
-                other.transform.GetComponent<Rigidbody>().AddForce(transform.right * -push, ForceMode.Impulse);
+                other.transform.root.GetComponent<Rigidbody>().AddForce(transform.right * -push, ForceMode.Impulse);
             else
-                other.transform.GetComponent<Rigidbody>().AddForce(transform.right * push, ForceMode.Impulse);
+                other.transform.root.GetComponent<Rigidbody>().AddForce(transform.right * push, ForceMode.Impulse);
             StartCoroutine("Dead");
         }
         else
