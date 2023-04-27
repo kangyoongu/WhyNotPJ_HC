@@ -10,13 +10,6 @@ public class Vive : MonoBehaviour
     {
         oilManager = GetComponent<OilManager>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnClickVive() 
     { 
         if (oilManager.viveon == true) 
