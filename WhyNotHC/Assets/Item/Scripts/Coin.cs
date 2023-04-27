@@ -13,7 +13,7 @@ public class Coin : MonoBehaviour
         {
             PlayerPrefs.SetInt("coin", 0);
         }
-        coin.text = " : " + PlayerPrefs.GetInt("coin");
+        coin.text = PlayerPrefs.GetInt("coin").ToString();
     }
     //coin태그에 닿으면 coin +1
     public void OnTriggerEnter(Collider other)
@@ -22,7 +22,7 @@ public class Coin : MonoBehaviour
         if (other.gameObject.tag == "Coin")
         {
             PlayerPrefs.SetInt("coin", PlayerPrefs.GetInt("coin") + 1);
-            coin.text = " : " + PlayerPrefs.GetInt("coin");
+            coin.text = PlayerPrefs.GetInt("coin").ToString();
             other.gameObject.SetActive(false);
             audioSource.Play();
         }

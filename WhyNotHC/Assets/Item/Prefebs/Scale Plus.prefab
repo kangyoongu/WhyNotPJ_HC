@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 456181075659366997}
   - component: {fileID: 3409495909536812089}
   - component: {fileID: 8830629506799699821}
+  - component: {fileID: -4090108472737170851}
   m_Layer: 0
   m_Name: Scale Plus
   m_TagString: Plus
@@ -111,3 +112,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c949bb5c169249469d30d7655067498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4090108472737170851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4285385764795125827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ec9367099c746418987212fc4a4c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  removeItem: 10

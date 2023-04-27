@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Events;
 
 public class GameOver : MonoBehaviour
 {
@@ -16,14 +15,12 @@ public class GameOver : MonoBehaviour
     public Text bests;
     public Text playing;
     public OilManager oil;
-    public GameObject[] main;
-    public GameObject[] play;
-    public GameObject[] custom;
+    public GameObject mainCanv;
+    public GameObject playCanv;
     public GameObject setting;
     public Transform gmp;
     public ItemSpawn[] item;
     public Transform point;
-
     public ParticleSystem bomb;
     public bool isbomb = false;
 
@@ -31,16 +28,9 @@ public class GameOver : MonoBehaviour
 
     AudioSource audioSource;
     public AudioSource boom;
-
-    public UnityEvent OnStart = null;
-
-    public GameObject bird;
-
-    public GameObject IngameSetting;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        
         if (!PlayerPrefs.HasKey("best"))
         {
             PlayerPrefs.SetInt("best", 0);//�ְ� ��ϰ�
@@ -78,10 +68,6 @@ public class GameOver : MonoBehaviour
         {
             timer = 0;
         }
-        if(custom[0].activeSelf == true)
-        {
-            point.localRotation = Quaternion.Euler(-15, point.localEulerAngles.y + Time.deltaTime * 60, 0);
-        }
     }
     public void OnClickrestart()//�ٽý��� ��ư�� ������ ��
     {
@@ -107,14 +93,8 @@ public class GameOver : MonoBehaviour
     }
     public void OnClickMain()//�������� ���� ��ư�� ������ ��
     {
-        for(int i = 0; i < main.Length; i++)
-        {
-            main[i].SetActive(true);
-        }
-        for (int i = 0; i < play.Length; i++)
-        {
-            play[i].SetActive(false);
-        }
+        mainCanv.SetActive(true);
+        playCanv.SetActive(false);
         back.SetActive(false);
         transform.position = new Vector3(0, -1.62f, 0.82f);
         GameObject[] g = GameObject.FindGameObjectsWithTag("maps");
@@ -123,60 +103,20 @@ public class GameOver : MonoBehaviour
             Destroy(g[i]);
         }
         audioSource.Play();
+        Time.timeScale = 1;
     }
     public void OnCLickStart()//���ο��� ���� ������ ��
     {
-        Debug.Log("Start");
-        for (int i = 0; i < main.Length; i++)
-        {
-            main[i].SetActive(false);
-        }
-        for (int i = 0; i < play.Length; i++)
-        {
-            play[i].SetActive(true);
-        }
-        OnStart?.Invoke();
+        mainCanv.SetActive(false);
+        playCanv.SetActive(true);
         setting.SetActive(false);
         audioSource.Play();
         OnClickrestart();
     }
-    public void OnCLickCustom()//Ŀ����â ����
-    {
-        point.localPosition = new Vector3(0, -7, 0);
-        for (int i = 0; i < main.Length; i++)
-        {
-            main[i].SetActive(false);
-        }
-        for (int i = 0; i < custom.Length; i++)
-        {
-            custom[i].SetActive(true);
-        }
-    }
-    public void OnCLickCustom_out()//Ŀ����â �ݱ�
-    {
-        point.localPosition = new Vector3(0, 0, 0);
-        point.localRotation = Quaternion.Euler(0, 0, 0);
-        for (int i = 0; i < main.Length; i++)
-        {
-            main[i].SetActive(true);
-        }
-        for (int i = 0; i < custom.Length; i++)
-        {
-            custom[i].SetActive(false);
-        }
-        audioSource.Play();
-    }
     public void OnClickSetting()//������ư ������ ��
     {
-        if (bird.activeInHierarchy == false) {
-            setting.SetActive(true);
-            audioSource.Play();
-        }
-        else
-        {
-            IngameSetting.SetActive(true);
-            TimeController.Instance.TimeSet(0);
-        }
+        setting.SetActive(true);
+        audioSource.Play();
     }
     public void OnClickBack()//�������� �ڷΰ��� ������ ��
     {

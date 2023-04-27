@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7939012357553387008}
   - component: {fileID: 7939012357553387015}
   - component: {fileID: -6039838195372133284}
+  - component: {fileID: -1971880138208037961}
+  - component: {fileID: -7839546714517326117}
   m_Layer: 0
   m_Name: Quest
   m_TagString: Quest
@@ -98,3 +100,28 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6277642020468327343, guid: 1a405e1aa48ceb043b315486eaf29a00, type: 3}
+--- !u!114 &-1971880138208037961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939012357553387013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ec9367099c746418987212fc4a4c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  removeItem: 10
+--- !u!114 &-7839546714517326117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939012357553387013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c949bb5c169249469d30d7655067498, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

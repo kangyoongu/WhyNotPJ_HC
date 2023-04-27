@@ -15,33 +15,12 @@ public class ItemSpawn : MonoBehaviour
     public bool isSpawn = true;
     float itemX;
 
-
-
     private void Awake()
     {
         oilManager = player.transform.GetComponent<OilManager>();
     }
-
-
     void Update()
     {
-        
-        curtime += Time.deltaTime;
-        
-        if(curtime > del)
-        {
-            
-            if (isSpawn == true)
-            {
-                itemX = Random.Range(-5f, 5f);
-                lastZ = lastZ + Random.Range(100, 500);//아이템 거리
-                GameObject temp = Instantiate(item);
-                temp.transform.position = new Vector3(itemX, 0, lastZ);
-            }
-
-            curtime = 0;
-            
-        }
 
         if (oilManager.bar.fillAmount <= 0f)
         {
@@ -49,7 +28,7 @@ public class ItemSpawn : MonoBehaviour
             lastZ = 0;//초기화
             itemX = 0;
             GameObject[] delItems = GameObject.FindGameObjectsWithTag(tagName);
-            
+
             foreach (var delItem in delItems)
             {
                 Destroy(delItem);//아이템 전부 삭제
@@ -62,5 +41,17 @@ public class ItemSpawn : MonoBehaviour
         gameObject.SetActive(true);
         isSpawn = true; 
     }
+    public IEnumerator itemSpawning()
+    {
+        if (isSpawn == true)
+        {
+            itemX = Random.Range(-5f, 5f);
+            lastZ = lastZ + Random.Range(100, 500);//아이템 거리
+            GameObject temp = Instantiate(item);
+            temp.transform.position = new Vector3(itemX, Random.Range(4, 7), lastZ);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+    
 
 }

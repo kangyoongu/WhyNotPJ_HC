@@ -16,15 +16,19 @@ public class OilManager : MonoBehaviour
     public int buildingScore;
     public CubeController cubeController;
     public bool viveon = true;
-
+    ItemSpawn[] item;
+    ItemSpawn items;
+    [SerializeField] float pos = 20;
     private void Start()
     {
         cubeController = GetComponent<CubeController>();
+        item = FindObjectsOfType<ItemSpawn>();
+        items = FindObjectOfType<ItemSpawn>();
     }
     void Update()
     {
         if(landing == false)//떠있다면 오일 깎는다
-            bar.fillAmount -= he.y*0.0003f;
+            bar.fillAmount -= he.y*0.0002f;
         sc.text = score.ToString("0");
 
         
@@ -40,6 +44,16 @@ public class OilManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "building")
         {
+            if (bar.fillAmount != 0 && items.isSpawn == true)
+            {
+                int itemRandom = Random.Range(0, 100);
+                if (itemRandom <= pos)
+                {
+                    int rand = Random.Range(0, item.Length);
+                    item[rand].StartCoroutine("itemSpawning");
+                }
+                
+            }
             landing = true;
             if (collision.transform.position.z >= -0.4)//착륙 얼마나 중앙에 가까운지에 따라 점수 줌
             {
