@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/moving.unity
+- path: Assets/Scenes/moving lsg.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
