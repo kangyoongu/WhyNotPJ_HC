@@ -18,6 +18,7 @@ public class OilManager : MonoBehaviour
     public bool viveon = true;
     ItemSpawn[] item;
     ItemSpawn items;
+    [SerializeField] float pos = 20;
     private void Start()
     {
         cubeController = GetComponent<CubeController>();
@@ -46,7 +47,7 @@ public class OilManager : MonoBehaviour
             if (bar.fillAmount != 0 && items.isSpawn == true)
             {
                 int itemRandom = Random.Range(0, 100);
-                if (itemRandom <= 20)
+                if (itemRandom <= pos)
                 {
                     int rand = Random.Range(0, item.Length);
                     item[rand].StartCoroutine("itemSpawning");
