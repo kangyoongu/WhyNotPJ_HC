@@ -382,6 +382,7 @@
 "Assets/script/OilManager.cs"
 "Assets/script/Quit.cs"
 "Assets/script/SoundManager.cs"
+"Assets/script/UIManager.cs"
 "Assets/You/Scripts/BirdContorller.cs"
 "Assets/You/Scripts/BirdGenerator.cs"
 "Assets/You/Scripts/BirdTurn.cs"

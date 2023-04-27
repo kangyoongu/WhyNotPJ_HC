@@ -6,21 +6,31 @@ using TMPro;
 public class CustomManager : MonoBehaviour
 {
 
-    public Material[] mat;
     public MeshRenderer play;
-    public TextMeshProUGUI rain;
     public TextMeshProUGUI coin;
+    private int count = 2;
+    public Material[] mat;
+    public TextMeshProUGUI[] priceText;
+    string[] engName = { "mil", "rain" };
+    string[] korName = { "군용 헬기", "무지개 헬기" };
     private void Start()
     {
-        if (!PlayerPrefs.HasKey("rainbuy"))
+        if (!PlayerPrefs.HasKey($"isBuy{engName[0]}"))
         {
-            PlayerPrefs.SetInt("rainbuy", 0);
+            PlayerPrefs.SetInt($"isBuy{engName[0]}", 1);
+            for (int i = 1; i < count; i++)
+            {
+                PlayerPrefs.SetInt($"isBuy{engName[i]}", 0);
+            }
             PlayerPrefs.SetInt("onmat", 0);
         }
         play.material = mat[PlayerPrefs.GetInt("onmat")];
-        if (PlayerPrefs.GetInt("rainbuy") == 1)
+        for (int i = 0; i < count; i++)
         {
-            rain.text = "무지개 헬기 보유";
+            if (PlayerPrefs.GetInt($"isBuy{engName[i]}") == 1)
+            {
+                priceText[i].text = $"{korName} 보유";
+            }
         }
     }
     void Update()
@@ -29,24 +39,27 @@ public class CustomManager : MonoBehaviour
     }
     public void OnClickMil()
     {
-        play.material = mat[0];
-        PlayerPrefs.SetInt("onmat", 0);
+        Work(0, 1);
     }
     public void OnClickRain()
     {
-        if (PlayerPrefs.GetInt("rainbuy") == 1)
+        Work(200, 1);
+    }
+    private void Work(int price, int index)
+    {
+        if (PlayerPrefs.GetInt($"isBuy{engName[index]}") == 1)
         {
-            play.material = mat[1];
-            PlayerPrefs.SetInt("onmat", 1);
+            play.material = mat[index];
+            PlayerPrefs.SetInt("onmat", index);
         }
-        else if (PlayerPrefs.GetInt("coin") >= 200)
+        else if (PlayerPrefs.GetInt("coin") >= price)
         {
-            play.material = mat[1];
-            PlayerPrefs.SetInt("coin", PlayerPrefs.GetInt("coin") - 200);
-            PlayerPrefs.SetInt("rainbuy", 1);
-            rain.text = "무지개 헬기 보유";
-            PlayerPrefs.SetInt("onmat", 1);
-            coin.text = "coin : " + PlayerPrefs.GetInt("coin");
+            play.material = mat[index];
+            PlayerPrefs.SetInt("coin", PlayerPrefs.GetInt("coin") - price);
+            PlayerPrefs.SetInt($"isBuy{engName[index]}", 1);
+            priceText[index].text = korName[index] + "보유";
+            PlayerPrefs.SetInt("onmat", index);
+            coin.text = PlayerPrefs.GetInt("coin").ToString();
         }
     }
 }

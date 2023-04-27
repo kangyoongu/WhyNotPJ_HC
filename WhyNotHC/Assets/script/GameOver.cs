@@ -15,9 +15,8 @@ public class GameOver : MonoBehaviour
     public Text bests;
     public Text playing;
     public OilManager oil;
-    public GameObject[] main;
-    public GameObject[] play;
-    public GameObject[] custom;
+    public GameObject mainCanv;
+    public GameObject playCanv;
     public GameObject setting;
     public Transform gmp;
     public ItemSpawn[] item;
@@ -71,10 +70,6 @@ public class GameOver : MonoBehaviour
         {
             timer = 0;
         }
-        if(custom[0].activeSelf == true)
-        {
-            point.localRotation = Quaternion.Euler(-15, point.localEulerAngles.y + Time.deltaTime * 60, 0);
-        }
     }
     public void OnClickrestart()//�ٽý��� ��ư�� ������ ��
     {
@@ -100,14 +95,8 @@ public class GameOver : MonoBehaviour
     }
     public void OnClickMain()//�������� ���� ��ư�� ������ ��
     {
-        for(int i = 0; i < main.Length; i++)
-        {
-            main[i].SetActive(true);
-        }
-        for (int i = 0; i < play.Length; i++)
-        {
-            play[i].SetActive(false);
-        }
+        mainCanv.SetActive(true);
+        playCanv.SetActive(false);
         back.SetActive(false);
         transform.position = new Vector3(0, -1.62f, 0.82f);
         GameObject[] g = GameObject.FindGameObjectsWithTag("maps");
@@ -116,46 +105,15 @@ public class GameOver : MonoBehaviour
             Destroy(g[i]);
         }
         audioSource.Play();
+        Time.timeScale = 1;
     }
     public void OnCLickStart()//���ο��� ���� ������ ��
     {
-        for (int i = 0; i < main.Length; i++)
-        {
-            main[i].SetActive(false);
-        }
-        for (int i = 0; i < play.Length; i++)
-        {
-            play[i].SetActive(true);
-        }
+        mainCanv.SetActive(false);
+        playCanv.SetActive(true);
         setting.SetActive(false);
         audioSource.Play();
         OnClickrestart();
-    }
-    public void OnCLickCustom()//Ŀ����â ����
-    {
-        point.localPosition = new Vector3(0, -7, 0);
-        for (int i = 0; i < main.Length; i++)
-        {
-            main[i].SetActive(false);
-        }
-        for (int i = 0; i < custom.Length; i++)
-        {
-            custom[i].SetActive(true);
-        }
-    }
-    public void OnCLickCustom_out()//Ŀ����â �ݱ�
-    {
-        point.localPosition = new Vector3(0, 0, 0);
-        point.localRotation = Quaternion.Euler(0, 0, 0);
-        for (int i = 0; i < main.Length; i++)
-        {
-            main[i].SetActive(true);
-        }
-        for (int i = 0; i < custom.Length; i++)
-        {
-            custom[i].SetActive(false);
-        }
-        audioSource.Play();
     }
     public void OnClickSetting()//������ư ������ ��
     {

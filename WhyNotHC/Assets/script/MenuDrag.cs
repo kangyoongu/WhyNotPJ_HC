@@ -4,55 +4,97 @@ using DG.Tweening;
 public class MenuDrag : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
     public float threshold = 5f;
-    public Vector3 DownPosition;
-    public Vector3 UpPosition;
+    public float DownPosition;
+    public float UpPosition;
+    bool isMoveUp = false;
+    public bool IsMoveUp
+    {
+        get { return isMoveUp; }
+
+        set
+        {
+            isMoveUp = value;
+
+            AutoMove(isMoveUp);
+        }
+    }
     bool trg = true;
     bool isUp = false;
-    bool isTouch = false;
+    bool isNotTouch = false;
+    private Sequence seq;
+    private RectTransform rectTransform;
+    public RectTransform makeUpUis;
+    public float UpUIs;
+    public float DownUIs;
     public void OnDrag(PointerEventData eventData)
     {
-        if (trg == true)
+        isNotTouch = false;
+
+        if (trg)
         {
-            transform.position = new Vector3(transform.position.x, Input.mousePosition.y, transform.position.z);
+            rectTransform.position = new Vector3(rectTransform.position.x, Input.mousePosition.y - 158, rectTransform.position.z);
+
+            if (rectTransform.position.y > UpPosition)
+            {
+                rectTransform.position = new Vector3(rectTransform.position.x, UpPosition, rectTransform.position.z);
+            }
         }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        isTouch = false;
+
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        isTouch = true;
+        isNotTouch = true;
+
+        AutoMove(isMoveUp);//애니 안할떄만
+    }
+
+    private void OnEnable()
+    {
+        rectTransform = GetComponent<RectTransform>();
+        DOTween.SetTweensCapacity(5000, 2500);
     }
 
     private void Update()
     {
-        if (transform.position.y > threshold && (isUp == false || isTouch == true))
+        if (!isNotTouch)
         {
-            transform.DOMove(UpPosition, 1.5f).SetEase(Ease.OutCirc);
-            trg = false;
-            if(Vector3.Distance(transform.position, UpPosition) <= 1)
+            if (!isUp && rectTransform.position.y > threshold && trg)
             {
-                DOTween.KillAll();
-                isUp = true;
-                trg = true;
-                isTouch = false;
+                IsMoveUp = true;
+            }
+            else if (isUp && rectTransform.position.y <= threshold && trg)
+            {
+                IsMoveUp = false;
             }
         }
-        if((isTouch == true || isUp == true) && transform.position.y <= threshold)
+
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            transform.DOMove(DownPosition, 1.5f).SetEase(Ease.OutCirc);
-            trg = false;
-            if (Vector3.Distance(transform.position, DownPosition) <= 1)
-            {
-                DOTween.KillAll();
-                isUp = false;
-                trg = true;
-                isTouch = false;
-            }
+            seq.TogglePause();
         }
     }
 
+    private void AutoMove(bool isMoveUp)
+    {
+        seq = DOTween.Sequence();
+
+        trg = false;
+        seq.Append(rectTransform.DOAnchorPosY(isMoveUp ? UpPosition : DownPosition, 1f).SetEase(Ease.OutCirc))
+            .Join(makeUpUis.DOAnchorPosY(isMoveUp ? UpUIs : DownUIs, 1f).SetEase(Ease.OutCirc))
+            .OnComplete(() =>
+            {
+                isUp = isMoveUp;
+                trg = true;
+                isNotTouch = false;
+            })
+            .AppendCallback(() =>
+            {
+                seq.Kill();
+            });
+    }
 }
