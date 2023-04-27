@@ -26,8 +26,8 @@ public class BirdContorller : MonoBehaviour
     void Start()
     {
 
-        x1 = GetComponent<BirdGenerator>().x1;
-        x2 = GetComponent<BirdGenerator>().x2;
+        //x1 = GetComponent<BirdGenerator>().x1;
+        //x2 = GetComponent<BirdGenerator>().x2;
         isDead = false;
         _rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
@@ -38,12 +38,12 @@ public class BirdContorller : MonoBehaviour
     {
         if (isDead == false)
         {
-            if (transform.position.x == x2)
+            if (transform.position.x >12)
             {
                 direction = false;
                 transform.rotation = Quaternion.Euler(0, 90, 0);
             }
-            else if (transform.position.x == x1) ;
+            else if (transform.position.x <12) 
             {
                 direction = true;
                 transform.rotation = Quaternion.Euler(0, -90, 0);
