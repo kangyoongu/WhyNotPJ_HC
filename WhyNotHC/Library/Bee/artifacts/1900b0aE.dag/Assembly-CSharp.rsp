@@ -366,6 +366,7 @@
 "Assets/Item/Scripts/ScalePlus.cs"
 "Assets/Item/Scripts/ScaleTurn1.cs"
 "Assets/Item/Scripts/SlowSpeed.cs"
+"Assets/Item/Scripts/Timer.cs"
 "Assets/Item/Scripts/Vive.cs"
 "Assets/Quirky Series - Birds Bundle/_Scripts/Demo.cs"
 "Assets/script/back.cs"

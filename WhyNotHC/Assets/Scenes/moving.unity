@@ -1058,7 +1058,7 @@ GameObject:
   - component: {fileID: 340364142}
   - component: {fileID: 340364141}
   m_Layer: 5
-  m_Name: PlusTimer
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1561,6 +1561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 712963165}
   - component: {fileID: 712963164}
+  - component: {fileID: 712963166}
   m_Layer: 0
   m_Name: UImanager
   m_TagString: Untagged
@@ -1596,6 +1597,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &712963166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712963163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2342ec4d664635e47be108cc035345f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: {fileID: 340364141}
 --- !u!1 &756787730
 GameObject:
   m_ObjectHideFlags: 0
@@ -4878,10 +4892,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 3
   Wtime: 10
+  timer: 3
   speed: 5
   curSpeed: 0
   par: {fileID: 330805975}
   move: {fileID: 446606177}
+  timerImage: {fileID: 0}
 --- !u!114 &543450653442398297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4900,6 +4916,7 @@ MonoBehaviour:
   curSpeed: 0
   par: {fileID: 935415594}
   move: {fileID: 446606177}
+  timerImage: {fileID: 0}
 --- !u!114 &543450653442398298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4913,6 +4930,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 1586476689}
+  timer: {fileID: 0}
+  time: 10
 --- !u!114 &543450653442398300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4926,6 +4945,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: {fileID: 446606177}
+  timer: {fileID: 0}
+  time: 5
 --- !u!114 &543450653442398301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4938,6 +4959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77c1a6f8cfc556458832c9d25e6dedc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 0}
+  time: 10
 --- !u!114 &543450653442398302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4950,6 +4973,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cad03e48c3dc03a4592dd025b4e3f20f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlus: 0
+  timer: {fileID: 0}
+  time: 10
 --- !u!114 &543450653442398304
 MonoBehaviour:
   m_ObjectHideFlags: 0

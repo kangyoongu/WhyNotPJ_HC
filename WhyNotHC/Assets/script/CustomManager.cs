@@ -29,7 +29,7 @@ public class CustomManager : MonoBehaviour
         {
             if (PlayerPrefs.GetInt($"isBuy{engName[i]}") == 1)
             {
-                priceText[i].text = $"{korName} 보유";
+                //priceText[i].text = $"{korName} 보유";
             }
         }
     }

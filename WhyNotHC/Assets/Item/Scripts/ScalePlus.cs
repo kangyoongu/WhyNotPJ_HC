@@ -1,13 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScalePlus : MonoBehaviour
 {
-  public void OnTriggerEnter(Collider other)
+    [SerializeField] bool isPlus = false;
+    [SerializeField] Timer timer;
+    [SerializeField] float time;
+    private void Start()
+    {
+        timer = FindObjectOfType<Timer>();
+    }
+    private void Update()
+    {
+        if(isPlus == true)
+        {
+            timer.Waitsecond(time);
+        }
+    }
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Plus")//헬기 사이즈 키우기
         {
+            isPlus = true;
             other.gameObject.SetActive(false);
             this.transform.localScale += new Vector3(.2f, .2f, .2f);
             Invoke("MinusSize", 10);
