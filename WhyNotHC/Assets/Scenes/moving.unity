@@ -5413,6 +5413,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4826004801016267588, guid: b7505746d4dd16541a9e8b2f708a9639, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2338935473981091958, guid: b7505746d4dd16541a9e8b2f708a9639, type: 3}
       propertyPath: m_TagString
       value: Low Building
@@ -5506,6 +5510,10 @@ PrefabInstance:
       propertyPath: bar
       value: 
       objectReference: {fileID: 1586476689}
+    - target: {fileID: 4100687499833059584, guid: 31c0902224e1c7749a79d10e00d3466a, type: 3}
+      propertyPath: pos
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 4100687499833059584, guid: 31c0902224e1c7749a79d10e00d3466a, type: 3}
       propertyPath: combo_text
       value: 
@@ -5849,6 +5857,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2864247820498507326, guid: c931617161e929a45be052264b48e218, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5865052595890506546, guid: c931617161e929a45be052264b48e218, type: 3}
       propertyPath: m_Name
       value: map
@@ -5934,6 +5946,14 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 756787731}
+    - target: {fileID: 6439833578789347019, guid: 0bf83d2d2f1a502488f95653451b8df2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -178
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439833578789347019, guid: 0bf83d2d2f1a502488f95653451b8df2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -304
+      objectReference: {fileID: 0}
     - target: {fileID: 6439833578803765637, guid: 0bf83d2d2f1a502488f95653451b8df2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
