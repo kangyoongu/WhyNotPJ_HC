@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameOver : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class GameOver : MonoBehaviour
     public Transform gmp;
     public ItemSpawn[] item;
     public Transform point;
+    public TextMeshProUGUI Main_Best;
+    public TextMeshProUGUI Main_this;
+
     public ParticleSystem bomb;
     public bool isbomb = false;
 
@@ -31,10 +35,12 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
         if (!PlayerPrefs.HasKey("best"))
         {
             PlayerPrefs.SetInt("best", 0);//�ְ� ��ϰ�
         }
+        Main_Best.text = PlayerPrefs.GetInt("best").ToString();
     }
     void Update()
     {
@@ -48,20 +54,9 @@ public class GameOver : MonoBehaviour
         if (bar.fillAmount == 0)
         {
             timer += Time.deltaTime;
-            if(timer >= 7)//���� ���� �Ǹ�
+            if(timer >= 6)//���� ���� �Ǹ�
             {
-                timer = 0;
-                Time.timeScale = 0;
-                back.SetActive(true);
-                OilManager oil = FindObjectOfType<OilManager>();
-                nows.text = "your score\n<size=150>" + playing.text + "</size>";//��� ���ڵ� �ٲٱ�
-                if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
-                {
-                    PlayerPrefs.SetInt("best", int.Parse(playing.text));
-                }
-                bests.text = "best score\n<size=180>" + PlayerPrefs.GetInt("best") + "</size>";
-                oil.combo = 0;
-                oil.combo_text.text = "";
+                GameOverCode();
             }
         }
         else
@@ -123,8 +118,13 @@ public class GameOver : MonoBehaviour
         setting.SetActive(false);
         audioSource.Play();
     }
-
-
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Low Building")
+        {
+            GameOverCode();
+        }
+    }
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Boom")//Boom �±׿� ������
@@ -156,5 +156,22 @@ public class GameOver : MonoBehaviour
             item[i].itemRespawn();
         }
         
+    }
+    private void GameOverCode()
+    {
+        timer = 0;
+        Time.timeScale = 0;
+        back.SetActive(true);
+        OilManager oil = FindObjectOfType<OilManager>();
+        nows.text = playing.text;//��� ���ڵ� �ٲٱ�
+        if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
+        {
+            PlayerPrefs.SetInt("best", int.Parse(playing.text));
+        }
+        bests.text = PlayerPrefs.GetInt("best").ToString();
+        Main_Best.text = PlayerPrefs.GetInt("best").ToString();
+        Main_this.text = playing.text;
+        oil.combo = 0;
+        oil.combo_text.text = "";
     }
 }
