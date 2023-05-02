@@ -48,7 +48,7 @@ public class ItemSpawn : MonoBehaviour
             itemX = Random.Range(-10f, 10f);
             lastZ = lastZ + Random.Range(100, 500);//아이템 거리
             GameObject temp = Instantiate(item);
-            temp.transform.position = new Vector3(itemX, Random.Range(5, 10), lastZ);
+            temp.transform.position = new Vector3(itemX, Random.Range(5, 10), lastZ + 50);
             yield return new WaitForSeconds(0.1f);
         }
     }
