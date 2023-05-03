@@ -15,10 +15,10 @@ public class GameOver : MonoBehaviour
     public Text nows;
     public Text bests;
     public Text playing;
-    public OilManager oil;
     public GameObject mainCanv;
     public GameObject playCanv;
     public GameObject setting;
+    public OilManager oil;
     public Transform gmp;
     public ItemSpawn[] item;
     public Transform point;
@@ -68,7 +68,7 @@ public class GameOver : MonoBehaviour
     {
         transform.position = new Vector3(0, -1.62f, 0.82f);
         GameObject[] g = GameObject.FindGameObjectsWithTag("maps");
-        for(int i = 2; i < g.Length; i++)
+        for (int i = 2; i < g.Length; i++)
         {
             Destroy(g[i]);
         }
@@ -80,11 +80,12 @@ public class GameOver : MonoBehaviour
         oil.score = 0;
         gmp.position = new Vector3(0.02899998f, -1.599503f, -0.4820083f);
         GameObject[] gold = GameObject.FindGameObjectsWithTag("Coin");
-        for(int i = 1; i < gold.Length; i++)
+        for (int i = 1; i < gold.Length; i++)
         {
             Destroy(gold[i]);
         }
         audioSource.Play();
+        //SceneManager.LoadScene("moving");
     }
     public void OnClickMain()//�������� ���� ��ư�� ������ ��
     {

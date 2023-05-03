@@ -8,11 +8,11 @@ public class CustomManager : MonoBehaviour
 
     public MeshRenderer play;
     public TextMeshProUGUI coin;
-    private int count = 2;
+    private int count = 4;
     public Material[] mat;
     public TextMeshProUGUI[] priceText;
-    string[] engName = { "mil", "rain" };
-    string[] korName = { "±º¿ë Çï±â", "¹«Áö°³ Çï±â" };
+    string[] engName = { "mil", "rain", "fire", "doc"};
+    string[] korName = { "±º¿ë Çï±â", "¹«Áö°³ Çï±â", "È­¿° Çï±â", "±¸±Þ Çï±â"};
     public GameObject[] lok;
     private void Start()
     {
@@ -35,10 +35,6 @@ public class CustomManager : MonoBehaviour
             }
         }
     }
-    void Update()
-    {
-        
-    }
     public void OnClickMil()
     {
         Work(0, 0);
@@ -46,6 +42,14 @@ public class CustomManager : MonoBehaviour
     public void OnClickRain()
     {
         Work(200, 1);
+    }
+    public void OnClickFire()
+    {
+        Work(200, 2);
+    }
+    public void OnClickDoc()
+    {
+        Work(200, 3);
     }
     private void Work(int price, int index)
     {

@@ -66,8 +66,6 @@ public class OilManager : MonoBehaviour
                     {
                         Handheld.Vibrate();
                     }
-                    
-
 
                     if (combo % 5 == 0)
                     {
