@@ -136,13 +136,14 @@ public class GameOver : MonoBehaviour
             
             Debug.Log("Boom");
             OilManager oil = FindObjectOfType<OilManager>();
-            nows.text = "your score\n<size=150>" + playing.text + "</size>";//��� ���ڵ� �ٲٱ�
-
+            nows.text = playing.text;//��� ���ڵ� �ٲٱ�
             if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
             {
                 PlayerPrefs.SetInt("best", int.Parse(playing.text));
             }
-            bests.text = "best score\n<size=180>" + PlayerPrefs.GetInt("best") + "</size>";
+            bests.text = PlayerPrefs.GetInt("best").ToString();
+            Main_Best.text = PlayerPrefs.GetInt("best").ToString();
+            Main_this.text = playing.text;
             oil.combo = 0;
             oil.combo_text.text = "";
         }

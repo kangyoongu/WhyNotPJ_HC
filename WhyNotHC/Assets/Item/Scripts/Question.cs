@@ -13,16 +13,15 @@ public class Question : MonoBehaviour
     {
         timer = FindObjectOfType<Timer>();
     }
-    private void Update()
+    private void wait()
     {
-        if(move.isQuest == true)
         timer.Waitsecond(time);
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Quest")
         {
-            
+            wait();
             move.isQuest = true;
             other.gameObject.SetActive(false);
         }

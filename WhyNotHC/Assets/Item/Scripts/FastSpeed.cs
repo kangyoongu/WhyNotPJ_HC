@@ -16,39 +16,46 @@ public class FastSpeed : MonoBehaviour
     public Move1 move;
     bool isEffect = false;
     [SerializeField] Timer timerImage;
-
+    
+    bool isUpdate;
     private void Start()
     {
         timerImage = FindObjectOfType<Timer>();
     }
     void Update()
     {
-        if (isSpeed == true)
-        {
-            curSpeed = speed * 1.5f;
-            timerImage.Waitsecond(time);
-            timer -= Time.deltaTime;
-            
-            move.moveSpeed = 700;
-            
-            if(isEffect == true)
+        
+            if (isSpeed == true)
             {
-                par.Play();
-                isEffect = false;
+                curSpeed = speed * 1.5f;
+            if (isUpdate == true)
+            {
+                timerImage.Waitsecond(time);
+                isUpdate = false;
             }
+                timer -= Time.deltaTime;
+
+                move.moveSpeed = 700;
+
+                if (isEffect == true)
+                {
+                    par.Play();
+                    isEffect = false;
+                }
 
 
-            if (timer <= 0)
-            {
-                isSpeed = false;
-                move.moveSpeed = 300;
-                par.Stop();
+                if (timer <= 0)
+                {
+                    isSpeed = false;
+                    isUpdate = false;
+                    move.moveSpeed = 300;
+                    par.Clear();
+                }
             }
-        }
-        else
-        {
-            curSpeed = speed;
-        }
+            else
+            {
+                curSpeed = speed;
+            }
         
          
     }
@@ -58,6 +65,7 @@ public class FastSpeed : MonoBehaviour
         {
             isSpeed = true;
             isEffect = true;
+            isUpdate = true;
             timer = time;
             Destroy(other.gameObject);
         }

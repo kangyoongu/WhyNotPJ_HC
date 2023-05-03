@@ -17,6 +17,7 @@ public class SlowSpeed : MonoBehaviour
     bool isEffect = false;
     [SerializeField] Timer timerImage;
 
+    bool isUpdate;
     private void Start()
     {
         timerImage = FindObjectOfType<Timer>();
@@ -25,31 +26,41 @@ public class SlowSpeed : MonoBehaviour
     {
         if (isSpeed == true)
         {
-            curSpeed = speed * 1.5f;
-            timerImage.Waitsecond(time);
-            timer -= Time.deltaTime;
             
-            move.moveSpeed = 100;
-            
-            if(isEffect == true)
+                curSpeed = speed * 1.5f;
+            if (isUpdate == true)
             {
-                par.Play();
-                isEffect = false;
+                timerImage.Waitsecond(time);
+                isUpdate = false;
             }
+                timer -= Time.deltaTime;
+
+                move.moveSpeed = 100;
+
+                if (isEffect == true)
+                {
+                    par.Play();
+                    isEffect = false;
+                }
 
 
-            if (timer <= 0)
+                if (timer <= 0)
+                {
+                    isSpeed = false;
+
+                    isUpdate = false;
+
+                    move.moveSpeed = 300;
+                    par.Clear();
+                }
+                
+            }
+            else
             {
-                isSpeed = false;
-                move.moveSpeed = 300;
-                par.Stop();
+                curSpeed = speed;
             }
-        }
-        else
-        {
-            curSpeed = speed;
-        }
-
+        
+        
         
     }
     public void OnTriggerEnter(Collider other)
@@ -58,6 +69,9 @@ public class SlowSpeed : MonoBehaviour
         {
             isSpeed = true;
             isEffect = true;
+
+            isUpdate = true;
+
             timer = time;
             Destroy(other.gameObject);
         }
