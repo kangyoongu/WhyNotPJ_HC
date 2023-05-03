@@ -352,6 +352,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Item/Cloud/CloudMaker.cs"
+"Assets/Item/Scripts/BombItemRemove.cs"
 "Assets/Item/Scripts/Boom.cs"
 "Assets/Item/Scripts/Camerapos.cs"
 "Assets/Item/Scripts/Coin.cs"
@@ -365,6 +366,7 @@
 "Assets/Item/Scripts/ScalePlus.cs"
 "Assets/Item/Scripts/ScaleTurn1.cs"
 "Assets/Item/Scripts/SlowSpeed.cs"
+"Assets/Item/Scripts/Timer.cs"
 "Assets/Item/Scripts/Vive.cs"
 "Assets/Quirky Series - Birds Bundle/_Scripts/Demo.cs"
 "Assets/script/back.cs"
@@ -390,7 +392,6 @@
 "Assets/You/Scripts/BirdTurn.cs"
 "Assets/You/Scripts/BirdTurnGenerator.cs"
 "Assets/You/Scripts/CubeController.cs"
-"Assets/You/TimeController.cs"
 -langversion:9.0
 
 /deterministic

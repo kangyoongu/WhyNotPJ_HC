@@ -16,6 +16,7 @@ TagManager:
   - Quest
   - Minus
   - Plus
+  - Low Building
   layers:
   - Default
   - TransparentFX
