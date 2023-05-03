@@ -101,7 +101,7 @@ public class OilManager : MonoBehaviour
             }
             if (buildingScore >= 20 && buildingScore <= 22)
             {
-                cubeController.AddPower();
+                //cubeController.AddPower();
             }
         }
     }
