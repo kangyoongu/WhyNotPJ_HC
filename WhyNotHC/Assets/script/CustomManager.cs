@@ -13,6 +13,7 @@ public class CustomManager : MonoBehaviour
     public TextMeshProUGUI[] priceText;
     string[] engName = { "mil", "rain" };
     string[] korName = { "군용 헬기", "무지개 헬기" };
+    public GameObject[] lok;
     private void Start()
     {
         if (!PlayerPrefs.HasKey($"isBuy{engName[0]}"))
@@ -29,7 +30,8 @@ public class CustomManager : MonoBehaviour
         {
             if (PlayerPrefs.GetInt($"isBuy{engName[i]}") == 1)
             {
-                priceText[i].text = $"{korName} 보유";
+                lok[i].SetActive(false);
+                priceText[i].text = $"{korName[i]} 보유";
             }
         }
     }
@@ -39,7 +41,7 @@ public class CustomManager : MonoBehaviour
     }
     public void OnClickMil()
     {
-        Work(0, 1);
+        Work(0, 0);
     }
     public void OnClickRain()
     {
@@ -55,6 +57,7 @@ public class CustomManager : MonoBehaviour
         else if (PlayerPrefs.GetInt("coin") >= price)
         {
             play.material = mat[index];
+            lok[index].SetActive(false);
             PlayerPrefs.SetInt("coin", PlayerPrefs.GetInt("coin") - price);
             PlayerPrefs.SetInt($"isBuy{engName[index]}", 1);
             priceText[index].text = korName[index] + "보유";

@@ -106,6 +106,7 @@ public class Move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
         float distance = Vector2.Distance(rect_Background.position, rect_Joystick.position) / radius;
         value = value.normalized;
         y = value.y * moveSpeed * distance * Time.deltaTime;
+        Debug.Log(distance);
         x = value.x * moveSpeed * distance * Time.deltaTime;
     }
     private void OnTriggerEnter(Collider other)
