@@ -46,10 +46,10 @@ public class CubeController : MonoBehaviour
 
     public void AddPower()
     {
-            RwindForce += new Vector3(0.3f, 0, 0);
-            LwindForce += new Vector3(-0.3f, 0, 0);
-            windForceTime += 0.3f;
-            print("a");
+        RwindForce += new Vector3(0.3f, 0, 0);
+        LwindForce += new Vector3(-0.3f, 0, 0);
+        windForceTime += 0.3f;
+
     }
 
     //private void windPlus()
@@ -72,6 +72,7 @@ public class CubeController : MonoBehaviour
     {
         while (true)
         {
+
             windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
            
             Directioin = Random.Range(0, 2);
