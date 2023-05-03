@@ -14,7 +14,6 @@ public class ItemSpawn : MonoBehaviour
     private float lastZ;
     public bool isSpawn = true;
     float itemX;
-
     private void Awake()
     {
         oilManager = player.transform.GetComponent<OilManager>();
@@ -24,16 +23,18 @@ public class ItemSpawn : MonoBehaviour
 
         if (oilManager.bar.fillAmount <= 0f)
         {
-            isSpawn = false;
-            lastZ = 0;//초기화
-            itemX = 0;
-            GameObject[] delItems = GameObject.FindGameObjectsWithTag(tagName);
+            
+                isSpawn = false;
+                lastZ = 0;//초기화
+                itemX = 0;
+                GameObject[] delItems = GameObject.FindGameObjectsWithTag(tagName);
 
-            foreach (var delItem in delItems)
-            {
-                Destroy(delItem);//아이템 전부 삭제
-            }
-            gameObject.SetActive(false);
+                foreach (var delItem in delItems)
+                {
+                    Destroy(delItem);//아이템 전부 삭제
+                }
+                gameObject.SetActive(false);
+            
         }
     }
     public void itemRespawn()//버튼 함수

@@ -40,10 +40,10 @@ public class Timer : MonoBehaviour
             
                 if (timer[i].fillAmount <= 0)
                 {
-                if (i == 0)
-                {
+                    if (i == 0)
+                    {
                     isTimerOn = false;
-                }
+                    }
                     timer[i].gameObject.SetActive(false);
                     break;
                 }
