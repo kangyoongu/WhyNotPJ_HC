@@ -23,11 +23,14 @@ public class GameOver : MonoBehaviour
     public Transform point;
     public ParticleSystem bomb;
     public bool isbomb = false;
+    public GameObject InGameSetting;
 
+    public bool IsStarted = false;
     public Text main_best;
 
     AudioSource audioSource;
     public AudioSource boom;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -43,12 +46,12 @@ public class GameOver : MonoBehaviour
             bomb.Play();
             isbomb = false;
         }
-        
+
 
         if (bar.fillAmount == 0)
         {
             timer += Time.deltaTime;
-            if(timer >= 7)//���� ���� �Ǹ�
+            if (timer >= 7)//���� ���� �Ǹ�
             {
                 timer = 0;
                 Time.timeScale = 0;
@@ -73,7 +76,7 @@ public class GameOver : MonoBehaviour
     {
         transform.position = new Vector3(0, -1.62f, 0.82f);
         GameObject[] g = GameObject.FindGameObjectsWithTag("maps");
-        for(int i = 2; i < g.Length; i++)
+        for (int i = 2; i < g.Length; i++)
         {
             Destroy(g[i]);
         }
@@ -85,7 +88,7 @@ public class GameOver : MonoBehaviour
         oil.score = 0;
         gmp.position = new Vector3(0.02899998f, -1.599503f, -0.4820083f);
         GameObject[] gold = GameObject.FindGameObjectsWithTag("Coin");
-        for(int i = 1; i < gold.Length; i++)
+        for (int i = 1; i < gold.Length; i++)
         {
             Destroy(gold[i]);
         }
@@ -96,12 +99,15 @@ public class GameOver : MonoBehaviour
         mainCanv.SetActive(true);
         playCanv.SetActive(false);
         back.SetActive(false);
+        IsStarted = false;
         transform.position = new Vector3(0, -1.62f, 0.82f);
         GameObject[] g = GameObject.FindGameObjectsWithTag("maps");
         for (int i = 2; i < g.Length; i++)
         {
             Destroy(g[i]);
+
         }
+        InGameSetting.SetActive(false);
         audioSource.Play();
         Time.timeScale = 1;
     }
@@ -110,20 +116,40 @@ public class GameOver : MonoBehaviour
         mainCanv.SetActive(false);
         playCanv.SetActive(true);
         setting.SetActive(false);
+        IsStarted = true;
         audioSource.Play();
         OnClickrestart();
     }
     public void OnClickSetting()//������ư ������ ��
     {
-        setting.SetActive(true);
+        if (IsStarted)
+        {
+            InGameSetting.SetActive(true);
+            TimeController.Instance.TimeSet(0);
+        }
+        else
+        {
+            setting.SetActive(true);
+        }
         audioSource.Play();
     }
     public void OnClickBack()//�������� �ڷΰ��� ������ ��
     {
-        setting.SetActive(false);
+        if (IsStarted)
+        {
+            InGameSetting.SetActive(false);
+        }
+        else
+        {
+            setting.SetActive(false);
+        }
         audioSource.Play();
     }
-
+    public void OnClickResume()
+    {
+        TimeController.Instance.TimeSet(1);
+        InGameSetting.SetActive(false);
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -133,7 +159,7 @@ public class GameOver : MonoBehaviour
             isbomb = true;
             other.gameObject.SetActive(false);
             bar.fillAmount = 0;//���� ������ 0
-            
+
             Debug.Log("Boom");
             OilManager oil = FindObjectOfType<OilManager>();
             nows.text = "your score\n<size=150>" + playing.text + "</size>";//��� ���ڵ� �ٲٱ�
@@ -148,13 +174,13 @@ public class GameOver : MonoBehaviour
         }
 
     }
-    
+
     public void reSpawnItem()
     {
         for (int i = 0; i < item.Length; i++)
         {
             item[i].itemRespawn();
         }
-        
+
     }
 }

@@ -46,10 +46,10 @@ public class CubeController : MonoBehaviour
 
     public void AddPower()
     {
-            RwindForce += new Vector3(0.3f, 0, 0);
-            LwindForce += new Vector3(-0.3f, 0, 0);
-            windForceTime += 0.3f;
-            print("a");
+        RwindForce += new Vector3(0.3f, 0, 0);
+        LwindForce += new Vector3(-0.3f, 0, 0);
+        windForceTime += 0.3f;
+
     }
 
     //private void windPlus()

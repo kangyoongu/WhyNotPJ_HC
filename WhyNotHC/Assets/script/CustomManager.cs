@@ -25,13 +25,13 @@ public class CustomManager : MonoBehaviour
             PlayerPrefs.SetInt("onmat", 0);
         }
         play.material = mat[PlayerPrefs.GetInt("onmat")];
-        for (int i = 0; i < count; i++)
-        {
-            if (PlayerPrefs.GetInt($"isBuy{engName[i]}") == 1)
-            {
-                priceText[i].text = $"{korName} 보유";
-            }
-        }
+        //for (int i = 0; i < count; i++)
+        //{
+        //    if (PlayerPrefs.GetInt($"isBuy{engName[i]}") == 1)
+        //    {
+        //        priceText[i].text = $"{korName} 보유";
+        //    }
+        //}
     }
     void Update()
     {

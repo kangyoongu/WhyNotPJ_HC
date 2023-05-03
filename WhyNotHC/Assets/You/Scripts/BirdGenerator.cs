@@ -5,7 +5,7 @@ using UnityEngine;
 public class BirdGenerator : MonoBehaviour
 {
     public GameObject birdPrefab;
-    float delta = 0;
+
     public float span;
     public Transform _cube;
     public Vector3 curVector;
@@ -13,8 +13,10 @@ public class BirdGenerator : MonoBehaviour
     private OilManager oilManager;
     [SerializeField] GameObject player;
     private BirdContorller bird;
-    float startTime;
-    float playTime;
+    bool gameOver;
+    GameObject birdDes;
+
+    public bool isFalse = true;
 
     float x;
     public float x1;
@@ -25,6 +27,8 @@ public class BirdGenerator : MonoBehaviour
     {
         oilManager = player.transform.GetComponent<OilManager>();
         bird = birdPrefab.transform.GetComponent<BirdContorller>();
+        gameOver = FindObjectOfType<GameOver>().IsStarted;
+
         
     }
     private void Start()
@@ -57,15 +61,21 @@ public class BirdGenerator : MonoBehaviour
     {
         if (oilManager.bar.fillAmount <= 0f)
         {
+            isFalse = false;
+            gameObject.SetActive(false);
+        }
+        else if(gameOver == false)
+        {
+            
+            isFalse = false;
+            
             gameObject.SetActive(false);
         }
     }
     public void birdsSpawn()
     {
+        isFalse = true;
         gameObject.SetActive(true);
     }
-    public void startspawn()
-    {
-        gameObject.SetActive(true);
-    }
+
 }

@@ -9,9 +9,6 @@ public class SoundManager : MonoBehaviour
 {
     public AudioMixer master;
 
-    public Slider _bgmSlider;
-    public Slider _sfxSlider;
-
     [SerializeField]
     Image _soundIcon;
     [SerializeField]
