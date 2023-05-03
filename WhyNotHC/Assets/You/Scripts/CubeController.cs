@@ -16,13 +16,16 @@ public class CubeController : MonoBehaviour
     public float windTime;//바람불기전 대기
     public float windForceTime = 5;//바람불떄
     private Rigidbody _rb;
+    [SerializeField] float power = 0.3f;
 
-    private Vector3 RwindForce = new Vector3(2, 0, 0);
-    private Vector3 LwindForce = new Vector3(-2, 0, 0);
+    [SerializeField] Vector3 RwindForce;
+    [SerializeField] Vector3 LwindForce;
     void Start()
     {
         Wind = GetComponent<ConstantForce>();
         _rb = GetComponent<Rigidbody>();
+        RwindForce = new Vector3(1, 0, 0);
+        LwindForce = new Vector3(-1, 0, 0);
     }
     private void Awake()
     {
@@ -35,39 +38,20 @@ public class CubeController : MonoBehaviour
         {
             StopCoroutine(WindCo());
         }
-
-
-        //if(wind1 == true && oilManager.score % 50 != 0)
-        //{
-        //    wind1 = false;
-        //}
-
     }
 
     public void AddPower()
     {
-            RwindForce += new Vector3(0.3f, 0, 0);
-            LwindForce += new Vector3(-0.3f, 0, 0);
+            RwindForce += new Vector3(Mathf.Clamp(power, 0, 5), 0, 0);
+            LwindForce += new Vector3(-(Mathf.Clamp(power, 0, 5)), 0, 0);
             windForceTime += 0.3f;
-            print("a");
+            windForceTime = Mathf.Clamp(windForceTime, 0, 20);
+        print("a");
     }
-
-    //private void windPlus()
-    //{
-    //    wind1 = true;
-    //    RwindForce += new Vector3(0.3f, 0, 0);
-    //    LwindForce += new Vector3(-0.3f, 0, 0);
-    //    windForceTime += 0.3f;
-    //    print("a");
-    //}
     public void windSpawn()
     {
         StartCoroutine(WindCo());
     }
-
-
-
-
     IEnumerator WindCo()
     {
         while (true)
@@ -75,27 +59,35 @@ public class CubeController : MonoBehaviour
             windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
            
             Directioin = Random.Range(0, 2);
-            
+
             yield return new WaitForSeconds(windTime);
-            
-            if (Directioin == 0)
+
+            if(Directioin == 0)
             {
-                
-                windRIght.Play();
-                Wind.force = RwindForce;
-                yield return new WaitForSeconds(windForceTime);
-                windRIght.Stop();
+                StartCoroutine(Right());
             }
-            else
+            else if(Directioin == 1)
             {
-              
-                windLeft.Play();
-                Wind.force = LwindForce;
-                yield return new WaitForSeconds(windForceTime);
-                windLeft.Stop();
+                StartCoroutine(Left());
             }
+
             Wind.force = Vector3.zero;
-            //_rb.velocity = Vector3.zero;
+            AddPower();
         }
+        
+    }
+    IEnumerator Right()
+    {
+        windRIght.Play();
+        Wind.force = RwindForce;
+        yield return new WaitForSeconds(windForceTime);
+        windRIght.Stop();
+    }
+    IEnumerator Left()
+    {
+        windLeft.Play();
+        Wind.force = LwindForce;
+        yield return new WaitForSeconds(windForceTime);
+        windLeft.Stop();
     }
 }

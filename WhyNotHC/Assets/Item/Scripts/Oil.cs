@@ -38,6 +38,7 @@ public class Oil : MonoBehaviour
     {
         if (other.gameObject.tag == "Oil")
         {
+            isUpdate = true;
             other.gameObject.SetActive(false);
             isNotUsingOil = true;
         }
