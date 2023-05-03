@@ -13,7 +13,7 @@ public class BirdGenerator : MonoBehaviour
     private OilManager oilManager;
     [SerializeField] GameObject player;
     private BirdContorller bird;
-    bool gameOver;
+    
     GameObject birdDes;
 
     public bool isFalse = true;
@@ -27,7 +27,7 @@ public class BirdGenerator : MonoBehaviour
     {
         oilManager = player.transform.GetComponent<OilManager>();
         bird = birdPrefab.transform.GetComponent<BirdContorller>();
-        gameOver = FindObjectOfType<GameOver>().IsStarted;
+        
 
         
     }
@@ -64,13 +64,7 @@ public class BirdGenerator : MonoBehaviour
             isFalse = false;
             gameObject.SetActive(false);
         }
-        else if(gameOver == false)
-        {
-            
-            isFalse = false;
-            
-            gameObject.SetActive(false);
-        }
+      
     }
     public void birdsSpawn()
     {
