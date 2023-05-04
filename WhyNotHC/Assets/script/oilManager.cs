@@ -5,11 +5,11 @@ using UnityEngine.UI;
 using TMPro;
 public class OilManager : MonoBehaviour
 {
-    public Image bar;//¿ÀÀÏ ¹Ù
-    bool landing = false;//Âø·ú Çß´ÂÁö ¾ÈÇß´ÂÁö
+    public Image bar;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    bool landing = false;//ï¿½ï¿½ï¿½ï¿½ ï¿½ß´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½
     public Height he;
-    public int score = 0;//°ÔÀÓ Á¡¼ö
-    public Text sc;//°ÔÀÓ Á¡¼ö ÅØ½ºÆ®
+    public int score = 0;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public Text sc;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ®
     public int combo = 0;
     public TextMeshProUGUI combo_text;
     public CubeController cubeController;
@@ -25,7 +25,7 @@ public class OilManager : MonoBehaviour
     }
     void Update()
     {
-        if(landing == false)//¶°ÀÖ´Ù¸é ¿ÀÀÏ ±ð´Â´Ù
+        if(landing == false)//ï¿½ï¿½ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â´ï¿½
             bar.fillAmount -= he.y*0.0002f;
         sc.text = score.ToString("0");
 
@@ -45,7 +45,7 @@ public class OilManager : MonoBehaviour
                 
             }
             landing = true;
-            if (collision.transform.position.z >= -0.4)//Âø·ú ¾ó¸¶³ª Áß¾Ó¿¡ °¡±î¿îÁö¿¡ µû¶ó Á¡¼ö ÁÜ
+            if (collision.transform.position.z >= -0.4)//ï¿½ï¿½ï¿½ï¿½ ï¿½ó¸¶³ï¿½ ï¿½ß¾Ó¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
             {
                 if (Vector3.Distance(transform.position, collision.transform.position) <= 1.6f)
                 {
@@ -79,7 +79,7 @@ public class OilManager : MonoBehaviour
             }
             if (combo <= 7)
             {
-                bar.fillAmount += 0.3f * 1 + (combo * 0.1f); //ÄÞº¸¿¡ µû¶ó ¿¬·á ÁÜ
+                bar.fillAmount += 0.3f * 1 + (combo * 0.1f); //ï¿½Þºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
             }
             else
             {
@@ -94,7 +94,7 @@ public class OilManager : MonoBehaviour
             landing = false;
             if (collision.transform.position.z >= -0.4)
             {
-                collision.gameObject.tag = "null building";//¶È°°Àº ºôµù¿¡¼± ÇÑ¹ø¸¸ ¿¬·á ³ÖÀ» ¼ö ÀÖµµ·Ï
+                collision.gameObject.tag = "null building";//ï¿½È°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½
             }
         }
     }

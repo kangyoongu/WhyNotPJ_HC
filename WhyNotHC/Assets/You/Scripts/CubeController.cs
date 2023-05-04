@@ -13,8 +13,8 @@ public class CubeController : MonoBehaviour
     private OilManager oilManager;
     [SerializeField] GameObject player;
 
-    public float windTime;//¹Ù¶÷ºÒ±âÀü ´ë±â
-    public float windForceTime = 5;//¹Ù¶÷ºÒ¶§
+    public float windTime;//ï¿½Ù¶ï¿½ï¿½Ò±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+    public float windForceTime = 5;//ï¿½Ù¶ï¿½ï¿½Ò¶ï¿½
     private Rigidbody _rb;
     [SerializeField] float power = 0.3f;
 
@@ -41,7 +41,6 @@ public class CubeController : MonoBehaviour
             StopCoroutine(WindCo());
         }
     }
-
     public void AddPower()
     {
             RwindForce += new Vector3(Mathf.Clamp(power, 0, 5), 0, 0);
@@ -52,6 +51,7 @@ public class CubeController : MonoBehaviour
 
             print("a");
     }
+
     public void windSpawn()
     {
         StartCoroutine(WindCo());
@@ -60,7 +60,6 @@ public class CubeController : MonoBehaviour
     {
         while (true)
         {
-            
             windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
             if (isWind == true)
             {

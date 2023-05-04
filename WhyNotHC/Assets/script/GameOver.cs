@@ -28,10 +28,17 @@ public class GameOver : MonoBehaviour
     public ParticleSystem bomb;
     public bool isbomb = false;
 
+    public GameObject InGameSetting;
+    private bool IsStarted = false;
+
     public Text main_best;
 
     AudioSource audioSource;
     public AudioSource boom;
+
+    [SerializeField] Image imageSetting;
+    [SerializeField] Sprite timeSetting;
+    [SerializeField] Sprite image1Setting;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -85,6 +92,7 @@ public class GameOver : MonoBehaviour
             Destroy(gold[i]);
         }
         audioSource.Play();
+
     }
     public void OnClickMain()//�������� ���� ��ư�� ������ ��
     {
@@ -99,25 +107,51 @@ public class GameOver : MonoBehaviour
         }
         audioSource.Play();
         Time.timeScale = 1;
+        IsStarted = false;
+        InGameSetting.SetActive(false);
+        imageSetting.sprite = image1Setting;
     }
     public void OnCLickStart()//���ο��� ���� ������ ��
     {
         mainCanv.SetActive(false);
         playCanv.SetActive(true);
         setting.SetActive(false);
+        IsStarted = true;
         audioSource.Play();
         OnClickrestart();
+        imageSetting.sprite = timeSetting;
     }
     public void OnClickSetting()//������ư ������ ��
     {
-        setting.SetActive(true);
+        if (IsStarted)
+        {
+            InGameSetting.SetActive(true);
+            TimeController.Instance.TimeSet(0);
+        }
+        else
+        {
+            setting.SetActive(true);
+        }
         audioSource.Play();
     }
     public void OnClickBack()//�������� �ڷΰ��� ������ ��
     {
-        setting.SetActive(false);
+        if (IsStarted)
+        {
+            InGameSetting.SetActive(false);
+        }
+        else
+        {
+            setting.SetActive(false);
+        }
         audioSource.Play();
     }
+    public void OnClickResume()
+    {
+        TimeController.Instance.TimeSet(1);
+        InGameSetting.SetActive(false);
+    }
+
     public void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Low Building")
