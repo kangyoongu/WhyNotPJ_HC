@@ -32,7 +32,7 @@ public class BirdGenerator : MonoBehaviour
             {
 
                 _randNum = Random.Range(0, 2);
-                float x = _randNum == 0 ? 15 : -15;
+                float x = _randNum == 0 ? 20 : -20;
                 float y = Random.Range(_cube.position.y + 1, _cube.position.y + 2);
                 float z = Random.Range(_cube.position.z + 8, _cube.position.z + 11);
                 GameObject Bird = Instantiate(birdPrefab);

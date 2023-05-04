@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -275970020448554867}
   - component: {fileID: 1026627899829656128}
   - component: {fileID: 1756780328292876788}
+  - component: {fileID: 1636872384684336345}
   m_Layer: 0
   m_Name: BirdPrefab
   m_TagString: Untagged
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
-  deadtime: 1
+  deadtime: 3
   push: 10
   direction: 1
   speed: 9
@@ -232,6 +233,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1636872384684336345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907113794877580565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ec9367099c746418987212fc4a4c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  removeItem: 10
 --- !u!1001 &4512009662816313558
 PrefabInstance:
   m_ObjectHideFlags: 0
