@@ -13,7 +13,7 @@ public class BirdGenerator : MonoBehaviour
     private OilManager oilManager;
     [SerializeField] GameObject player;
     private BirdContorller bird;
-    
+    float delta;
     GameObject birdDes;
 
     public bool isFalse = true;
@@ -86,5 +86,8 @@ public class BirdGenerator : MonoBehaviour
         isFalse = true;
         gameObject.SetActive(true);
     }
-
+    public void BirdsStopSpawn()
+    {
+        gameObject.SetActive(false);
+    }
 }
