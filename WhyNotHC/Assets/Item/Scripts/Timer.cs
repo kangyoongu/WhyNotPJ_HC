@@ -10,10 +10,10 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        timer[0].fillAmount = 1;
-        timer[0].gameObject.SetActive(false);
-        timer[1].fillAmount = 1;
-        timer[1].gameObject.SetActive(false);
+        timer[0].fillAmount = 0;
+        //timer[0].gameObject.SetActive(false);
+        timer[1].fillAmount = 0;
+        //timer[1].gameObject.SetActive(false);
     }
     public void Waitsecond(float time)
     {
@@ -33,6 +33,7 @@ public class Timer : MonoBehaviour
         {
             isTimerOn = true;
         }
+        timer[i].fillAmount = 1;
         while (true)
         {
             
@@ -44,7 +45,8 @@ public class Timer : MonoBehaviour
                     {
                     isTimerOn = false;
                     }
-                    timer[i].gameObject.SetActive(false);
+                //timer[i].gameObject.SetActive(false);
+                timer[i].fillAmount = 0;
                     break;
                 }
         yield return null;

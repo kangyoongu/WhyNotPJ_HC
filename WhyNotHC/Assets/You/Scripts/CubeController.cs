@@ -60,27 +60,27 @@ public class CubeController : MonoBehaviour
     {
         while (true)
         {
-            windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
+            
+                windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
             if (isWind == true)
             {
                 Directioin = Random.Range(0, 2);
-                isWind = false;
-            }
+
                 yield return new WaitForSeconds(windTime);
-            
-                if(Directioin == 0)
+
+                if (Directioin == 0)
                 {
                     StartCoroutine(Right());
                 }
-                else if(Directioin == 1)
+                else if (Directioin == 1)
                 {
                     StartCoroutine(Left());
                 }
 
                 Wind.force = Vector3.zero;
                 AddPower();
-                
-            
+                isWind = false;
+            }
             yield return null;
         }
         
