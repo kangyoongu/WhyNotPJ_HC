@@ -52,16 +52,16 @@ public class CubeController : MonoBehaviour
             print("a");
     }
 
-    public void windSpawn()
+    public void windSpawn()//start button
     {
+        windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
         StartCoroutine(WindCo());
     }
+
     IEnumerator WindCo()
     {
         while (true)
         {
-            
-                windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
             if (isWind == true)
             {
                 Directioin = Random.Range(0, 2);
@@ -92,7 +92,7 @@ public class CubeController : MonoBehaviour
         Wind.force = RwindForce;
         yield return new WaitForSeconds(windForceTime);
         windRIght.Stop();
-
+        windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
         isWind = true;
     }
     IEnumerator Left()
@@ -102,7 +102,7 @@ public class CubeController : MonoBehaviour
         Wind.force = LwindForce;
         yield return new WaitForSeconds(windForceTime);
         windLeft.Stop();
-
+        windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
         isWind = true;
     }
 }
