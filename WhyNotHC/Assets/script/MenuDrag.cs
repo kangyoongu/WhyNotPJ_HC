@@ -33,11 +33,7 @@ public class MenuDrag : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointer
         if (trg)
         {
             rectTransform.position = new Vector3(rectTransform.position.x, Input.mousePosition.y - 158, rectTransform.position.z);
-
-            if (rectTransform.position.y > UpPosition)
-            {
-                rectTransform.position = new Vector3(rectTransform.position.x, UpPosition, rectTransform.position.z);
-            }
+            rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, Mathf.Clamp(rectTransform.anchoredPosition.y, DownPosition, UpPosition));
         }
     }
 

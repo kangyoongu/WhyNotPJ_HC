@@ -18,7 +18,7 @@ public class OilManager : MonoBehaviour
     public bool viveon = true;
     ItemSpawn[] item;
     ItemSpawn items;
-    [SerializeField] float pos = 20;
+    [SerializeField] float pos = 50;
     private void Start()
     {
         cubeController = GetComponent<CubeController>();
@@ -66,8 +66,6 @@ public class OilManager : MonoBehaviour
                     {
                         Handheld.Vibrate();
                     }
-                    
-
 
                     if (combo % 5 == 0)
                     {
