@@ -4152,13 +4152,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 587519780}
+    - target: {fileID: 1241145001518047113, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 124
+      objectReference: {fileID: 0}
     - target: {fileID: 1241145001730982892, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
       propertyPath: m_Name
       value: PlayCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 1241145001730982892, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1241145001730982896, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
       propertyPath: m_Pivot.x
@@ -4244,6 +4248,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1241145001730982898, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002036618988, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002036618988, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002036618988, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002036618988, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002036618988, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002036618988, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 578
+      objectReference: {fileID: 0}
     - target: {fileID: 1241145002983605346, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
       propertyPath: wing
       value: 
@@ -4256,6 +4288,38 @@ PrefabInstance:
       propertyPath: go_Player
       value: 
       objectReference: {fileID: 587519779}
+    - target: {fileID: 1241145002983605347, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002983605347, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002983605347, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002983605347, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002983605347, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -0.30004883
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002983605347, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -0.4000244
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002983605347, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0099487305
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241145002983605347, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.20007324
+      objectReference: {fileID: 0}
     - target: {fileID: 1241145003207423834, guid: 09063ae4cb4285843a1baa1356571b72, type: 3}
       propertyPath: m_Text
       value: 0

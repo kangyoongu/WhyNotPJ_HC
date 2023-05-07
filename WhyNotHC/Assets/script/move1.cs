@@ -21,11 +21,16 @@ public class Move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
     bool isMinus;
     public bool isQuest;
 
+    float maxDis = 0;
     void Start()
     {
         radius = rect_Background.rect.width * 0.5f;
-        gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, Screen.height * -0.25f);
-        gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, Screen.height * 0.5f);
+        /*gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, Screen.height * -0.25f);
+        gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, Screen.height * 0.5f);*/
+        rect_Joystick.anchoredPosition = new Vector2(0, rect_Background.sizeDelta.y / 2);
+        maxDis = Vector2.Distance(rect_Background.position, rect_Joystick.position) / radius;
+        rect_Joystick.anchoredPosition = Vector2.zero;
+
     }
 
     void Update()
@@ -62,11 +67,13 @@ public class Move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (Input.GetTouch(Input.touchCount - 1).position.x <= 1480)
+       /* if (Input.GetTouch(Input.touchCount - 1).position.x <= 1480)
         {
             rect_Background.anchoredPosition = Input.GetTouch(Input.touchCount - 1).position;
             isTouch = true;
-        }
+        }*/
+        rect_Background.position = Input.GetTouch(Input.touchCount - 1).position;
+        isTouch = true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -103,7 +110,8 @@ public class Move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
         value = Vector2.ClampMagnitude(value, radius);
         rect_Joystick.localPosition = value;
 
-        float distance = Vector2.Distance(rect_Background.position, rect_Joystick.position) / radius;
+      //  float distance = Vector2.Distance(rect_Background.position, rect_Joystick.position) / radius;
+        float distance = Vector2.Distance(Vector2.zero, value) / radius;
         value = value.normalized;
         y = value.y * moveSpeed * distance * Time.deltaTime;
         Debug.Log(distance);
