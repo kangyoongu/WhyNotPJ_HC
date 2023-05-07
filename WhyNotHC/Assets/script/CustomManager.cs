@@ -8,14 +8,15 @@ public class CustomManager : MonoBehaviour
 
     public MeshRenderer play;
     public TextMeshProUGUI coin;
-    private int count = 4;
+    private int count = 6;
     public Material[] mat;
     public TextMeshProUGUI[] priceText;
-    string[] engName = { "mil", "rain", "fire", "doc"};
-    string[] korName = { "±º¿ë Çï±â", "¹«Áö°³ Çï±â", "È­¿° Çï±â", "±¸±Þ Çï±â"};
+    string[] engName = {"bais", "mil", "fire", "doc", "pol", "rain"};
+    string[] korName = {"±âº» Çï±â", "±º¿ë Çï±â", "È­¿° Çï±â", "±¸±Þ Çï±â", "°æÂû Çï±â", "¹«Áö°³ Çï±â"};
     public GameObject[] lok;
     private void Start()
     {
+        PlayerPrefs.SetInt("coin", 1000);
         if (!PlayerPrefs.HasKey($"isBuy{engName[0]}"))
         {
             PlayerPrefs.SetInt($"isBuy{engName[0]}", 1);
@@ -35,13 +36,21 @@ public class CustomManager : MonoBehaviour
             }
         }
     }
-    public void OnClickMil()
+    public void OnClickBas()
     {
         Work(0, 0);
     }
-    public void OnClickRain()
+    public void OnClickPol()
+    {
+        Work(200, 4);
+    }
+    public void OnClickMil()
     {
         Work(200, 1);
+    }
+    public void OnClickRain()
+    {
+        Work(400, 5);
     }
     public void OnClickFire()
     {
