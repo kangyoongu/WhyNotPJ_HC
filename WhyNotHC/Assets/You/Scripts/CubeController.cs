@@ -25,7 +25,7 @@ public class CubeController : MonoBehaviour
     {
         Wind = GetComponent<ConstantForce>();
         _rb = GetComponent<Rigidbody>();
-
+        isWind = true;
         RwindForce = new Vector3(1, 0, 0);
         LwindForce = new Vector3(-1, 0, 0);
     }
@@ -43,8 +43,10 @@ public class CubeController : MonoBehaviour
     }
     public void AddPower()
     {
-            RwindForce += new Vector3(Mathf.Clamp(power, 0, 5), 0, 0);
-            LwindForce += new Vector3(-(Mathf.Clamp(power, 0, 5)), 0, 0);
+            RwindForce += new Vector3(power, 0, 0);
+            LwindForce -= new Vector3(power, 0, 0);
+            RwindForce = new Vector3(Mathf.Clamp(RwindForce.x, 0, 5), 0, 0);
+            LwindForce = new Vector3(Mathf.Clamp(LwindForce.x, -5, 0), 0, 0);
 
             windForceTime += 0.3f;
             windForceTime = Mathf.Clamp(windForceTime, 0, 20);
@@ -68,18 +70,18 @@ public class CubeController : MonoBehaviour
 
                 yield return new WaitForSeconds(windTime);
 
+                isWind = false;
                 if (Directioin == 0)
                 {
-                    StartCoroutine(Right());
+                    yield return StartCoroutine(Right());
                 }
                 else if (Directioin == 1)
                 {
-                    StartCoroutine(Left());
+                    yield return StartCoroutine(Left());
                 }
 
                 Wind.force = Vector3.zero;
                 AddPower();
-                isWind = false;
             }
             yield return null;
         }
