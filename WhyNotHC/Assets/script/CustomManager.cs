@@ -16,7 +16,6 @@ public class CustomManager : MonoBehaviour
     public GameObject[] lok;
     private void Start()
     {
-        PlayerPrefs.SetInt("coin", 1000);
         if (!PlayerPrefs.HasKey($"isBuy{engName[0]}"))
         {
             PlayerPrefs.SetInt($"isBuy{engName[0]}", 1);

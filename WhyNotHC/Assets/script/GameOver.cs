@@ -8,7 +8,7 @@ using TMPro;
 public class GameOver : MonoBehaviour
 {
     float timer = 0;
-    public GameObject back;
+    //public GameObject back;
     public Image bar;
     public MapMaker map;
     public Height height;
@@ -41,6 +41,7 @@ public class GameOver : MonoBehaviour
             PlayerPrefs.SetInt("best", 0);//�ְ� ��ϰ�
         }
         Main_Best.text = PlayerPrefs.GetInt("best").ToString();
+        Main_this.text = PlayerPrefs.GetInt("now").ToString();
     }
     void Update()
     {
@@ -64,7 +65,7 @@ public class GameOver : MonoBehaviour
             timer = 0;
         }
     }
-    public void OnClickrestart()//�ٽý��� ��ư�� ������ ��
+/*    public void OnClickrestart()//�ٽý��� ��ư�� ������ ��
     {
         transform.position = new Vector3(0, -1.62f, 0.82f);
         GameObject[] g = GameObject.FindGameObjectsWithTag("maps");
@@ -86,8 +87,8 @@ public class GameOver : MonoBehaviour
         }
         audioSource.Play();
         //SceneManager.LoadScene("moving");
-    }
-    public void OnClickMain()//�������� ���� ��ư�� ������ ��
+    }*/
+/*    public void OnClickMain()//�������� ���� ��ư�� ������ ��
     {
         mainCanv.SetActive(true);
         playCanv.SetActive(false);
@@ -100,14 +101,14 @@ public class GameOver : MonoBehaviour
         }
         audioSource.Play();
         Time.timeScale = 1;
-    }
+    }*/
     public void OnCLickStart()//���ο��� ���� ������ ��
     {
         mainCanv.SetActive(false);
         playCanv.SetActive(true);
         setting.SetActive(false);
         audioSource.Play();
-        OnClickrestart();
+        //OnClickrestart();
     }
     public void OnClickSetting()//������ư ������ ��
     {
@@ -160,19 +161,22 @@ public class GameOver : MonoBehaviour
     }
     private void GameOverCode()
     {
-        timer = 0;
+        /*timer = 0;
         Time.timeScale = 0;
         back.SetActive(true);
         OilManager oil = FindObjectOfType<OilManager>();
-        nows.text = playing.text;//��� ���ڵ� �ٲٱ�
+        nows.text = playing.text;//��� ���ڵ� �ٲٱ�*/
+
+        PlayerPrefs.SetInt("now", int.Parse(playing.text));
         if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
         {
             PlayerPrefs.SetInt("best", int.Parse(playing.text));
         }
-        bests.text = PlayerPrefs.GetInt("best").ToString();
+        SceneManager.LoadScene("moving");
+        /*bests.text = PlayerPrefs.GetInt("best").ToString();
         Main_Best.text = PlayerPrefs.GetInt("best").ToString();
         Main_this.text = playing.text;
         oil.combo = 0;
-        oil.combo_text.text = "";
+        oil.combo_text.text = "";*/
     }
 }
