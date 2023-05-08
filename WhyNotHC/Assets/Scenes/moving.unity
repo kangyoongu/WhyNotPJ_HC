@@ -4056,10 +4056,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
@@ -4071,7 +4075,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 104283774}
     - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 543450653442398304}
+    - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
@@ -4083,11 +4095,23 @@ PrefabInstance:
       value: BirdsStopSpawn
       objectReference: {fileID: 0}
     - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: StopWind
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: BirdGenerator, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: CubeController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576895873838826163, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6576895874379547202, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}

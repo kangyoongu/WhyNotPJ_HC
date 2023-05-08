@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ec9367099c746418987212fc4a4c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removeItem: 10
+  removeItem: 5
 --- !u!1001 &4512009662816313558
 PrefabInstance:
   m_ObjectHideFlags: 0

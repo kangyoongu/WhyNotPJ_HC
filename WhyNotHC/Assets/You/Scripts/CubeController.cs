@@ -21,6 +21,8 @@ public class CubeController : MonoBehaviour
     [SerializeField] Vector3 RwindForce;
     [SerializeField] Vector3 LwindForce;
     [SerializeField] bool isWind;
+
+    
     void Start()
     {
         Wind = GetComponent<ConstantForce>();
@@ -54,12 +56,19 @@ public class CubeController : MonoBehaviour
             print("a");
     }
 
-    public void windSpawn()//start button
+    public void windSpawn() // start button
     {
         windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
         StartCoroutine(WindCo());
+        windRIght.gameObject.SetActive(true);
+        windLeft.gameObject.SetActive(true);
     }
-
+    
+    public void StopWind()
+    {
+        windRIght.gameObject.SetActive(false);
+        windLeft.gameObject.SetActive(false);
+    }
     IEnumerator WindCo()
     {
         while (true)
@@ -73,11 +82,11 @@ public class CubeController : MonoBehaviour
                 isWind = false;
                 if (Directioin == 0)
                 {
-                    yield return StartCoroutine(Right());
+                    yield return StartCoroutine(Right());// Right Wind
                 }
                 else if (Directioin == 1)
                 {
-                    yield return StartCoroutine(Left());
+                    yield return StartCoroutine(Left());//Left Wind
                 }
 
                 Wind.force = Vector3.zero;
@@ -93,7 +102,7 @@ public class CubeController : MonoBehaviour
         windRIght.Play();
         Wind.force = RwindForce;
         yield return new WaitForSeconds(windForceTime);
-        windRIght.Stop();
+        windRIght.Clear();
         windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
         isWind = true;
     }
@@ -103,7 +112,7 @@ public class CubeController : MonoBehaviour
         windLeft.Play();
         Wind.force = LwindForce;
         yield return new WaitForSeconds(windForceTime);
-        windLeft.Stop();
+        windLeft.Clear();
         windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
         isWind = true;
     }
