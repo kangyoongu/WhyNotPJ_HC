@@ -378,7 +378,7 @@
 "Assets/script/Height.cs"
 "Assets/script/itemMaker.cs"
 "Assets/script/KillMap.cs"
-"Assets/script/mapMaker.cs"
+"Assets/script/MapMaker.cs"
 "Assets/script/MenuDrag.cs"
 "Assets/script/Move.cs"
 "Assets/script/Move1.cs"

@@ -120,7 +120,7 @@ public class GameOver : MonoBehaviour
     {
         mainCanv.SetActive(false);
         playCanv.SetActive(true);
-        setting.SetActive(false);
+        //setting.SetActive(false);
         IsStarted = true;
         audioSource.Play();
 
