@@ -8,11 +8,12 @@ public class CustomManager : MonoBehaviour
 
     public MeshRenderer play;
     public TextMeshProUGUI coin;
-    private int count = 2;
+    private int count = 6;
     public Material[] mat;
     public TextMeshProUGUI[] priceText;
-    string[] engName = { "mil", "rain" };
-    string[] korName = { "±º¿ë Çï±â", "¹«Áö°³ Çï±â" };
+    string[] engName = {"bais", "mil", "fire", "doc", "pol", "rain"};
+    string[] korName = {"±âº» Çï±â", "±º¿ë Çï±â", "È­¿° Çï±â", "±¸±Þ Çï±â", "°æÂû Çï±â", "¹«Áö°³ Çï±â"};
+    public GameObject[] lok;
     private void Start()
     {
         if (!PlayerPrefs.HasKey($"isBuy{engName[0]}"))
@@ -29,21 +30,34 @@ public class CustomManager : MonoBehaviour
         {
             if (PlayerPrefs.GetInt($"isBuy{engName[i]}") == 1)
             {
-                //priceText[i].text = $"{korName} º¸À¯";
+                lok[i].SetActive(false);
+                priceText[i].text = $"{korName[i]} º¸À¯";
             }
         }
     }
-    void Update()
+    public void OnClickBas()
     {
-        
+        Work(0, 0);
+    }
+    public void OnClickPol()
+    {
+        Work(200, 4);
     }
     public void OnClickMil()
     {
-        Work(0, 1);
+        Work(200, 1);
     }
     public void OnClickRain()
     {
-        Work(200, 1);
+        Work(400, 5);
+    }
+    public void OnClickFire()
+    {
+        Work(200, 2);
+    }
+    public void OnClickDoc()
+    {
+        Work(200, 3);
     }
     private void Work(int price, int index)
     {
@@ -55,6 +69,7 @@ public class CustomManager : MonoBehaviour
         else if (PlayerPrefs.GetInt("coin") >= price)
         {
             play.material = mat[index];
+            lok[index].SetActive(false);
             PlayerPrefs.SetInt("coin", PlayerPrefs.GetInt("coin") - price);
             PlayerPrefs.SetInt($"isBuy{engName[index]}", 1);
             priceText[index].text = korName[index] + "º¸À¯";
