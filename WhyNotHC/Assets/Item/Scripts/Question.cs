@@ -16,7 +16,7 @@ public class Question : MonoBehaviour
     private void Update()
     {
         if(move.isQuest == true)
-        timer.Waitsecond(time);
+            timer.Waitsecond(time);
     }
     private void OnTriggerEnter(Collider other)
     {
