@@ -8,6 +8,7 @@ public class ScaleMinus : MonoBehaviour
     [SerializeField] Timer timer;
     bool issmall = false;
     [SerializeField] float time;
+    bool isUpdate;
     private void Start()
     {
         timer = FindObjectOfType<Timer>();
@@ -16,7 +17,11 @@ public class ScaleMinus : MonoBehaviour
     {
         if(issmall == true)
         {
-            timer.Waitsecond(time); 
+            if (isUpdate == true)
+            {
+                timer.Waitsecond(time);
+                isUpdate = false;
+            }
         }
     }
     public void OnTriggerEnter(Collider other)
@@ -24,6 +29,7 @@ public class ScaleMinus : MonoBehaviour
         if (other.gameObject.tag == "Minus")
         {
             issmall = true;
+            isUpdate = true;
             other.gameObject.SetActive(false);
             this.transform.localScale -= new Vector3(.2f, .2f, .2f);
             Invoke("PlusSize", 10);

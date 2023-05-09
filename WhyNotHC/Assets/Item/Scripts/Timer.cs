@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
             i = 1;
         else
             i = 0;
-
+        Debug.Log("æ∆¿Ã≈€ ∏‘¿Ω");
         timer[i].gameObject.SetActive(true);
         StartCoroutine(Del(time, i));
     }
@@ -41,9 +41,8 @@ public class Timer : MonoBehaviour
                 {
                     if (i == 0)
                     {
-                    isTimerOn = false;
+                        isTimerOn = false;
                     }
-                timer[i].fillAmount = 0;
                     break;
                 }
         yield return null;

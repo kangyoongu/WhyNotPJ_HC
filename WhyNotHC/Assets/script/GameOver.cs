@@ -124,7 +124,7 @@ public class GameOver : MonoBehaviour
         IsStarted = true;
         audioSource.Play();
 
-        imageSetting.sprite = timeSetting;
+        //imageSetting.sprite = timeSetting;
 
     }
     public void OnClickSetting()//������ư ������ ��
