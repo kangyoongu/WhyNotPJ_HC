@@ -27,9 +27,6 @@ public class BirdGenerator : MonoBehaviour
     {
         oilManager = player.transform.GetComponent<OilManager>();
         bird = birdPrefab.transform.GetComponent<BirdContorller>();
-        
-
-        
     }
     private void Start()
     {
@@ -40,17 +37,17 @@ public class BirdGenerator : MonoBehaviour
     {
         while(true)
         {
-            x1 = _cube.position.x + 10;
-            x2 = _cube.position.x - 10;
-            _randNum = Random.Range(0, 2);
-            x = _randNum == 0 ? x1 : x2;
+            //x1 = _cube.position.x + 10;w
+            //x2 = _cube.position.x - 10;
+            //_randNum = Random.Range(0, 2);
+            //x = _randNum == 0 ? x1 : x2;
            
-            float y = Random.Range(_cube.position.y - 1, _cube.position.y + 2);
-            float z = Random.Range(_cube.position.z + 8, _cube.position.z + 11);
+            //float y = Random.Range(_cube.position.y - 1, _cube.position.y + 2);
+            //float z = Random.Range(_cube.position.z + 8, _cube.position.z + 11);
             GameObject Bird = Instantiate(birdPrefab);
-            Bird.transform.position = new(x, y, z);
-            span = Random.Range(5, (400 - oilManager.score) * 0.1f < 10 ? 10 : (400 - oilManager.score) * 0.1f);
-
+            Bird.transform.position = new(_cube.position.x,_cube.position.y,_cube.position.z+30);
+            //span = Random.Range(5, (400 - oilManager.score) * 0.1f < 10 ? 10 : (400 - oilManager.score) * 0.1f);
+            span = 2;
             yield return new WaitForSeconds(span);
 
         }
