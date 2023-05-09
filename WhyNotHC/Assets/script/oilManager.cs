@@ -21,7 +21,7 @@ public class OilManager : MonoBehaviour
     [SerializeField] float pos = 50;
     private void Start()
     {
-        cubeController = GetComponent<CubeController>();
+        cubeController = GetComponent<WindController>();
         item = FindObjectsOfType<ItemSpawn>();
         items = FindObjectOfType<ItemSpawn>();
     }
