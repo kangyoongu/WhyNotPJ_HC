@@ -18,11 +18,17 @@ public class BirdContorller : MonoBehaviour
     private Vector3 pushDir;
     Transform Player;
     Vector3 Chase;
+    Rigidbody player;
+    private Vector3 _moveDir = new Vector3(0, 0, 1f);
 
     void Start()
     {
         bird = (birdType)Random.Range(0, (int)birdType.MAX);
         birdGener = FindObjectOfType<BirdGenerator>();
+
+        isDead = false;
+        player = GameObject.Find("player").GetComponent<Rigidbody>();
+
         _rb = GetComponent<Rigidbody>();
         
         audioSource = GetComponent<AudioSource>();
@@ -62,8 +68,7 @@ public class BirdContorller : MonoBehaviour
         if (other.collider.CompareTag("Player"))
         {
             audioSource.Play();
-                other.transform.root.GetComponent<Rigidbody>().AddForce(pushDir * push, ForceMode.Impulse);
-      
+            other.transform.root.GetComponent<Rigidbody>().AddForce(pushDir * push, ForceMode.Impulse);
             StartCoroutine("Dead");
         }
         else

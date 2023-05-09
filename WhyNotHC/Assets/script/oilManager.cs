@@ -14,7 +14,7 @@ public class OilManager : MonoBehaviour
     public TextMeshProUGUI combo_text;
     public bool buildingCount = false;
     public int buildingScore;
-    public CubeController cubeController;
+    public WindController cubeController;
     public bool viveon = true;
     ItemSpawn[] item;
     ItemSpawn items;
