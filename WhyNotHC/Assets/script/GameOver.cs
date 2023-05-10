@@ -65,8 +65,8 @@ public class GameOver : MonoBehaviour
         {
             dark2.SetActive(true);
             time += Time.deltaTime * 100;
-            dark.color = new Color32(0, 0, 0, (byte)time);
-            if(time >= 255)
+            dark.color = new Color32(0, 0, 0, (byte)Mathf.Clamp(time, 0, 255));
+            if(time >= 350)
             {
                 GameOverCode();
             }
