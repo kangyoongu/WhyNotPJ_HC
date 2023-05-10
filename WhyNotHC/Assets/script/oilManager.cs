@@ -14,14 +14,14 @@ public class OilManager : MonoBehaviour
     public TextMeshProUGUI combo_text;
     public bool buildingCount = false;
     public int buildingScore;
-    public CubeController cubeController;
+    public WindController cubeController;
     public bool viveon = true;
     ItemSpawn[] item;
     ItemSpawn items;
     [SerializeField] float pos = 50;
     private void Start()
     {
-        cubeController = GetComponent<CubeController>();
+        cubeController = GetComponent<WindController>();
         item = FindObjectsOfType<ItemSpawn>();
         items = FindObjectOfType<ItemSpawn>();
     }

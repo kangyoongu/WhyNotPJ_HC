@@ -39,6 +39,8 @@ public class GameOver : MonoBehaviour
     [SerializeField] Image imageSetting;
     [SerializeField] Sprite timeSetting;
     [SerializeField] Sprite image1Setting;
+
+    [SerializeField] GameObject birdGenerator;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -120,6 +122,7 @@ public class GameOver : MonoBehaviour
     {
         mainCanv.SetActive(false);
         playCanv.SetActive(true);
+        birdGenerator.SetActive(true);
         //setting.SetActive(false);
         IsStarted = true;
         audioSource.Play();
@@ -129,33 +132,30 @@ public class GameOver : MonoBehaviour
     }
     public void OnClickSetting()//������ư ������ ��
     {
-        if (IsStarted)
-        {
-            InGameSetting.SetActive(true);
-            TimeController.Instance.TimeSet(0);
-        }
-        else
-        {
             setting.SetActive(true);
-        }
-        audioSource.Play();
     }
     public void OnClickBack()//�������� �ڷΰ��� ������ ��
-    {
-        if (IsStarted)
-        {
-            InGameSetting.SetActive(false);
-        }
-        else
-        {
-            setting.SetActive(false);
-        }
+    {     
+        setting.SetActive(false);
+        
         audioSource.Play();
     }
     public void OnClickResume()
     {
         TimeController.Instance.TimeSet(1);
         InGameSetting.SetActive(false);
+    }
+
+    public void OnclickIngameSetting()
+    {
+        TimeController.Instance.TimeSet(0);
+        InGameSetting.SetActive(true);
+        audioSource.Play();
+    }
+    public void OnclickIngameSettingBack()
+    {
+        InGameSetting.SetActive(false);
+        audioSource.Play();
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -197,7 +197,7 @@ public class GameOver : MonoBehaviour
         }
         
     }
-    private void GameOverCode()
+    public void GameOverCode()
     {
         /*timer = 0;
         Time.timeScale = 0;

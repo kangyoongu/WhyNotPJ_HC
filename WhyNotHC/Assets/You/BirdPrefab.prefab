@@ -102,9 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   deadtime: 1
-  push: 10
-  direction: 1
-  speed: 9
+  push: 8
+  speed: 15
   audioSource: {fileID: 0}
 --- !u!54 &-275970020448554867
 Rigidbody:
