@@ -25,7 +25,11 @@ public class MenuDrag : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointer
     private RectTransform rectTransform;
     public RectTransform makeUpUis;
     public float UpUIs;
-    public float DownUIs;
+    float DownUIs;
+    private void Start()
+    {
+        DownUIs = makeUpUis.anchoredPosition.y;
+    }
     public void OnDrag(PointerEventData eventData)
     {
         isNotTouch = false;

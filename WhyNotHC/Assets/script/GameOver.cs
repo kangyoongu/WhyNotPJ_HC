@@ -45,12 +45,14 @@ public class GameOver : MonoBehaviour
     float time = 0;
     bool die = false;
     public GameObject dark2;
+    private StartManager start;
     private void Awake()
     {
         Application.targetFrameRate = 60;
     }
     void Start()
     {
+        start = FindObjectOfType<StartManager>();
         audioSource = GetComponent<AudioSource>();
         if (!PlayerPrefs.HasKey("best"))
         {
@@ -64,7 +66,7 @@ public class GameOver : MonoBehaviour
         if(die == true)
         {
             dark2.SetActive(true);
-            time += Time.deltaTime * 100;
+            time += Time.deltaTime * 150;
             dark.color = new Color32(0, 0, 0, (byte)Mathf.Clamp(time, 0, 255));
             if(time >= 350)
             {
@@ -140,15 +142,16 @@ public class GameOver : MonoBehaviour
     }*/
     public void OnCLickStart()//���ο��� ���� ������ ��
     {
-        mainCanv.SetActive(false);
-        playCanv.SetActive(true);
-        birdGenerator.SetActive(true);
-        //setting.SetActive(false);
-        IsStarted = true;
-        audioSource.Play();
-
+        if (start.startTime > 4)
+        {
+            mainCanv.SetActive(false);
+            playCanv.SetActive(true);
+            birdGenerator.SetActive(true);
+            //setting.SetActive(false);
+            IsStarted = true;
+            audioSource.Play();
+        }
         //imageSetting.sprite = timeSetting;
-
     }
     public void OnClickSetting()//������ư ������ ��
     {

@@ -414,6 +414,7 @@
 "Assets/script/OilManager.cs"
 "Assets/script/Quit.cs"
 "Assets/script/SoundManager.cs"
+"Assets/script/StartManager.cs"
 "Assets/script/Timer.cs"
 "Assets/script/Tutorial.cs"
 "Assets/script/UIManager.cs"
