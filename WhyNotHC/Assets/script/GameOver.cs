@@ -142,7 +142,6 @@ public class GameOver : MonoBehaviour
     }
     public void OnClickResume()
     {
-        TimeController.Instance.TimeSet(1);
         InGameSetting.SetActive(false);
     }
 
@@ -154,6 +153,7 @@ public class GameOver : MonoBehaviour
     }
     public void OnclickIngameSettingBack()
     {
+        TimeController.Instance.TimeSet(1);
         InGameSetting.SetActive(false);
         audioSource.Play();
     }
@@ -205,6 +205,7 @@ public class GameOver : MonoBehaviour
         OilManager oil = FindObjectOfType<OilManager>();
         nows.text = playing.text;//��� ���ڵ� �ٲٱ�*/
 
+        TimeController.Instance.TimeSet(1);
         PlayerPrefs.SetInt("now", int.Parse(playing.text));
         if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
         {
