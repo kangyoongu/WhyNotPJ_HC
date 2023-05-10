@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class ScalePlus : MonoBehaviour
 {
-    [SerializeField] bool isPlus = false;
+    [SerializeField] bool isPlus;
     [SerializeField] Timer timer;
-    [SerializeField] float time;
+    [SerializeField] float time = 10;
     bool isUpdate;
     private void Start()
     {
@@ -15,7 +15,7 @@ public class ScalePlus : MonoBehaviour
     }
     private void Update()
     {
-        if(isPlus == true)
+        if (isPlus == true)
         {
             if (isUpdate == true)
             {
@@ -28,8 +28,8 @@ public class ScalePlus : MonoBehaviour
     {
         if (other.gameObject.tag == "Plus")//헬기 사이즈 키우기
         {
-            isPlus = true;
             isUpdate = true;
+            isPlus = true;
             other.gameObject.SetActive(false);
             this.transform.localScale += new Vector3(.2f, .2f, .2f);
             Invoke("MinusSize", 10);

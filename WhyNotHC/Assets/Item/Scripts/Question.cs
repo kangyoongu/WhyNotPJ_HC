@@ -8,7 +8,7 @@ public class Question : MonoBehaviour
 
     public Move1 move;
     [SerializeField] Timer timer;
-    [SerializeField] float time;
+    [SerializeField] float time = 5;
     bool isUpdate;
     private void Start()
     {

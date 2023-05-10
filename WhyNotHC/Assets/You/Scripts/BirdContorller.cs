@@ -2,76 +2,64 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+public enum birdType { Straight, Chase, MAX }
 public class BirdContorller : MonoBehaviour
 {
 
-    //public float time = 0.1f;
-    //private Vector3 destination;
-    //public float calltime = 0.1f;
+    birdType bird;
 
     public bool isDead = false;//³«ÇÏ
     public float deadtime = 0.1f;//Á×±â Àü½Ã°£
     public float push = 1.0f;//¹Ì´Â Èû
     private Rigidbody _rb;
-    public bool direction = true;
     public float speed = 0.1f;
-    [SerializeField]AudioSource audioSource;
-
-    private Vector3 _moveDir = new Vector3(0, 0, 1f);
-    
+    [SerializeField] AudioSource audioSource;
     BirdGenerator birdGener;
-    float x1;
-    float x2;
-    bool onDead;
-
+    private Vector3 pushDir;
+    Transform Player;
+    Vector3 Chase;
+    Rigidbody player;
+    private Vector3 _moveDir = new Vector3(0, 0, 1f);
 
     void Start()
     {
+        bird = (birdType)Random.Range(0, (int)birdType.MAX);
         birdGener = FindObjectOfType<BirdGenerator>();
-        x1 = birdGener.x1;
-        x2 = birdGener.x2;
-        onDead = birdGener.isFalse;
-        _rb = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
 
-        StartCoroutine(delayDead());
+        isDead = false;
+        player = GameObject.Find("player").GetComponent<Rigidbody>();
+
+        _rb = GetComponent<Rigidbody>();
+
+        audioSource = GetComponent<AudioSource>();
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        switch (bird)
+        {
+            case birdType.Chase:
+                transform.position = new(Player.position.x + Random.Range(-8, 8), Player.position.y + Random.Range(-8, 8), Player.position.z + 30);
+                pushDir = (Player.position - transform.position).normalized;
+                transform.rotation = Quaternion.LookRotation(Player.position - transform.position, Vector3.up);
+                break;
+            case birdType.Straight:
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                break;
+        }
+        Chase = (Player.position - transform.position).normalized;
     }
 
 
     void Update()
     {
-        if (isDead == false)
+        switch (bird)
         {
-
-            if (transform.position.x >= x1)
-            {
-                
-                direction = false;
-                transform.rotation = Quaternion.Euler(0, -90, 0);
-            }
-            else if (transform.position.x <= x2) 
-            {
-                
-                direction = true;
-                transform.rotation = Quaternion.Euler(0, 90, 0);
-            }
-               
-            if (direction == false)
-            {
-                transform.position += Time.deltaTime * speed * -Vector3.right;
-                
-            }
-
-            else
-            {
-                transform.position += Time.deltaTime * speed * Vector3.right;
-            }
-            
+            case birdType.Chase:
+                transform.position += Time.deltaTime * Chase * speed;
+                break;
+            case birdType.Straight:
+                transform.position += Time.deltaTime * transform.forward * speed;
+                break;
         }
-        if (onDead == false)
-            OnDes();
-
     }
 
     private void OnCollisionEnter(Collision other)
@@ -80,22 +68,13 @@ public class BirdContorller : MonoBehaviour
         if (other.collider.CompareTag("Player"))
         {
             audioSource.Play();
-            if (direction)
-                other.transform.root.GetComponent<Rigidbody>().AddForce(transform.right * -push, ForceMode.Impulse);
-            else
-                other.transform.root.GetComponent<Rigidbody>().AddForce(transform.right * push, ForceMode.Impulse);
+            other.transform.root.GetComponent<Rigidbody>().AddForce(pushDir * push, ForceMode.Impulse);
             StartCoroutine("Dead");
         }
         else
             StartCoroutine("Dead");
-
-
     }
 
-    public void OnDes()
-    {
-        Destroy(gameObject);
-    }
 
 
 
@@ -107,11 +86,5 @@ public class BirdContorller : MonoBehaviour
     }
 
 
-    IEnumerator delayDead()
-    {
-        yield return new WaitForSeconds(8f);
-        _rb.useGravity = true;
-        yield return new WaitForSeconds(deadtime);
-        Destroy(gameObject);
-    }
+
 }

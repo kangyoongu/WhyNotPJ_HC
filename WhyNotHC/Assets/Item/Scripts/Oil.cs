@@ -12,7 +12,7 @@ public class Oil : MonoBehaviour
     bool isStopping = false;
     public Image bar;
     [SerializeField] Timer timer;
-    [SerializeField] float time;
+    [SerializeField] float time = 10;
     bool isUpdate;
     private void Start()
     {

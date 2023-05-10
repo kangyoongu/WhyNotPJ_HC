@@ -5682,7 +5682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 1586476689}
   timer: {fileID: 0}
-  time: 0
+  time: 10
 --- !u!114 &543450653442398300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5697,7 +5697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {fileID: 446606177}
   timer: {fileID: 0}
-  time: 0
+  time: 5
 --- !u!114 &543450653442398301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5711,7 +5711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 0}
-  time: 0
+  time: 10
 --- !u!114 &543450653442398302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5726,7 +5726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlus: 0
   timer: {fileID: 0}
-  time: 0
+  time: 10
 --- !u!114 &543450653442398304
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,7 +20,6 @@ public class Timer : MonoBehaviour
             i = 1;
         else
             i = 0;
-        Debug.Log("æ∆¿Ã≈€ ∏‘¿Ω");
         timer[i].gameObject.SetActive(true);
         StartCoroutine(Del(time, i));
     }
@@ -34,9 +33,7 @@ public class Timer : MonoBehaviour
         timer[i].fillAmount = 1;
         while (true)
         {
-            
             timer[i].fillAmount -= Time.deltaTime * (1 / time);
-            
                 if (timer[i].fillAmount <= 0)
                 {
                     if (i == 0)

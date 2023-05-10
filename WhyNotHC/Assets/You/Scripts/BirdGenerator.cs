@@ -50,7 +50,7 @@ public class BirdGenerator : MonoBehaviour
             GameObject Bird = Instantiate(birdPrefab);
             Bird.transform.position = new(x, y, z);
             span = Random.Range(5, (400 - oilManager.score) * 0.1f < 10 ? 10 : (400 - oilManager.score) * 0.1f);
-
+            span = Mathf.Clamp(span, 0, 50);
             yield return new WaitForSeconds(span);
 
         }
