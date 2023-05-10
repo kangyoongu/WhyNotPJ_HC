@@ -41,10 +41,17 @@ public class GameOver : MonoBehaviour
     [SerializeField] Sprite image1Setting;
 
     [SerializeField] GameObject birdGenerator;
+    public Image dark;
+    float time = 0;
+    bool die = false;
+    public GameObject dark2;
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
         if (!PlayerPrefs.HasKey("best"))
         {
             PlayerPrefs.SetInt("best", 0);//�ְ� ��ϰ�
@@ -54,24 +61,37 @@ public class GameOver : MonoBehaviour
     }
     void Update()
     {
-        if (isbomb == true)
+        if(die == true)
         {
-            bomb.Play();
-            isbomb = false;
-        }
-        
-
-        if (bar.fillAmount == 0)
-        {
-            timer += Time.deltaTime;
-            if(timer >= 6)//���� ���� �Ǹ�
+            dark2.SetActive(true);
+            time += Time.deltaTime * 100;
+            dark.color = new Color32(0, 0, 0, (byte)time);
+            if(time >= 255)
             {
                 GameOverCode();
             }
         }
-        else
+        if (die == false)
         {
-            timer = 0;
+            if (isbomb == true)
+            {
+                bomb.Play();
+                isbomb = false;
+            }
+
+
+            if (bar.fillAmount == 0)
+            {
+                timer += Time.deltaTime;
+                if (timer >= 6)//���� ���� �Ǹ�
+                {
+                    die = true;
+                }
+            }
+            else
+            {
+                timer = 0;
+            }
         }
     }
 /*    public void OnClickrestart()//�ٽý��� ��ư�� ������ ��
@@ -162,7 +182,7 @@ public class GameOver : MonoBehaviour
     {
         if(collision.gameObject.tag == "Low Building")
         {
-            GameOverCode();
+            die = true;
         }
     }
     public void OnTriggerEnter(Collider other)

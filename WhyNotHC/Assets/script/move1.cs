@@ -39,7 +39,7 @@ public class Move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
         {
             if (oil.fillAmount > 0)//연료가 있으면 비행
             {
-                wingspeed += Time.deltaTime * 2;
+                wingspeed += Time.deltaTime * 4;
                 go_Player.AddForce(Vector3.forward * y);
                 go_Player.AddForce(Vector3.up * Time.deltaTime * 500);
                 go_Player.AddForce(Vector3.right * x);
@@ -58,7 +58,7 @@ public class Move1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
             }
             else
             {
-                wingspeed -= Time.deltaTime * 2.5f;
+                wingspeed -= Time.deltaTime * 5f;
             }
         }
         wing.Rotate(Vector3.forward * wingspeed);
