@@ -5,24 +5,30 @@ using UnityEngine.UI;
 
 public class ScalePlus : MonoBehaviour
 {
-    [SerializeField] bool isPlus = false;
+    [SerializeField] bool isPlus;
     [SerializeField] Timer timer;
-    [SerializeField] float time;
+    [SerializeField] float time = 10;
+    bool isUpdate;
     private void Start()
     {
         timer = FindObjectOfType<Timer>();
     }
     private void Update()
     {
-        if(isPlus == true)
+        if (isPlus == true)
         {
-            timer.Waitsecond(time);
+            if (isUpdate == true)
+            {
+                timer.Waitsecond(time);
+                isUpdate = false;
+            }
         }
     }
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Plus")//헬기 사이즈 키우기
         {
+            isUpdate = true;
             isPlus = true;
             other.gameObject.SetActive(false);
             this.transform.localScale += new Vector3(.2f, .2f, .2f);

@@ -20,32 +20,29 @@ public class Timer : MonoBehaviour
             i = 1;
         else
             i = 0;
-        Debug.Log("æ∆¿Ã≈€ ∏‘¿Ω");
         timer[i].gameObject.SetActive(true);
         StartCoroutine(Del(time, i));
     }
 
-    IEnumerator Del(float time, int i)
+    IEnumerator Del(float time ,int i)
     {
-        if (i == 0)
+        if(i == 0)
         {
             isTimerOn = true;
         }
         timer[i].fillAmount = 1;
         while (true)
         {
-
             timer[i].fillAmount -= Time.deltaTime * (1 / time);
-
-            if (timer[i].fillAmount <= 0)
-            {
-                if (i == 0)
+                if (timer[i].fillAmount <= 0)
                 {
-                    isTimerOn = false;
+                    if (i == 0)
+                    {
+                        isTimerOn = false;
+                    }
+                    break;
                 }
-                break;
-            }
-            yield return null;
+        yield return null;
         }
     }
 }

@@ -6,24 +6,30 @@ using UnityEngine.UI;
 public class ScaleMinus : MonoBehaviour
 {
     [SerializeField] Timer timer;
-    bool issmall = false;
-    [SerializeField] float time;
+    [SerializeField] float time = 10;
+    bool isUpdate;
+    bool isMinus;
     private void Start()
     {
         timer = FindObjectOfType<Timer>();
     }
     private void Update()
     {
-        if(issmall == true)
+        if (isMinus == true)
         {
-            timer.Waitsecond(time); 
+            if (isUpdate == true)
+            {
+                timer.Waitsecond(time);
+                isUpdate = false;
+            }
         }
     }
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Minus")
         {
-            issmall = true;
+            isUpdate = true;
+            isMinus = true;
             other.gameObject.SetActive(false);
             this.transform.localScale -= new Vector3(.2f, .2f, .2f);
             Invoke("PlusSize", 10);

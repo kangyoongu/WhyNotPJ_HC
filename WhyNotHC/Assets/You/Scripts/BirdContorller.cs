@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum birdType { Straight, Chase,MAX}
+public enum birdType { Straight, Chase, MAX }
 public class BirdContorller : MonoBehaviour
 {
 
@@ -13,7 +13,7 @@ public class BirdContorller : MonoBehaviour
     public float push = 1.0f;//¹Ì´Â Èû
     private Rigidbody _rb;
     public float speed = 0.1f;
-    [SerializeField]AudioSource audioSource;
+    [SerializeField] AudioSource audioSource;
     BirdGenerator birdGener;
     private Vector3 pushDir;
     Transform Player;
@@ -30,14 +30,14 @@ public class BirdContorller : MonoBehaviour
         player = GameObject.Find("player").GetComponent<Rigidbody>();
 
         _rb = GetComponent<Rigidbody>();
-        
+
         audioSource = GetComponent<AudioSource>();
         Player = GameObject.FindGameObjectWithTag("Player").transform;
 
         switch (bird)
         {
             case birdType.Chase:
-              transform.position = new(Player.position.x+Random.Range(-8,8), Player.position.y + Random.Range(-8, 8), Player.position.z + 30);
+                transform.position = new(Player.position.x + Random.Range(-8, 8), Player.position.y + Random.Range(-8, 8), Player.position.z + 30);
                 pushDir = (Player.position - transform.position).normalized;
                 transform.rotation = Quaternion.LookRotation(Player.position - transform.position, Vector3.up);
                 break;
@@ -51,13 +51,13 @@ public class BirdContorller : MonoBehaviour
 
     void Update()
     {
-       switch(bird)
+        switch (bird)
         {
             case birdType.Chase:
                 transform.position += Time.deltaTime * Chase * speed;
                 break;
             case birdType.Straight:
-                transform.position += Time.deltaTime *transform.forward   * speed;
+                transform.position += Time.deltaTime * transform.forward * speed;
                 break;
         }
     }
