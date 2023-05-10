@@ -381,7 +381,7 @@
 "Assets/script/MenuDrag.cs"
 "Assets/script/Move.cs"
 "Assets/script/Move1.cs"
-"Assets/script/OilManager.cs"
+"Assets/script/oilManager.cs"
 "Assets/script/Quit.cs"
 "Assets/script/SoundManager.cs"
 "Assets/script/Timer.cs"
