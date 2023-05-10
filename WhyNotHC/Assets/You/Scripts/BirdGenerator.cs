@@ -25,11 +25,10 @@ public class BirdGenerator : MonoBehaviour
 
     private void Awake()
     {
+        gameObject.SetActive(false);
         oilManager = player.transform.GetComponent<OilManager>();
         bird = birdPrefab.transform.GetComponent<BirdContorller>();
-        
-
-        
+       
     }
     private void Start()
     {

@@ -73,7 +73,7 @@ public class WindController : MonoBehaviour
     {
         while (true)
         {
-            windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
+            windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f) + 10;
            
             Directioin = Random.Range(0, 2);
             

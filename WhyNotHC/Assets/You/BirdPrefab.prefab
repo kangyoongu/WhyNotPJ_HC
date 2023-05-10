@@ -103,7 +103,7 @@ MonoBehaviour:
   isDead: 0
   deadtime: 1
   push: 8
-  speed: 15
+  speed: 9
   audioSource: {fileID: 0}
 --- !u!54 &-275970020448554867
 Rigidbody:
