@@ -37,11 +37,12 @@ public class BirdContorller : MonoBehaviour
         switch (bird)
         {
             case birdType.Chase:
-                transform.position = new(Player.position.x + Random.Range(-8, 8), Player.position.y + Random.Range(-8, 8), Player.position.z + 30);
+                transform.position = new(Player.position.x /*+ Random.Range(-4, 4)*/, Player.position.y + Random.Range(-4, 4), Player.position.z + 50);
                 pushDir = (Player.position - transform.position).normalized;
                 transform.rotation = Quaternion.LookRotation(Player.position - transform.position, Vector3.up);
                 break;
             case birdType.Straight:
+                transform.position = new(Player.position.x /*+ Random.Range(-4, 4)*/, Player.position.y + Random.Range(-4, 4), Player.position.z + 50);
                 transform.rotation = Quaternion.Euler(0, 180, 0);
                 break;
         }
