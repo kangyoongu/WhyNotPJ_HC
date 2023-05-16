@@ -19,7 +19,7 @@ public class ScalePlus : MonoBehaviour
         {
             if (isUpdate == true)
             {
-                timer.Waitsecond(time);
+                timer.Waitsecond(time, 4);
                 isUpdate = false;
             }
         }

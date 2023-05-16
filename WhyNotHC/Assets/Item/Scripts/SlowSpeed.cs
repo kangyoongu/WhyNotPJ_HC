@@ -28,7 +28,7 @@ public class SlowSpeed : MonoBehaviour
             curSpeed = speed * 1.5f;
             if (isUpdate == true)
             {
-                timerImage.Waitsecond(time);
+                timerImage.Waitsecond(time, 5);
                 isUpdate = false;
             }
             timer -= Time.deltaTime;

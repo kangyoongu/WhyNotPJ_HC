@@ -14,8 +14,10 @@ public class Timer : MonoBehaviour
     {
         timer[0].fillAmount = 0;
         timer[1].fillAmount = 0;
+        itemImage[0].gameObject.SetActive(false);
+        itemImage[1].gameObject.SetActive(false);
     }
-    public void Waitsecond(float time)
+    public void Waitsecond(float time, int imageNum)
     {
         int i;
         if (isTimerOn)
@@ -24,8 +26,10 @@ public class Timer : MonoBehaviour
             i = 0;
         
         timer[i].gameObject.SetActive(true);
-        itemImage[0].sprite = itemImages[3];
+        itemImage[i].gameObject.SetActive(true);
+        itemImage[i].sprite = itemImages[imageNum];
         StartCoroutine(Del(time, i));
+        
     }
 
     IEnumerator Del(float time ,int i)
@@ -40,13 +44,14 @@ public class Timer : MonoBehaviour
             timer[i].fillAmount -= Time.deltaTime * (1 / time);
                 if (timer[i].fillAmount <= 0)
                 {
-                    if (i == 0)
+                itemImage[i].gameObject.SetActive(false);
+                if (i == 0)
                     {
                         isTimerOn = false;
                     }
                     break;
                 }
-        yield return null;
+            yield return null;
         }
     }
 }

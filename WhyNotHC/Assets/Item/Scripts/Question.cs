@@ -20,7 +20,7 @@ public class Question : MonoBehaviour
         {
             if (isUpdate == true)
             {
-                timer.Waitsecond(time);
+                timer.Waitsecond(time, 6);
                 isUpdate = false;
             }
         }

@@ -25,7 +25,7 @@ public class Oil : MonoBehaviour
         {
             if(isUpdate == true)
             {
-                timer.Waitsecond(time);
+                timer.Waitsecond(time, 2);
                 isUpdate = false;
             }
             bar.fillAmount = 1;
