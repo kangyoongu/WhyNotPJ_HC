@@ -7,6 +7,8 @@ public class Timer : MonoBehaviour
 {
     public Image[] timer;
     bool isTimerOn = false;
+    public Image[] itemImage;
+    public Sprite[] itemImages;
 
     void Start()
     {
@@ -20,7 +22,9 @@ public class Timer : MonoBehaviour
             i = 1;
         else
             i = 0;
+        
         timer[i].gameObject.SetActive(true);
+        itemImage[0].sprite = itemImages[3];
         StartCoroutine(Del(time, i));
     }
 
