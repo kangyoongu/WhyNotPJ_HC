@@ -20,7 +20,7 @@ public class WindController : MonoBehaviour
 
     [SerializeField] Vector3 RwindForce;
     [SerializeField] Vector3 LwindForce;
-    [SerializeField] bool isWind;
+    [SerializeField] bool isWind = false;
     void Start()
     {
         Wind = GetComponent<ConstantForce>();
@@ -50,13 +50,12 @@ public class WindController : MonoBehaviour
 
         windForceTime += 0.3f;
         windForceTime = Mathf.Clamp(windForceTime, 0, 20);
-
-        print("a");
     }
 
     public void windSpawn()//start button
     {
         windTime = Random.Range(10, (900 - oilManager.score) * 0.08f < 20 ? 20 : (500 - oilManager.score) * 0.08f);
+        isWind = true;
         StartCoroutine(WindCo());
     }
 
@@ -67,9 +66,9 @@ public class WindController : MonoBehaviour
             if (isWind == true)
             {
                 Directioin = Random.Range(0, 2);
-
                 yield return new WaitForSeconds(windTime);
-
+                isWind = false;
+                
                 if (Directioin == 0)
                 {
                     yield return StartCoroutine(Right());
@@ -81,7 +80,7 @@ public class WindController : MonoBehaviour
 
                 Wind.force = Vector3.zero;
                 AddPower();
-                isWind = false;
+                
             }
             yield return null;
         }

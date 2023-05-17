@@ -11657,8 +11657,14 @@ MonoBehaviour:
   Wind: {fileID: 543450653442398305}
   windRIght: {fileID: 44964431}
   windLeft: {fileID: 1279802242}
+  Directioin: 0
+  player: {fileID: 291733720}
   windTime: 0
   windForceTime: 5
+  power: 0.3
+  RwindForce: {x: 0, y: 0, z: 0}
+  LwindForce: {x: 0, y: 0, z: 0}
+  isWind: 1
 --- !u!75 &543450653442398305
 ConstantForce:
   m_ObjectHideFlags: 0
