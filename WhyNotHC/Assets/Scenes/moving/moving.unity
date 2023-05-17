@@ -3292,7 +3292,6 @@ MonoBehaviour:
   - {fileID: 1884282111}
   - {fileID: 1604142918}
   itemImages:
-  - {fileID: 21300000, guid: 1ec467d5d5c2b284097371d0115c1fda, type: 3}
   - {fileID: 21300000, guid: 7380a5d78b40d244c923885bcc34e25b, type: 3}
   - {fileID: 21300000, guid: 4f86af61340022846a39b9fde78f8d17, type: 3}
   - {fileID: 21300000, guid: 43b81118576620a48a7827ec058913ba, type: 3}

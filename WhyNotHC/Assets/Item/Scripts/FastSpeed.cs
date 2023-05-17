@@ -28,7 +28,7 @@ public class FastSpeed : MonoBehaviour
             curSpeed = speed * 1.5f;
             if(isUpdate == true)
             {
-                timerImage.Waitsecond(time, 1);
+                timerImage.Waitsecond(time, 0);
                 isUpdate = false;
             }
             
