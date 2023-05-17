@@ -304,11 +304,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 196c81673c5cfc94f91ebac83995e422, type: 3}
---- !u!198 &44964431 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4449202377023098855, guid: 0e99adf7855620641ad8215af6e4515d, type: 3}
-  m_PrefabInstance: {fileID: 1251263810}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &65757236
 GameObject:
   m_ObjectHideFlags: 0
@@ -3292,12 +3287,12 @@ MonoBehaviour:
   - {fileID: 1884282111}
   - {fileID: 1604142918}
   itemImages:
-  - {fileID: 21300000, guid: 7380a5d78b40d244c923885bcc34e25b, type: 3}
-  - {fileID: 21300000, guid: 4f86af61340022846a39b9fde78f8d17, type: 3}
-  - {fileID: 21300000, guid: 43b81118576620a48a7827ec058913ba, type: 3}
-  - {fileID: 21300000, guid: 3bc91ba376e45334fb9aa3bddde084eb, type: 3}
-  - {fileID: 21300000, guid: dc3b59844821c7b4a9e9bcd725aa4c71, type: 3}
-  - {fileID: 21300000, guid: 4fa1e85dfa4718c4f81ec4708b859f2c, type: 3}
+  - {fileID: 21300000, guid: b0f77b6f038492243bf7dd09bb1be412, type: 3}
+  - {fileID: 21300000, guid: d5a177eb9115062449cb0a6f2579e1e8, type: 3}
+  - {fileID: 21300000, guid: 8aa126adcc384bb45a7c076a88fee1ec, type: 3}
+  - {fileID: 21300000, guid: f45d500ba1cf21548a64e58416a7916a, type: 3}
+  - {fileID: 21300000, guid: fe953b3eeb28ee64789a55caf846d8e6, type: 3}
+  - {fileID: 21300000, guid: 4418ded5ef16e394e941a8a78dba01ce, type: 3}
 --- !u!1 &731990769
 GameObject:
   m_ObjectHideFlags: 0
@@ -6352,11 +6347,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273179859}
   m_CullTransparentMesh: 1
---- !u!198 &1279802242 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4449202377023098855, guid: 0e99adf7855620641ad8215af6e4515d, type: 3}
-  m_PrefabInstance: {fileID: 817654175}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1297259977 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2375417807624693135, guid: a43f841aff6f8e944a777dc2b02f6e33, type: 3}
@@ -11654,17 +11644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96eee5162c487454da76cca6be64215d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wind: {fileID: 543450653442398305}
-  windRIght: {fileID: 44964431}
-  windLeft: {fileID: 1279802242}
-  Directioin: 0
-  player: {fileID: 291733720}
-  windTime: 0
-  windForceTime: 5
-  power: 0.3
-  RwindForce: {x: 0, y: 0, z: 0}
-  LwindForce: {x: 0, y: 0, z: 0}
-  isWind: 1
 --- !u!75 &543450653442398305
 ConstantForce:
   m_ObjectHideFlags: 0
