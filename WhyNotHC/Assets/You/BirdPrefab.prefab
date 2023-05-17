@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   deadtime: 1
-  push: 8
+  push: 10
   speed: 9
   audioSource: {fileID: 0}
 --- !u!54 &-275970020448554867

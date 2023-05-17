@@ -6,7 +6,7 @@ public class BirdGenerator : MonoBehaviour
 {
     public GameObject birdPrefab;
 
-    public float span;
+    public float span = 5;
     public Transform _cube;
     public Vector3 curVector;
     int _randNum = 0;
@@ -48,8 +48,8 @@ public class BirdGenerator : MonoBehaviour
             float z = Random.Range(_cube.position.z + 8, _cube.position.z + 11);
             GameObject Bird = Instantiate(birdPrefab);
             //Bird.transform.position = new(x, y, z);
-            span = Random.Range(5, (400 - oilManager.score) * 0.1f < 10 ? 10 : (400 - oilManager.score) * 0.1f);
-            span = Mathf.Clamp(span, 0, 50);
+            //span = Random.Range(5, (400 - oilManager.score) * 0.1f < 10 ? 10 : (400 - oilManager.score) * 0.1f);
+            //span = Mathf.Clamp(span, 0, 50);
             yield return new WaitForSeconds(span);
 
         }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 
 public class WindController : MonoBehaviour
@@ -12,7 +12,7 @@ public class WindController : MonoBehaviour
     private bool wind1 = false;
     int Directioin;
     private OilManager oilManager;
-    [SerializeField] GameObject player;
+    
 
     public float windTime;//바람불기전 대기
     public float windForceTime = 5;//바람불떄
@@ -20,14 +20,14 @@ public class WindController : MonoBehaviour
 
     private Vector3 RwindForce = new Vector3(2, 0, 0);
     private Vector3 LwindForce = new Vector3(-2, 0, 0);
+    private void Awake()
+    {
+    }
     void Start()
     {
         Wind = GetComponent<ConstantForce>();
         _rb = GetComponent<Rigidbody>();
-    }
-    private void Awake()
-    {
-        oilManager = player.transform.GetComponent<OilManager>();
+        oilManager = FindObjectOfType<OilManager>();
     }
 
     private void Update()
@@ -38,10 +38,6 @@ public class WindController : MonoBehaviour
         }
 
 
-        //if(wind1 == true && oilManager.score % 50 != 0)
-        //{
-        //    wind1 = false;
-        //}
 
     }
 
@@ -53,20 +49,10 @@ public class WindController : MonoBehaviour
             print("a");
     }
 
-    //private void windPlus()
-    //{
-    //    wind1 = true;
-    //    RwindForce += new Vector3(0.3f, 0, 0);
-    //    LwindForce += new Vector3(-0.3f, 0, 0);
-    //    windForceTime += 0.3f;
-    //    print("a");
-    //}
     public void windSpawn()
     {
         StartCoroutine(WindCo());
     }
-
-
 
 
     IEnumerator WindCo()
@@ -96,7 +82,6 @@ public class WindController : MonoBehaviour
                 windLeft.Stop();
             }
             Wind.force = Vector3.zero;
-            //_rb.velocity = Vector3.zero;
         }
     }
 }

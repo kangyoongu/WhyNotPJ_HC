@@ -1147,7 +1147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6576895874379547202, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6576895874379547202, guid: e5e8cac5576d6594db43fc9886dac795, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1872,7 +1872,7 @@ RectTransform:
   - {fileID: 220060937}
   - {fileID: 1919607445}
   m_Father: {fileID: 1843735795}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2812,7 +2812,7 @@ MonoBehaviour:
   rect_Background: {fileID: 1110215151}
   rect_Joystick: {fileID: 1630826634}
   go_Player: {fileID: 543450653442398315}
-  moveSpeed: 300
+  moveSpeed: 300.9
   wing: {fileID: 1709750286}
   wing2: {fileID: 1752622528}
   oil: {fileID: 1586476689}
@@ -5930,7 +5930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6251,7 +6251,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1843735795}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -9671,8 +9671,8 @@ RectTransform:
   - {fileID: 2021548333}
   - {fileID: 98932824}
   - {fileID: 1543094824}
-  - {fileID: 250824101}
   - {fileID: 1273179860}
+  - {fileID: 250824101}
   - {fileID: 1182891002}
   - {fileID: 2014157339}
   - {fileID: 792588813}
@@ -10001,9 +10001,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 291733720}
+      - m_Target: {fileID: 543450653442398304}
         m_TargetAssemblyTypeName: WindController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: windSpawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10868,7 +10868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -11674,7 +11674,6 @@ MonoBehaviour:
   Wind: {fileID: 543450653442398305}
   windRIght: {fileID: 44964431}
   windLeft: {fileID: 1279802242}
-  player: {fileID: 291733720}
   windTime: 0
   windForceTime: 5
 --- !u!75 &543450653442398305
@@ -13141,7 +13140,7 @@ PrefabInstance:
     - target: {fileID: 4100687499833059584, guid: 31c0902224e1c7749a79d10e00d3466a, type: 3}
       propertyPath: cubeController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 543450653442398304}
     - target: {fileID: 4100687499833059590, guid: 31c0902224e1c7749a79d10e00d3466a, type: 3}
       propertyPath: bar
       value: 

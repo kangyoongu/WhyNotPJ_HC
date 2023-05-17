@@ -69,6 +69,7 @@ public class BirdContorller : MonoBehaviour
         if (other.collider.CompareTag("Player"))
         {
             audioSource.Play();
+            other.transform.root.GetComponent<Rigidbody>().velocity = Vector3.zero;
             other.transform.root.GetComponent<Rigidbody>().AddForce(pushDir * push, ForceMode.Impulse);
             StartCoroutine("Dead");
         }
