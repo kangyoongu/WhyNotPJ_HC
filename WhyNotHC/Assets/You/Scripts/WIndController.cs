@@ -9,7 +9,7 @@ public class WindController : MonoBehaviour
     public ConstantForce Wind;
     public ParticleSystem windRIght;
     public ParticleSystem windLeft;
-    private bool wind1 = false;
+    //private bool wind1 = false;
     int Directioin;
     private OilManager oilManager;
     [SerializeField] GameObject player;

@@ -29,7 +29,7 @@ public class GameOver : MonoBehaviour
     public bool isbomb = false;
 
     public GameObject InGameSetting;
-    private bool IsStarted = false;
+    //private bool IsStarted = false;
 
     public Text main_best;
 
@@ -142,13 +142,13 @@ public class GameOver : MonoBehaviour
     }*/
     public void OnCLickStart()//���ο��� ���� ������ ��
     {
-        if (start.startTime > 4)
+        if (start.startTime > 2)
         {
             mainCanv.SetActive(false);
             playCanv.SetActive(true);
             birdGenerator.SetActive(true);
             //setting.SetActive(false);
-            IsStarted = true;
+            //IsStarted = true;
             audioSource.Play();
         }
         //imageSetting.sprite = timeSetting;

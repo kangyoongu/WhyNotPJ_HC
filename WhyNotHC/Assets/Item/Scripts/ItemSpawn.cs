@@ -7,7 +7,7 @@ public class ItemSpawn : MonoBehaviour
     [SerializeField] GameObject item;
     [SerializeField] float curtime;
     [SerializeField] GameObject player;
-    [SerializeField] float del = 0.5f;
+    //[SerializeField] float del = 0.5f;
     
     [SerializeField] string tagName;
     private OilManager oilManager;
