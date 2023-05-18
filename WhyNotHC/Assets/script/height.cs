@@ -9,7 +9,7 @@ public class Height : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     private float radius;
     [SerializeField] public Rigidbody go_Player;
     [SerializeField] public float moveSpeed = 5;
-    private bool isTouch = false;
+ //   private bool isTouch = false;
     public float y = 0;
     public Rigidbody wing;
     public Rigidbody wing2;
@@ -38,12 +38,12 @@ public class Height : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        isTouch = true;
+      //  isTouch = true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        isTouch = false;
+      //  isTouch = false;
     }
 
     public void OnDrag(PointerEventData eventData)

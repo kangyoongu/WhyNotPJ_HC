@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FixStartBut : MonoBehaviour
 {
-    float ratio = 0;
+   // float ratio = 0;
     void Start()
     {
         
