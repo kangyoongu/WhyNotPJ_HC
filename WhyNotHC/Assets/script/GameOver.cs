@@ -198,16 +198,16 @@ public class GameOver : MonoBehaviour
             bar.fillAmount = 0;//���� ������ 0
             
             Debug.Log("Boom");
-            OilManager oil = FindObjectOfType<OilManager>();
-            nows.text = "your score\n<size=150>" + playing.text + "</size>";//��� ���ڵ� �ٲٱ�
+            //OilManager oil = FindObjectOfType<OilManager>();
+            //nows.text = "your score\n<size=150>" + playing.text + "</size>";//��� ���ڵ� �ٲٱ�
 
-            if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
-            {
-                PlayerPrefs.SetInt("best", int.Parse(playing.text));
-            }
-            bests.text = "best score\n<size=180>" + PlayerPrefs.GetInt("best") + "</size>";
-            oil.combo = 0;
-            oil.combo_text.text = "";
+            //if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
+            //{
+            //    PlayerPrefs.SetInt("best", int.Parse(playing.text));
+            //}
+            //bests.text = "best score\n<size=180>" + PlayerPrefs.GetInt("best") + "</size>";
+            //oil.combo = 0;
+            //oil.combo_text.text = "";
         }
 
     }
