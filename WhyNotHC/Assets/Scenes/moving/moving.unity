@@ -8892,6 +8892,11 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.0014544578
   m_Center: {x: -0.000000019092113, y: 8.731149e-10, z: 0.000000019208528}
+--- !u!198 &1716811749 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4449202377023098855, guid: 0e99adf7855620641ad8215af6e4515d, type: 3}
+  m_PrefabInstance: {fileID: 817654175}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1731281406
 GameObject:
   m_ObjectHideFlags: 0
@@ -10506,6 +10511,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933063195}
   m_CullTransparentMesh: 1
+--- !u!198 &1950600684 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4449202377023098855, guid: 0e99adf7855620641ad8215af6e4515d, type: 3}
+  m_PrefabInstance: {fileID: 1251263810}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1957144067
 GameObject:
   m_ObjectHideFlags: 0
@@ -11648,6 +11658,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96eee5162c487454da76cca6be64215d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wind: {fileID: 543450653442398305}
+  windRIght: {fileID: 1950600684}
+  windLeft: {fileID: 1716811749}
+  Directioin: 0
+  player: {fileID: 291733720}
+  windTime: 0
+  windForceTime: 5
+  power: 0.3
+  RwindForce: {x: 0, y: 0, z: 0}
+  LwindForce: {x: 0, y: 0, z: 0}
+  isWind: 0
+  start: {fileID: 548812424}
 --- !u!75 &543450653442398305
 ConstantForce:
   m_ObjectHideFlags: 0
