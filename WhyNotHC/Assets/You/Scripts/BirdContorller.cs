@@ -15,7 +15,6 @@ public class BirdContorller : MonoBehaviour
     public float speed = 0.1f;
     [SerializeField] AudioSource audioSource;
     BirdGenerator birdGener;
-    private Vector3 pushDir;
     Transform Player;
     Vector3 Chase;
     Rigidbody player;
@@ -38,7 +37,6 @@ public class BirdContorller : MonoBehaviour
         {
             case birdType.Chase:
                 transform.position = new(Player.position.x /*+ Random.Range(-4, 4)*/, Player.position.y + Random.Range(-4, 4), Player.position.z + 50);
-                pushDir = (Player.position - transform.position).normalized;
                 transform.rotation = Quaternion.LookRotation(Player.position - transform.position, Vector3.up);
                 break;
             case birdType.Straight:
@@ -69,7 +67,12 @@ public class BirdContorller : MonoBehaviour
         if (other.collider.CompareTag("Player"))
         {
             audioSource.Play();
-            other.transform.root.GetComponent<Rigidbody>().AddForce(pushDir * push, ForceMode.Impulse);
+            player.velocity = Vector3.zero;
+            //other.transform.root.GetComponent<Rigidbody>().AddForce(pushDir * push, ForceMode.Impulse);
+           // player.AddExplosionForce(600f, transform.position, 100f, 0);
+            Vector3 dir = player.transform.position - transform.position;
+            dir = dir.normalized;
+            player.velocity = new Vector3(dir.x * 15, 7, dir.z * 15);
             StartCoroutine("Dead");
         }
         else

@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   deadtime: 1
-  push: 8
+  push: 10
   speed: 9
   audioSource: {fileID: 0}
 --- !u!54 &-275970020448554867
@@ -113,9 +113,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4907113794877580565}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.05
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
