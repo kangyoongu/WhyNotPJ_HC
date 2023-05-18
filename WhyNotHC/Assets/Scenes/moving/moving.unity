@@ -15,11 +15,11 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.5242672, g: 0.81981647, b: 0.8867924, a: 1}
+  m_FogColor: {r: 0.3529412, g: 0.7607844, b: 0.8431373, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.05
-  m_LinearFogStart: 58.3
-  m_LinearFogEnd: 94.1
+  m_LinearFogStart: 32
+  m_LinearFogEnd: 70.01
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 5b991bdd59096eb47a3a09baba4e0495, type: 2}
-  m_HaloStrength: 0.5
+  m_HaloStrength: 0.548
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -11352,14 +11352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a4dbc572424e643a5dc4d60aafd618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rect_Background: {fileID: 0}
-  rect_Joystick: {fileID: 0}
-  go_Player: {fileID: 0}
-  moveSpeed: 5
-  y: 0
-  wing: {fileID: 0}
-  wing2: {fileID: 0}
-  bar: {fileID: 0}
 --- !u!114 &2021548335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12226,8 +12218,8 @@ MonoBehaviour:
   windTime: 0
   windForceTime: 5
   power: 0.3
-  RwindForce: {x: 2, y: 0, z: 0}
-  LwindForce: {x: -2, y: 0, z: 0}
+  RwindForce: {x: 0, y: 0, z: 0}
+  LwindForce: {x: 0, y: 0, z: 0}
   isWind: 0
   start: {fileID: 548812424}
 --- !u!75 &543450653442398305
@@ -12350,7 +12342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc6659dcd8ee0c4cb65d0a3fe6a770b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  back: {fileID: 0}
+  back: {fileID: 7518895553917080498}
 --- !u!82 &543450653442398311
 AudioSource:
   m_ObjectHideFlags: 0
