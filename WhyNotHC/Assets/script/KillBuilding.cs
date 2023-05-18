@@ -17,7 +17,7 @@ public class KillBuilding : MonoBehaviour
     {
         while (true)
         {
-            if(transform.position.x + 120 < player.position.x)
+            if(transform.position.z + 120 < player.position.z)
             {
                 Destroy(gameObject);
             }
