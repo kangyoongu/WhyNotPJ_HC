@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4280089382425314208}
   - component: {fileID: -316068463210127995}
   - component: {fileID: 9087191196769314015}
+  - component: {fileID: -3443501013661368438}
   m_Layer: 0
   m_Name: oil
   m_TagString: Oil
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7939012357553387013}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -125,3 +126,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c949bb5c169249469d30d7655067498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3443501013661368438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939012357553387013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7dfbbf926935949b1bec440b974364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemRemoveTime: 100

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7026212720549499689}
   - component: {fileID: -7866192948542245751}
   - component: {fileID: 7862562212453212651}
+  - component: {fileID: -6300423060300836828}
   m_Layer: 0
   m_Name: boom
   m_TagString: Boom
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7939012357553387013}
   m_LocalRotation: {x: -0.6830127, y: -0.18301275, z: 0.18301275, w: 0.6830127}
   m_LocalPosition: {x: 0.27696732, y: 0.0851945, z: 0.0000007638959}
-  m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -138,3 +139,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4c8d4b6dc7d5340b83fcadae0e92ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6300423060300836828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939012357553387013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7dfbbf926935949b1bec440b974364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemRemoveTime: 100
