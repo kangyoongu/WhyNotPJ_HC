@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638198453996567447
-    m_Hash: 712476238
+      ticks: 638200665553036613
+    m_Hash: 2795804555
   m_LockFileStatus:
     m_FilePath: C:/Users/ggmuser/Documents/GitHub/WhyNotPJ_HC/WhyNotHC/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638198453996587416
-    m_Hash: 1604244000
+      ticks: 638200665553119878
+    m_Hash: 1240221509
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -742,6 +742,164 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.2.5
+    nextVersion: 
+- packageId: com.unity.mobile.android-logcat@1.3.2
+  testable: 0
+  isDirectDependency: 1
+  version: 1.3.2
+  source: 1
+  resolvedPath: C:\Users\ggmuser\Documents\GitHub\WhyNotPJ_HC\WhyNotHC\Library\PackageCache\com.unity.mobile.android-logcat@1.3.2
+  assetPath: Packages/com.unity.mobile.android-logcat
+  name: com.unity.mobile.android-logcat
+  displayName: Android Logcat
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: "Android Logcat package provides support for:\n - Android log messages\n
+    - Android application memory statistics\n - Android Screen Capture\n - Android
+    Screen Recorder\n - Stacktrace Utility\n\nClick the 'View documentation' link
+    above for more information.\n\nThe window can be accessed in Unity Editor via
+    'Window > Analysis > Android Logcat', or simply by pressing 'Alt+6' on Windows
+    or 'Option+6' on macOS. \n\nMake sure to have Android module loaded and switch
+    to Android build target in 'Build Settings' window if the menu doesn't exist."
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.1.5-preview
+    - 0.2.7-preview
+    - 1.0.0
+    - 1.0.1-preview
+    - 1.0.3-preview
+    - 1.1.0
+    - 1.1.1
+    - 1.2.0-preview
+    - 1.2.0
+    - 1.2.1
+    - 1.2.2
+    - 1.2.3
+    - 1.3.2
+    compatible:
+    - 1.3.2
+    verified: 1.3.2
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - Mobile
+  - Android
+  - Logcat
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 637859722170000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.com/Unity-Technologies/com.unity.mobile.logcat.git
+    revision: 3ac2137ceeb55e2f8b7e4ce15c940a7257591fd8
+    path: 
+  unityLifecycle:
+    version: 1.3.2
+    nextVersion: 
+- packageId: com.unity.services.authentication@2.5.0
+  testable: 0
+  isDirectDependency: 1
+  version: 2.5.0
+  source: 1
+  resolvedPath: C:\Users\ggmuser\Documents\GitHub\WhyNotPJ_HC\WhyNotHC\Library\PackageCache\com.unity.services.authentication@2.5.0
+  assetPath: Packages/com.unity.services.authentication
+  name: com.unity.services.authentication
+  displayName: Authentication
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: library
+  description: 'Client SDK offering player identity management for Unity Gaming Services.
+
+
+    Identity
+    providers can be configured from the editor or the Unity Dashboard.
+
+
+    Player
+    management is available in the Unity Dashboard.'
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 1.0.0-pre.4
+    - 1.0.0-pre.6
+    - 1.0.0-pre.37
+    - 2.0.0
+    - 2.1.1
+    - 2.2.0
+    - 2.3.1
+    - 2.4.0
+    - 2.5.0-pre.3
+    - 2.5.0
+    compatible:
+    - 2.4.0
+    - 2.5.0-pre.3
+    - 2.5.0
+    verified: 2.4.0
+  dependencies:
+  - name: com.unity.nuget.newtonsoft-json
+    version: 3.2.1
+  - name: com.unity.services.core
+    version: 1.9.0
+  - name: com.unity.modules.unitywebrequest
+    version: 1.0.0
+  - name: com.unity.ugui
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.nuget.newtonsoft-json
+    version: 3.2.1
+  - name: com.unity.services.core
+    version: 1.9.0
+  - name: com.unity.modules.unitywebrequest
+    version: 1.0.0
+  - name: com.unity.modules.androidjni
+    version: 1.0.0
+  - name: com.unity.ugui
+    version: 1.0.0
+  - name: com.unity.modules.ui
+    version: 1.0.0
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638199321790000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/operate-services-sdk.git
+    revision: 8dff44bedc34fa7a78147c064baf8ed5b2108044
+    path: 
+  unityLifecycle:
+    version: 2.4.0
     nextVersion: 
 - packageId: com.unity.test-framework@1.1.31
   testable: 0
@@ -3169,6 +3327,169 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.0.6
+    nextVersion: 
+- packageId: com.unity.nuget.newtonsoft-json@3.2.1
+  testable: 0
+  isDirectDependency: 0
+  version: 3.2.1
+  source: 1
+  resolvedPath: C:\Users\ggmuser\Documents\GitHub\WhyNotPJ_HC\WhyNotHC\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1
+  assetPath: Packages/com.unity.nuget.newtonsoft-json
+  name: com.unity.nuget.newtonsoft-json
+  displayName: Newtonsoft Json
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: library
+  description: 'Newtonsoft Json for use in Unity projects and Unity packages. Currently
+    synced to version 13.0.2.
+
+
+    This package is used for advanced json serialization
+    and deserialization. Most Unity users will be better suited using the existing
+    json tools built into Unity.
+
+    To avoid assembly clashes, please use this
+    package if you intend to use Newtonsoft Json.'
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 1.0.0-preview.2
+    - 1.0.0-preview.3
+    - 1.0.0-preview.4
+    - 1.0.1-preview.1
+    - 1.1.2
+    - 2.0.0-preview
+    - 2.0.0-preview.1
+    - 2.0.0-preview.2
+    - 2.0.0
+    - 2.0.1-preview.1
+    - 2.0.2
+    - 3.0.1
+    - 3.0.2
+    - 3.1.0
+    - 3.2.0
+    - 3.2.1
+    compatible:
+    - 3.0.2
+    - 3.1.0
+    - 3.2.0
+    - 3.2.1
+    verified: 3.0.2
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638186318800000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.nuget.newtonsoft-json.git
+    revision: d8e49aef8979bef617144382052ec2f479645eaf
+    path: 
+  unityLifecycle:
+    version: 3.0.2
+    nextVersion: 
+- packageId: com.unity.services.core@1.9.0
+  testable: 0
+  isDirectDependency: 0
+  version: 1.9.0
+  source: 1
+  resolvedPath: C:\Users\ggmuser\Documents\GitHub\WhyNotPJ_HC\WhyNotHC\Library\PackageCache\com.unity.services.core@1.9.0
+  assetPath: Packages/com.unity.services.core
+  name: com.unity.services.core
+  displayName: Services Core
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: 'This package defines common components used by multiple Game Service
+    packages.
+
+    These are standardized and aim to unify the overall experience
+    of working with Game Services SDK.'
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 1.0.1
+    - 1.1.0-pre.7
+    - 1.1.0-pre.8
+    - 1.1.0-pre.9
+    - 1.1.0-pre.10
+    - 1.1.0-pre.11
+    - 1.1.0-pre.41
+    - 1.1.0-pre.69
+    - 1.2.0
+    - 1.3.1
+    - 1.3.2
+    - 1.4.0
+    - 1.4.1
+    - 1.4.2
+    - 1.4.3
+    - 1.5.2
+    - 1.6.0
+    - 1.7.0
+    - 1.7.1
+    - 1.8.1
+    - 1.8.2
+    - 1.9.0
+    compatible:
+    - 1.7.1
+    - 1.8.1
+    - 1.8.2
+    - 1.9.0
+    verified: 1.7.1
+  dependencies:
+  - name: com.unity.modules.unitywebrequest
+    version: 1.0.0
+  - name: com.unity.nuget.newtonsoft-json
+    version: 3.2.1
+  - name: com.unity.modules.androidjni
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.modules.unitywebrequest
+    version: 1.0.0
+  - name: com.unity.nuget.newtonsoft-json
+    version: 3.2.1
+  - name: com.unity.modules.androidjni
+    version: 1.0.0
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 638199321780000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.services.core@1.9/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/operate-services-sdk.git
+    revision: 74c057b799d7949f52649be6b1e69b7e251beda1
+    path: 
+  unityLifecycle:
+    version: 1.7.1
     nextVersion: 
 - packageId: com.unity.editorcoroutines@1.0.0
   testable: 0
