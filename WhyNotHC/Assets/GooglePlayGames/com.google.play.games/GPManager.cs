@@ -17,7 +17,7 @@ public class GPManager : MonoBehaviour
         PlayGamesPlatform.Activate();
     }
 
-    async void Start()
+    public async void Start()
     {
         GooglePlayGames.PlayGamesPlatform.Activate();
         await UnityServices.InitializeAsync();

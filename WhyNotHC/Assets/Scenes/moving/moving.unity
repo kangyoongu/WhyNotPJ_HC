@@ -2974,10 +2974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8afdff544e74543a1e23cc660d4567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rect_Background: {fileID: 0}
-  rect_Joystick: {fileID: 0}
-  go_Player: {fileID: 0}
-  moveSpeed: 5
 --- !u!114 &446606179
 MonoBehaviour:
   m_ObjectHideFlags: 0
