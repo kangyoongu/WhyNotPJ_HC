@@ -14,6 +14,11 @@ public class CustomManager : MonoBehaviour
     string[] engName = {"bais", "mil", "fire", "doc", "pol", "rain"};
     string[] korName = {"±âº» Çï±â", "±º¿ë Çï±â", "È­¿° Çï±â", "±¸±Þ Çï±â", "°æÂû Çï±â", "¹«Áö°³ Çï±â"};
     public GameObject[] lok;
+    bool isMil = false;
+    bool isPol = false;
+    bool isRain = false;
+    bool isDoc = false;
+    bool isFire = false;
     private void Start()
     {
         if (!PlayerPrefs.HasKey($"isBuy{engName[0]}"))
@@ -42,22 +47,47 @@ public class CustomManager : MonoBehaviour
     public void OnClickPol()
     {
         Work(200, 4);
+        if (isPol == false)
+        {
+            Social.ReportProgress(GPGSIds.achievement_4, 100.0f, (bool isSucces) => { });
+            isPol = true;
+        }
     }
     public void OnClickMil()
     {
         Work(200, 1);
+        if (isMil == false)
+        {
+            Social.ReportProgress(GPGSIds.achievement, 100.0f, (bool isSucces) => { });
+            isMil = true;
+        }
     }
     public void OnClickRain()
     {
         Work(400, 5);
+        if (isRain == false)
+        {
+            Social.ReportProgress(GPGSIds.achievement_5, 100.0f, (bool isSucces) => { });
+            isRain = true;
+        }
     }
     public void OnClickFire()
     {
         Work(200, 2);
+        if (isFire == false)
+        {
+            Social.ReportProgress(GPGSIds.achievement_2, 100.0f, (bool isSucces) => { });
+            isFire = true;
+        }
     }
     public void OnClickDoc()
     {
         Work(200, 3);
+        if (isDoc == false)
+        {
+            Social.ReportProgress(GPGSIds.achievement_3, 100.0f, (bool isSucces) => { });
+            isDoc = true;
+        }
     }
     private void Work(int price, int index)
     {

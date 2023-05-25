@@ -390,6 +390,7 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/GooglePlay/GoogleUIManager.cs"
 "Assets/GooglePlay/GPManager.cs"
 "Assets/GPGSIds.cs"
 "Assets/Item/Cloud/CloudMaker.cs"
