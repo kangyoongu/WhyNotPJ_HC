@@ -24,6 +24,7 @@
 
 public static class GPGSIds
 {
+        public const string achievement = "CgkI0ryr_eIQEAIQAg"; // <GPGSID>
         public const string leaderboard_landing_rush_ranking = "CgkI0ryr_eIQEAIQAQ"; // <GPGSID>
 
 }

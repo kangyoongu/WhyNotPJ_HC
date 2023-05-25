@@ -118,11 +118,6 @@
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"Assets/Firebase/Plugins/Firebase.Analytics.dll"
--r:"Assets/Firebase/Plugins/Firebase.App.dll"
--r:"Assets/Firebase/Plugins/Firebase.Platform.dll"
--r:"Assets/Firebase/Plugins/Firebase.TaskExtension.dll"
--r:"Assets/Firebase/Plugins/Google.MiniJson.dll"
 -r:"Assets/Plugins/Demigiant/DOTween/DOTween.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.20f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.20f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
@@ -395,7 +390,7 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/GooglePlayGames/com.google.play.games/GPManager.cs"
+"Assets/GooglePlay/GPManager.cs"
 "Assets/GPGSIds.cs"
 "Assets/Item/Cloud/CloudMaker.cs"
 "Assets/Item/Scripts/BombItemRemove.cs"
@@ -413,6 +408,7 @@
 "Assets/Item/Scripts/ScaleTurn1.cs"
 "Assets/Item/Scripts/SlowSpeed.cs"
 "Assets/Item/Scripts/Vive.cs"
+"Assets/playgamedemo.cs"
 "Assets/Quirky Series - Birds Bundle/_Scripts/Demo.cs"
 "Assets/script/back.cs"
 "Assets/script/BGm.cs"
@@ -440,7 +436,7 @@
 "Assets/You/Scripts/BirdGenerator.cs"
 "Assets/You/Scripts/BirdTurn.cs"
 "Assets/You/Scripts/BirdTurnGenerator.cs"
-"Assets/You/Scripts/WIndController.cs"
+"Assets/You/Scripts/WindController.cs"
 "Assets/You/TimeController.cs"
 -langversion:9.0
 

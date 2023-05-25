@@ -118,11 +118,6 @@
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"Assets/Firebase/Plugins/Firebase.Analytics.dll"
--r:"Assets/Firebase/Plugins/Firebase.App.dll"
--r:"Assets/Firebase/Plugins/Firebase.Platform.dll"
--r:"Assets/Firebase/Plugins/Firebase.TaskExtension.dll"
--r:"Assets/Firebase/Plugins/Google.MiniJson.dll"
 -r:"Assets/Plugins/Demigiant/DOTween/DOTween.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.20f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.20f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
@@ -394,6 +389,13 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/Plugins/AdmobAPI/Admob.cs"
+"Assets/Plugins/AdmobAPI/AdmobEvent.cs"
+"Assets/Plugins/AdmobAPI/AdmobGender.cs"
+"Assets/Plugins/AdmobAPI/AdmobListenerProxy.cs"
+"Assets/Plugins/AdmobAPI/AdPosition.cs"
+"Assets/Plugins/AdmobAPI/AdSize.cs"
+"Assets/Plugins/AdmobAPI/IAdmobListener.cs"
 "Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs"
 "Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleEPOOutline.cs"
 "Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics.cs"
@@ -402,6 +404,14 @@
 "Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs"
 "Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs"
 "Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs"
+"Assets/Plugins/PlayGameAPI/FirebaseAnalytic.cs"
+"Assets/Plugins/PlayGameAPI/FirebaseService.cs"
+"Assets/Plugins/PlayGameAPI/GameConst.cs"
+"Assets/Plugins/PlayGameAPI/GameEvent.cs"
+"Assets/Plugins/PlayGameAPI/GameListenerProxy.cs"
+"Assets/Plugins/PlayGameAPI/GoogleGame.cs"
+"Assets/Plugins/PlayGameAPI/IGameListener.cs"
+"Assets/Plugins/PlayGameAPI/MonoPInvokeCallbackAttribute.cs"
 -langversion:9.0
 
 /deterministic
