@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "576325344850",
+    "project_id": "landing-rush-72493741",
+    "storage_bucket": "landing-rush-72493741.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576325344850:android:1ea12bd103fa2caba8498b",
+        "android_client_info": {
+          "package_name": "com.WhyNot.LandingRush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576325344850-uevrd06mioadbs57femcbllh73931lnd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0gO9FKQ5X_3yjKXdUaI-nXGu6jrrb6lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576325344850-uevrd06mioadbs57femcbllh73931lnd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

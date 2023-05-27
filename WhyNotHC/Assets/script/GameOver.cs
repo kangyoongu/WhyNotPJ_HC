@@ -39,7 +39,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] Image imageSetting;
     [SerializeField] Sprite timeSetting;
     [SerializeField] Sprite image1Setting;
-
+    GoogleUIManager google;
     [SerializeField] GameObject birdGenerator;
     public Image dark;
     float time = 0;
@@ -54,6 +54,7 @@ public class GameOver : MonoBehaviour
     {
         start = FindObjectOfType<StartManager>();
         audioSource = GetComponent<AudioSource>();
+        google = FindObjectOfType<GoogleUIManager>();
         if (!PlayerPrefs.HasKey("best"))
         {
             PlayerPrefs.SetInt("best", 0);//�ְ� ��ϰ�
@@ -65,6 +66,7 @@ public class GameOver : MonoBehaviour
     {
         if(die == true)
         {
+            google.AddLeaderBoard();
             dark2.SetActive(true);
             time += Time.deltaTime * 150;
             dark.color = new Color32(0, 0, 0, (byte)Mathf.Clamp(time, 0, 255));

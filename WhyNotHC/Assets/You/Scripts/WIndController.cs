@@ -25,14 +25,17 @@ public class WindController : MonoBehaviour
     [SerializeField] StartManager start;
     void Start()
     {
-        Wind = GetComponent<ConstantForce>();
-        _rb = GetComponent<Rigidbody>();
-
         RwindForce = new Vector3(1, 0, 0);
         LwindForce = new Vector3(-1, 0, 0);
     }
     private void Awake()
     {
+        Wind = GetComponent<ConstantForce>();
+        _rb = GetComponent<Rigidbody>();
+        windLeft = GameObject.Find("FXP_WIND_Left").GetComponent<ParticleSystem>();
+        windRIght = GameObject.Find("FXP_WIND_Right").GetComponent<ParticleSystem>();
+        player = GameObject.Find("player");
+        start = GameObject.Find("StartManager").GetComponent<StartManager>();
         oilManager = player.transform.GetComponent<OilManager>();
     }
 
