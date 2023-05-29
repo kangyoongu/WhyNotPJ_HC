@@ -14,6 +14,7 @@ public class CustomManager : MonoBehaviour
     string[] engName = {"bais", "mil", "fire", "doc", "pol", "rain"};
     string[] korName = {"±âº» Çï±â", "±º¿ë Çï±â", "È­¿° Çï±â", "±¸±Þ Çï±â", "°æÂû Çï±â", "¹«Áö°³ Çï±â"};
     public GameObject[] lok;
+    Dictionary<string, int> keys = new Dictionary<string, int>();
     private void Start()
     {
         if (!PlayerPrefs.HasKey($"isBuy{engName[0]}"))
@@ -42,32 +43,47 @@ public class CustomManager : MonoBehaviour
     public void OnClickPol()
     {
         Work(200, 4);
-        if(PlayerPrefs.GetInt("coin") >= 200)
+        if(keys["coin"] >= 200)
+        {
             Social.ReportProgress(GPGSIds.achievement_4, 100.0f, (bool isSucces) => { });
+            Debug.Log("pol");
+        }
     }
     public void OnClickMil()
     {
         Work(200, 1);
-        if(PlayerPrefs.GetInt("coin") >= 200)
+        if(keys["coin"] >= 200)
+        {
             Social.ReportProgress(GPGSIds.achievement, 100.0f, (bool isSucces) => { });
+            Debug.Log("Mil");
+        }
     }
     public void OnClickRain()
     {
         Work(400, 5);
-        if(PlayerPrefs.GetInt("coin") >= 400)
+        if(keys["coin"] >= 400)
+        {
             Social.ReportProgress(GPGSIds.achievement_5, 100.0f, (bool isSucces) => { });
+            Debug.Log("Rain");
+        }
     }
     public void OnClickFire()
     {
         Work(200, 2);
-        if(PlayerPrefs.GetInt("coin") >= 200)
+        if(keys["coin"] >= 200)
+        {
             Social.ReportProgress(GPGSIds.achievement_2, 100.0f, (bool isSucces) => { });
+            Debug.Log("Fire");
+        } 
     }
     public void OnClickDoc()
     {
         Work(200, 3);
-        if(PlayerPrefs.GetInt("coin") >= 200)
+        if(keys["coin"] >= 200)
+        {
             Social.ReportProgress(GPGSIds.achievement_3, 100.0f, (bool isSucces) => { });
+            Debug.Log("Doc");
+        }
     }
     private void Work(int price, int index)
     {
@@ -87,4 +103,5 @@ public class CustomManager : MonoBehaviour
             coin.text = PlayerPrefs.GetInt("coin").ToString();
         }
     }
+    
 }

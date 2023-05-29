@@ -433,8 +433,6 @@
 "Assets/script/Timer.cs"
 "Assets/script/Tutorial.cs"
 "Assets/script/UIManager.cs"
-"Assets/You/Scripts/BirdContorller.cs"
-"Assets/You/Scripts/BirdGenerator.cs"
 "Assets/You/Scripts/BirdTurn.cs"
 "Assets/You/Scripts/BirdTurnGenerator.cs"
 "Assets/You/Scripts/WIndController.cs"

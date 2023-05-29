@@ -11665,6 +11665,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a4dbc572424e643a5dc4d60aafd618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rect_Background: {fileID: 0}
+  rect_Joystick: {fileID: 0}
+  go_Player: {fileID: 0}
+  moveSpeed: 5
+  y: 0
+  wing: {fileID: 0}
+  wing2: {fileID: 0}
+  bar: {fileID: 0}
 --- !u!114 &2021548335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12523,18 +12531,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96eee5162c487454da76cca6be64215d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wind: {fileID: 0}
-  windRIght: {fileID: 0}
-  windLeft: {fileID: 0}
-  Directioin: 0
-  player: {fileID: 0}
-  windTime: 0
-  windForceTime: 5
-  power: 0.3
-  RwindForce: {x: 0, y: 0, z: 0}
-  LwindForce: {x: 0, y: 0, z: 0}
-  isWind: 0
-  start: {fileID: 0}
 --- !u!75 &543450653442398305
 ConstantForce:
   m_ObjectHideFlags: 0
@@ -13990,7 +13986,7 @@ PrefabInstance:
       objectReference: {fileID: 1586476689}
     - target: {fileID: 4100687499833059584, guid: 31c0902224e1c7749a79d10e00d3466a, type: 3}
       propertyPath: pos
-      value: 80
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4100687499833059584, guid: 31c0902224e1c7749a79d10e00d3466a, type: 3}
       propertyPath: combo_text

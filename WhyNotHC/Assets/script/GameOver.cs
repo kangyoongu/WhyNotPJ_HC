@@ -66,7 +66,6 @@ public class GameOver : MonoBehaviour
     {
         if(die == true)
         {
-            google.AddLeaderBoard();
             dark2.SetActive(true);
             time += Time.deltaTime * 150;
             dark.color = new Color32(0, 0, 0, (byte)Mathf.Clamp(time, 0, 255));
@@ -231,6 +230,7 @@ public class GameOver : MonoBehaviour
         nows.text = playing.text;//��� ���ڵ� �ٲٱ�*/
 
         TimeController.Instance.TimeSet(1);
+        google.AddLeaderBoard();
         PlayerPrefs.SetInt("now", int.Parse(playing.text));
         if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
         {
