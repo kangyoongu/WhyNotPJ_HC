@@ -3258,9 +3258,9 @@ RectTransform:
   m_Father: {fileID: 745174293}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 743.3097, y: -207.15}
   m_SizeDelta: {x: 453.26, y: 349.7635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561402326
@@ -5382,9 +5382,9 @@ RectTransform:
   m_Father: {fileID: 745174293}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1714.6691, y: -207.15}
   m_SizeDelta: {x: 453.26, y: 349.7635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1010902696
@@ -5594,9 +5594,9 @@ RectTransform:
   m_Father: {fileID: 745174293}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 2686.0283, y: -207.15}
   m_SizeDelta: {x: 453.26, y: 349.7635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1024044981
@@ -7682,9 +7682,9 @@ RectTransform:
   m_Father: {fileID: 745174293}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 257.63, y: -207.15}
   m_SizeDelta: {x: 453.26, y: 349.7635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1432930255
@@ -8794,7 +8794,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 82.64295}
+  m_AnchoredPosition: {x: 0, y: 57}
   m_SizeDelta: {x: 0, y: -165.2858}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1572962297
@@ -8821,7 +8821,9 @@ MonoBehaviour:
     \uC218 \uC788\uC2B5\uB2C8\uB2E4.\n\n\uAC74\uBB3C\uC758 \uC911\uC559\uC5D0 \uAC00\uAE5D\uAC8C
     \uCC29\uC9C0\uD560\uC218\uB85D \n\uC810\uC218\uB3C4 \uB9CE\uC774 \uBC1B\uACE0
     \uC5F0\uB8CC\uB3C4 \uB9CE\uC774 \uCC39\uB2C8\uB2E4.\n\n\uC5F0\uB8CC\uAC00 \uB2E4
-    \uB2F3\uBA74 \uCD94\uB77D\uD558\uB2C8 \uC870\uC2EC\uD558\uC138\uC694!"
+    \uB2F3\uBA74 \uCD94\uB77D\uD558\uB2C8 \uC870\uC2EC\uD558\uC138\uC694!\n<color=#FF0000>\u203B\uACBD\uACE0:
+    \uAC8C\uC784\uC744 \uC0AD\uC81C\uD558\uBA74\n\uC9C4\uD589\uAE30\uB85D\uC774 \uB2E4
+    \uC0AD\uC81C\uB429\uB2C8\uB2E4!</color>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a2129d74546de7341981e0ea1c9f32aa, type: 2}
   m_sharedMaterial: {fileID: -6071538733937351021, guid: a2129d74546de7341981e0ea1c9f32aa, type: 2}
@@ -8848,8 +8850,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 49.5
-  m_fontSizeBase: 49.5
+  m_fontSize: 48.13
+  m_fontSizeBase: 48.13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9361,9 +9363,9 @@ RectTransform:
   m_Father: {fileID: 745174293}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 2200.3486, y: -207.15}
   m_SizeDelta: {x: 453.26, y: 349.7635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1640416353
@@ -9625,7 +9627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1731281407
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11353,9 +11355,9 @@ RectTransform:
   m_Father: {fileID: 745174293}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1228.9894, y: -207.15}
   m_SizeDelta: {x: 453.26, y: 349.7635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1984444966
@@ -15086,7 +15088,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &7518895553917080494
 CanvasRenderer:
   m_ObjectHideFlags: 0

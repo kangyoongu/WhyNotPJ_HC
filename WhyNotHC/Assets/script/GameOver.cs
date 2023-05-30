@@ -46,12 +46,14 @@ public class GameOver : MonoBehaviour
     bool die = false;
     public GameObject dark2;
     private StartManager start;
+    CustomManager custom;
     private void Awake()
     {
         Application.targetFrameRate = 60;
     }
     void Start()
     {
+        custom = FindObjectOfType<CustomManager>();
         start = FindObjectOfType<StartManager>();
         audioSource = GetComponent<AudioSource>();
         google = FindObjectOfType<GoogleUIManager>();
@@ -199,16 +201,6 @@ public class GameOver : MonoBehaviour
             bar.fillAmount = 0;//���� ������ 0
             
             Debug.Log("Boom");
-            //OilManager oil = FindObjectOfType<OilManager>();
-            //nows.text = "your score\n<size=150>" + playing.text + "</size>";//��� ���ڵ� �ٲٱ�
-
-            //if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
-            //{
-            //    PlayerPrefs.SetInt("best", int.Parse(playing.text));
-            //}
-            //bests.text = "best score\n<size=180>" + PlayerPrefs.GetInt("best") + "</size>";
-            //oil.combo = 0;
-            //oil.combo_text.text = "";
         }
 
     }
@@ -228,7 +220,7 @@ public class GameOver : MonoBehaviour
         back.SetActive(true);
         OilManager oil = FindObjectOfType<OilManager>();
         nows.text = playing.text;//��� ���ڵ� �ٲٱ�*/
-
+        PlayerPrefs.SetInt("coin", custom.keys["coin"]);
         TimeController.Instance.TimeSet(1);
         google.AddLeaderBoard();
         PlayerPrefs.SetInt("now", int.Parse(playing.text));

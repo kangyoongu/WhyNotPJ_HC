@@ -7,13 +7,17 @@ public class Coin : MonoBehaviour
 {
     public TextMeshProUGUI coin;
     public AudioSource audioSource;
+    CustomManager custom;
     private void Start()
     {
+        custom = FindObjectOfType<CustomManager>();
         if (!PlayerPrefs.HasKey("coin"))
         {
             PlayerPrefs.SetInt("coin", 0);
         }
-        coin.text = PlayerPrefs.GetInt("coin").ToString();
+
+        custom.keys.Add("coin", PlayerPrefs.GetInt("coin"));
+        coin.text = custom.keys["coin"].ToString();
     }
     //coin태그에 닿으면 coin +1
     public void OnTriggerEnter(Collider other)
@@ -21,10 +25,14 @@ public class Coin : MonoBehaviour
         Debug.Log(other.transform.name);
         if (other.gameObject.tag == "Coin")
         {
-            PlayerPrefs.SetInt("coin", PlayerPrefs.GetInt("coin") + 1);
-            coin.text = PlayerPrefs.GetInt("coin").ToString();
+            custom.keys["coin"]++;
+            coin.text = custom.keys["coin"].ToString();
             other.gameObject.SetActive(false);
             audioSource.Play();
         }
+    }
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("coin", custom.keys["coin"]);
     }
 }

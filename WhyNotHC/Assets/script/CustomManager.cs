@@ -14,7 +14,8 @@ public class CustomManager : MonoBehaviour
     string[] engName = {"bais", "mil", "fire", "doc", "pol", "rain"};
     string[] korName = {"±âº» Çï±â", "±º¿ë Çï±â", "È­¿° Çï±â", "±¸±Þ Çï±â", "°æÂû Çï±â", "¹«Áö°³ Çï±â"};
     public GameObject[] lok;
-    Dictionary<string, int> keys = new Dictionary<string, int>();
+
+    public Dictionary<string, int> keys = new Dictionary<string, int>();
     private void Start()
     {
         if (!PlayerPrefs.HasKey($"isBuy{engName[0]}"))
@@ -92,15 +93,15 @@ public class CustomManager : MonoBehaviour
             play.material = mat[index];
             PlayerPrefs.SetInt("onmat", index);
         }
-        else if (PlayerPrefs.GetInt("coin") >= price)
+        else if (keys["coin"] >= price)
         {
             play.material = mat[index];
             lok[index].SetActive(false);
-            PlayerPrefs.SetInt("coin", PlayerPrefs.GetInt("coin") - price);
+            keys["coin"] = keys["coin"] - price;
             PlayerPrefs.SetInt($"isBuy{engName[index]}", 1);
             priceText[index].text = korName[index] + "º¸À¯";
             PlayerPrefs.SetInt("onmat", index);
-            coin.text = PlayerPrefs.GetInt("coin").ToString();
+            coin.text = keys["coin"].ToString();
         }
     }
     
