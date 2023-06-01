@@ -14,7 +14,7 @@ public class CustomManager : MonoBehaviour
     string[] engName = {"bais", "mil", "fire", "doc", "pol", "rain"};
     string[] korName = {"±âº» Çï±â", "±º¿ë Çï±â", "È­¿° Çï±â", "±¸±Þ Çï±â", "°æÂû Çï±â", "¹«Áö°³ Çï±â"};
     public GameObject[] lok;
-
+    bool isbuy;
     public Dictionary<string, int> keys = new Dictionary<string, int>();
     private void Start()
     {
@@ -102,6 +102,7 @@ public class CustomManager : MonoBehaviour
             priceText[index].text = korName[index] + "º¸À¯";
             PlayerPrefs.SetInt("onmat", index);
             coin.text = keys["coin"].ToString();
+            isbuy = true;
         }
     }
     
