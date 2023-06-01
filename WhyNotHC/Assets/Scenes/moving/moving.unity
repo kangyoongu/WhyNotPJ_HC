@@ -12543,7 +12543,7 @@ MonoBehaviour:
   power: 0.3
   RwindForce: {x: 0, y: 0, z: 0}
   LwindForce: {x: 0, y: 0, z: 0}
-  isWind: 0
+  isWind: 1
   start: {fileID: 0}
 --- !u!75 &543450653442398305
 ConstantForce:
