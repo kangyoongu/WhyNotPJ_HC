@@ -24,7 +24,7 @@ public class GameOver : MonoBehaviour
     public Transform point;
     public TextMeshProUGUI Main_Best;
     public TextMeshProUGUI Main_this;
-
+    public Text score;
     public ParticleSystem bomb;
     public bool isbomb = false;
 
@@ -57,6 +57,7 @@ public class GameOver : MonoBehaviour
         start = FindObjectOfType<StartManager>();
         audioSource = GetComponent<AudioSource>();
         google = FindObjectOfType<GoogleUIManager>();
+        
         if (!PlayerPrefs.HasKey("best"))
         {
             PlayerPrefs.SetInt("best", 0);//�ְ� ��ϰ�
@@ -68,7 +69,7 @@ public class GameOver : MonoBehaviour
     {
         if(die == true)
         {
-            google.AddLeaderBoard();
+            google.AddLeaderBoard(int.Parse(score.text));
             dark2.SetActive(true);
             time += Time.deltaTime * 150;
             dark.color = new Color32(0, 0, 0, (byte)Mathf.Clamp(time, 0, 255));

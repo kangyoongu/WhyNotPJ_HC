@@ -13,8 +13,9 @@ public class GoogleUIManager : MonoBehaviour
         PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkI0ryr_eIQEAIQAQ");
         Debug.Log("Rank");
     }
-    public void AddLeaderBoard()
-        => Social.ReportScore(int.Parse(score.text), GPGSIds.leaderboard_landing_king,
+
+    public void AddLeaderBoard(int score)
+        => Social.ReportScore(score, GPGSIds.leaderboard_landing_king,
             (bool success) => { });
 
     public void ShowAchiv()
