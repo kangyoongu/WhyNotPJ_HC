@@ -46,7 +46,15 @@ public class CustomManager : MonoBehaviour
         Work(200, 4);
         if(keys["coin"] >= 200)
         {
-            Social.ReportProgress(GPGSIds.achievement_4, 100.0f, (bool isSucces) => { });
+            Social.ReportProgress(GPGSIds.achievement_4, 100.0f, (bool isSucces) => { print("PolClear");
+                if (isSucces) {
+                    return;
+                }
+                else
+                {
+                    keys["coin"] -= 200;
+                }
+            });
             Debug.Log("pol");
         }
     }
@@ -55,7 +63,16 @@ public class CustomManager : MonoBehaviour
         Work(200, 1);
         if(keys["coin"] >= 200)
         {
-            Social.ReportProgress(GPGSIds.achievement, 100.0f, (bool isSucces) => { });
+            Social.ReportProgress(GPGSIds.achievement, 100.0f, (bool isSucces) => { print("MilClear");
+                if (isSucces)
+                {
+                    return;
+                }
+                else
+                {
+                    keys["coin"] -= 200;
+                }
+            });
             Debug.Log("Mil");
         }
     }
@@ -64,7 +81,16 @@ public class CustomManager : MonoBehaviour
         Work(400, 5);
         if(keys["coin"] >= 400)
         {
-            Social.ReportProgress(GPGSIds.achievement_5, 100.0f, (bool isSucces) => { });
+            Social.ReportProgress(GPGSIds.achievement_5, 100.0f, (bool isSucces) => { print("RainClear"); 
+                if (isSucces)
+                {
+                    return;
+                }
+                else
+                {
+                    keys["coin"] -= 400;
+                }
+            });
             Debug.Log("Rain");
         }
     }
@@ -73,7 +99,16 @@ public class CustomManager : MonoBehaviour
         Work(200, 2);
         if(keys["coin"] >= 200)
         {
-            Social.ReportProgress(GPGSIds.achievement_2, 100.0f, (bool isSucces) => { });
+            Social.ReportProgress(GPGSIds.achievement_2, 100.0f, (bool isSucces) => { print("FireClear"); 
+                if (isSucces)
+                {
+                    return;
+                }
+                else
+                {
+                    keys["coin"] -= 200;
+                }
+            });
             Debug.Log("Fire");
         } 
     }
@@ -82,7 +117,16 @@ public class CustomManager : MonoBehaviour
         Work(200, 3);
         if(keys["coin"] >= 200)
         {
-            Social.ReportProgress(GPGSIds.achievement_3, 100.0f, (bool isSucces) => { });
+            Social.ReportProgress(GPGSIds.achievement_3, 100.0f, (bool isSucces) => { print("DocClear");
+                if (isSucces)
+                {
+                    return;
+                }
+                else
+                {
+                    keys["coin"] -= 200;
+                }
+                });
             Debug.Log("Doc");
         }
     }
