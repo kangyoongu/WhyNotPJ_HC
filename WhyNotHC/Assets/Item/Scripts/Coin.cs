@@ -19,11 +19,9 @@ public class Coin : MonoBehaviour
         custom.keys.Add("coin", PlayerPrefs.GetInt("coin"));
         coin.text = custom.keys["coin"].ToString();
     }
-    //coin태그에 닿으면 coin +1
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.transform.name);
-        if (other.gameObject.tag == "Coin")
+        if (other.gameObject.CompareTag("Coin"))
         {
             custom.keys["coin"]++;
             coin.text = custom.keys["coin"].ToString();

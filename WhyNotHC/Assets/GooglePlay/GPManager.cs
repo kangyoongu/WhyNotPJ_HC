@@ -19,10 +19,16 @@ public class GPManager : MonoBehaviour
 
     async void Start()
     {
-        GooglePlayGames.PlayGamesPlatform.Activate();
-        await UnityServices.InitializeAsync();
-        await LoginGooglePlayGames();
-        await SignInWithGooglePlayGamesAsync(Token);
+        try
+        {
+            GooglePlayGames.PlayGamesPlatform.Activate();
+            await UnityServices.InitializeAsync();
+            await LoginGooglePlayGames();
+            await SignInWithGooglePlayGamesAsync(Token);
+        }catch(Exception e)
+        {
+            print("Login failed: " + e.Message);
+        }
     }
     //Fetch the Token / Auth code
     public Task LoginGooglePlayGames()
