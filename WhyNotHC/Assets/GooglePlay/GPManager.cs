@@ -1,19 +1,28 @@
 using System;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
+using GooglePlayGames.BasicApi.SavedGame;
 using System.Threading.Tasks;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
+using Unity.Mathematics;
+using Newtonsoft.Json;
+using System.Text;
 
 public class GPManager : MonoBehaviour
 {
     public string Token;
     public string Error;
+    public TMP_Text LogText;
+    [SerializeField] Coin coin;
+    DataManager dataManager = new DataManager();
 
     void Awake()
     {
+        //var config = new PlayGamesClientConfiguration.Builder().EnableSavedGames().Build();
         PlayGamesPlatform.Activate();
     }
 
@@ -72,5 +81,77 @@ public class GPManager : MonoBehaviour
             // Notify the player with the proper error message
             Debug.LogException(ex);
         }
+    }
+
+    ISavedGameClient SavedGame()
+    {
+        return PlayGamesPlatform.Instance.SavedGame;
+    }
+    public void LoadCloud()
+    {
+        SavedGame().OpenWithAutomaticConflictResolution("mysave",
+            DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLastKnownGood, LoadGame);
+    }
+    void LoadGame(SavedGameRequestStatus status, ISavedGameMetadata game)
+    {
+        if(status == SavedGameRequestStatus.Success)
+        {
+            SavedGame().ReadBinaryData(game, LoadData);
+        }
+    }
+    void LoadData(SavedGameRequestStatus status, byte[] loadedData)
+    {
+        if (status == SavedGameRequestStatus.Success)
+        {
+            string data = Encoding.UTF8.GetString(loadedData);
+            LogText.text = data;
+        }
+        else
+        {
+            LogText.text = "load Fail"; 
+        }
+    }
+
+    public void SaveCloud()
+    {
+        SavedGame().OpenWithAutomaticConflictResolution("mysave", DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLastKnownGood, SaveGame);
+    }
+    public void SaveGame(SavedGameRequestStatus status, ISavedGameMetadata game)
+    {
+        
+        if (status == SavedGameRequestStatus.Success)
+        {
+            
+            dataManager.mat = PlayerPrefs.GetInt("onmat");
+            dataManager.isBuySkin = PlayerPrefs.GetInt($"isBuy{dataManager.engName[dataManager.mat]}");
+            dataManager.coin = PlayerPrefs.GetInt("coin");
+            dataManager.bestScore = PlayerPrefs.GetInt("best");
+
+            string json = JsonConvert.SerializeObject(dataManager);
+            var update = new SavedGameMetadataUpdate.Builder().Build();
+            byte[] bytes = Encoding.UTF8.GetBytes(json);
+            SavedGame().CommitUpdate(game, update, bytes, SaveData);
+        }
+    }
+    void SaveData(SavedGameRequestStatus status, ISavedGameMetadata game)
+    {
+        if( status == SavedGameRequestStatus.Success)
+        {
+            LogText.text = "저장 성공";
+        }
+        else { LogText.text = "저장 실패"; }
+    }
+
+    public void DeleteCloud()
+    {
+        SavedGame().OpenWithAutomaticConflictResolution("mysave", DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLongestPlaytime, DeleteGame);
+    }
+    void DeleteGame(SavedGameRequestStatus status, ISavedGameMetadata game)
+    {
+        if(status == SavedGameRequestStatus.Success)
+        {
+            SavedGame().Delete(game);
+            LogText.text = "삭제 성공";
+        }else { LogText.text = "삭제 실패"; }
     }
 }

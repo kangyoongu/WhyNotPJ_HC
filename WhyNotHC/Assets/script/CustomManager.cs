@@ -5,7 +5,6 @@ using TMPro;
 
 public class CustomManager : MonoBehaviour
 {
-
     public MeshRenderer play;
     public TextMeshProUGUI coin;
     private int count = 6;
@@ -46,8 +45,7 @@ public class CustomManager : MonoBehaviour
         Work(200, 4);
         if(keys["coin"] >= 200)
         {
-            Social.ReportProgress(GPGSIds.achievement_4, 100.0f, (bool isSucces) => { });
-            Debug.Log("pol");
+            Social.ReportProgress(GPGSIds.achievement_4, 100.0f, (bool isSucces) => { Debug.Log("pol"); });
         }
     }
     public void OnClickMil()
@@ -55,8 +53,7 @@ public class CustomManager : MonoBehaviour
         Work(200, 1);
         if(keys["coin"] >= 200)
         {
-            Social.ReportProgress(GPGSIds.achievement, 100.0f, (bool isSucces) => { });
-            Debug.Log("Mil");
+            Social.ReportProgress(GPGSIds.achievement, 100.0f, (bool isSucces) => { Debug.Log("Mil"); });
         }
     }
     public void OnClickRain()
@@ -64,8 +61,7 @@ public class CustomManager : MonoBehaviour
         Work(400, 5);
         if(keys["coin"] >= 400)
         {
-            Social.ReportProgress(GPGSIds.achievement_5, 100.0f, (bool isSucces) => { });
-            Debug.Log("Rain");
+            Social.ReportProgress(GPGSIds.achievement_5, 100.0f, (bool isSucces) => { Debug.Log("Rain"); });
         }
     }
     public void OnClickFire()
@@ -73,8 +69,7 @@ public class CustomManager : MonoBehaviour
         Work(200, 2);
         if(keys["coin"] >= 200)
         {
-            Social.ReportProgress(GPGSIds.achievement_2, 100.0f, (bool isSucces) => { });
-            Debug.Log("Fire");
+            Social.ReportProgress(GPGSIds.achievement_2, 100.0f, (bool isSucces) => { Debug.Log("Fire"); });
         } 
     }
     public void OnClickDoc()
@@ -82,12 +77,12 @@ public class CustomManager : MonoBehaviour
         Work(200, 3);
         if(keys["coin"] >= 200)
         {
-            Social.ReportProgress(GPGSIds.achievement_3, 100.0f, (bool isSucces) => { });
-            Debug.Log("Doc");
+            Social.ReportProgress(GPGSIds.achievement_3, 100.0f, (bool isSucces) => { Debug.Log("Doc"); });
         }
     }
     private void Work(int price, int index)
     {
+
         if (PlayerPrefs.GetInt($"isBuy{engName[index]}") == 1)
         {
             play.material = mat[index];

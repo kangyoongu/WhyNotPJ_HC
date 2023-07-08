@@ -39,7 +39,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] Image imageSetting;
     [SerializeField] Sprite timeSetting;
     [SerializeField] Sprite image1Setting;
-    GoogleUIManager google;
+    [SerializeField] GoogleUIManager google;
     [SerializeField] GameObject birdGenerator;
     public Image dark;
     float time = 0;
@@ -69,7 +69,7 @@ public class GameOver : MonoBehaviour
     {
         if(die == true)
         {
-            google.AddLeaderBoard(int.Parse(score.text));
+            google.AddLeaderBoard(int.Parse(google.score.text));
             dark2.SetActive(true);
             time += Time.deltaTime * 150;
             dark.color = new Color32(0, 0, 0, (byte)Mathf.Clamp(time, 0, 255));
