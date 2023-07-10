@@ -20,6 +20,8 @@ public class GPManager : MonoBehaviour
     [SerializeField] Coin coin;
     DataManager dataManager = new DataManager();
 
+
+
     void Awake()
     {
         //var config = new PlayGamesClientConfiguration.Builder().EnableSavedGames().Build();
@@ -94,7 +96,7 @@ public class GPManager : MonoBehaviour
     }
     void LoadGame(SavedGameRequestStatus status, ISavedGameMetadata game)
     {
-        if(status == SavedGameRequestStatus.Success)
+        if (status == SavedGameRequestStatus.Success)
         {
             SavedGame().ReadBinaryData(game, LoadData);
         }
@@ -104,24 +106,33 @@ public class GPManager : MonoBehaviour
         if (status == SavedGameRequestStatus.Success)
         {
             string data = Encoding.UTF8.GetString(loadedData);
+
+
+            dataManager = JsonConvert.DeserializeObject<DataManager>(data);
             LogText.text = data;
         }
         else
         {
-            LogText.text = "load Fail"; 
+            LogText.text = "load Fail";
         }
     }
 
     public void SaveCloud()
     {
+        dataManager.mat = PlayerPrefs.GetInt("onmat");
+        dataManager.isBuySkin = PlayerPrefs.GetInt($"isBuy{dataManager.engName[dataManager.mat]}");
+        dataManager.coin = PlayerPrefs.GetInt("coin");
+        dataManager.bestScore = PlayerPrefs.GetInt("best");
+
+        print(JsonConvert.SerializeObject(dataManager, Formatting.Indented));
         SavedGame().OpenWithAutomaticConflictResolution("mysave", DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLastKnownGood, SaveGame);
     }
     public void SaveGame(SavedGameRequestStatus status, ISavedGameMetadata game)
     {
-        
         if (status == SavedGameRequestStatus.Success)
         {
-            
+            print(PlayerPrefs.GetInt("onmat"));
+            print(PlayerPrefs.GetInt($"isBuy{dataManager.engName[dataManager.mat]}"));
             dataManager.mat = PlayerPrefs.GetInt("onmat");
             dataManager.isBuySkin = PlayerPrefs.GetInt($"isBuy{dataManager.engName[dataManager.mat]}");
             dataManager.coin = PlayerPrefs.GetInt("coin");
@@ -135,7 +146,7 @@ public class GPManager : MonoBehaviour
     }
     void SaveData(SavedGameRequestStatus status, ISavedGameMetadata game)
     {
-        if( status == SavedGameRequestStatus.Success)
+        if (status == SavedGameRequestStatus.Success)
         {
             LogText.text = "저장 성공";
         }
@@ -148,10 +159,11 @@ public class GPManager : MonoBehaviour
     }
     void DeleteGame(SavedGameRequestStatus status, ISavedGameMetadata game)
     {
-        if(status == SavedGameRequestStatus.Success)
+        if (status == SavedGameRequestStatus.Success)
         {
             SavedGame().Delete(game);
             LogText.text = "삭제 성공";
-        }else { LogText.text = "삭제 실패"; }
+        }
+        else { LogText.text = "삭제 실패"; }
     }
 }

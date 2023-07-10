@@ -93,6 +93,7 @@ public class CustomManager : MonoBehaviour
             play.material = mat[index];
             lok[index].SetActive(false);
             keys["coin"] = keys["coin"] - price;
+
             PlayerPrefs.SetInt($"isBuy{engName[index]}", 1);
             priceText[index].text = korName[index] + "º¸À¯";
             PlayerPrefs.SetInt("onmat", index);
