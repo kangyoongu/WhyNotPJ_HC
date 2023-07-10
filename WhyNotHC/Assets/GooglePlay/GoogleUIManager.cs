@@ -13,6 +13,7 @@ using System.Text;
 public class GoogleUIManager : MonoBehaviour
 {
     public Text score;
+    [SerializeField] GameObject save;
     //스코어보드
     public void ShowLeaderBordUI_Ranking()
     {
@@ -29,6 +30,15 @@ public class GoogleUIManager : MonoBehaviour
         Social.ShowAchievementsUI();
         Debug.Log("achiv");
     }
+    public void SaveUI()
+    {
+        save.SetActive(true);
+    }
+    public void SaveUIClose()
+    {
+        save.SetActive(false);
+    }
+
     //save
     //public void Save()
     //{

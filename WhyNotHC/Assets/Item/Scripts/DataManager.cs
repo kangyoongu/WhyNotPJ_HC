@@ -9,6 +9,6 @@ public class DataManager
     public int mat;
     public int bestScore;
     public int isBuySkin;
+    public List<int> skins;
     public string[] engName = { "bais", "mil", "fire", "doc", "pol", "rain" };
-    public string[] korName = { "±âº» Çï±â", "±º¿ë Çï±â", "È­¿° Çï±â", "±¸±Ş Çï±â", "°æÂû Çï±â", "¹«Áö°³ Çï±â" };
 }

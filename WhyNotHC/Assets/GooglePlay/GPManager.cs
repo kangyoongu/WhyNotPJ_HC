@@ -11,13 +11,16 @@ using TMPro;
 using Unity.Mathematics;
 using Newtonsoft.Json;
 using System.Text;
+using Unity.VisualScripting;
 
 public class GPManager : MonoBehaviour
 {
     public string Token;
     public string Error;
     public TMP_Text LogText;
-    [SerializeField] Coin coin;
+    [SerializeField] TMP_Text coin;
+    [SerializeField] GameOver gameOver;
+    [SerializeField] CustomManager customManager;
     DataManager dataManager = new DataManager();
 
 
@@ -106,26 +109,39 @@ public class GPManager : MonoBehaviour
         if (status == SavedGameRequestStatus.Success)
         {
             string data = Encoding.UTF8.GetString(loadedData);
-
-
             dataManager = JsonConvert.DeserializeObject<DataManager>(data);
-            LogText.text = data;
+            
+            PlayerPrefs.SetInt("coin", dataManager.coin);
+            PlayerPrefs.SetInt("best", dataManager.bestScore);
+            customManager.keys["coin"] = dataManager.coin;
+            coin.text = dataManager.coin.ToString();
+            gameOver.Main_Best.text = dataManager.bestScore.ToString();
+            for (int i = 0; i < dataManager.skins.Count; i++)
+            {
+                customManager.Work(0, dataManager.skins[i]);
+            }
+            
+            LogText.text = "로드 성공";
         }
         else
         {
-            LogText.text = "load Fail";
+            LogText.text = "로드 실패";
         }
     }
 
+    
     public void SaveCloud()
     {
-        dataManager.mat = PlayerPrefs.GetInt("onmat");
-        dataManager.isBuySkin = PlayerPrefs.GetInt($"isBuy{dataManager.engName[dataManager.mat]}");
-        dataManager.coin = PlayerPrefs.GetInt("coin");
-        dataManager.bestScore = PlayerPrefs.GetInt("best");
+            print("저장");
+            dataManager.mat = PlayerPrefs.GetInt("onmat");
+            dataManager.isBuySkin = PlayerPrefs.GetInt($"isBuy{dataManager.engName[dataManager.mat]}");
+            dataManager.coin = PlayerPrefs.GetInt("coin");
+            dataManager.bestScore = PlayerPrefs.GetInt("best");
+            string data = JsonConvert.SerializeObject(dataManager);
+            PlayerPrefs.SetString("data", data);
 
-        print(JsonConvert.SerializeObject(dataManager, Formatting.Indented));
-        SavedGame().OpenWithAutomaticConflictResolution("mysave", DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLastKnownGood, SaveGame);
+            print(JsonConvert.SerializeObject(dataManager, Formatting.Indented));
+            SavedGame().OpenWithAutomaticConflictResolution("mysave", DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLastKnownGood, SaveGame);
     }
     public void SaveGame(SavedGameRequestStatus status, ISavedGameMetadata game)
     {

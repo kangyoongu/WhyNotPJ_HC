@@ -43,7 +43,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] GameObject birdGenerator;
     public Image dark;
     float time = 0;
-    bool die = false;
+    public bool die = false;
     public GameObject dark2;
     private StartManager start;
     CustomManager custom;

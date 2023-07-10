@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Newtonsoft.Json;
 
 public class CustomManager : MonoBehaviour
 {
@@ -13,10 +14,16 @@ public class CustomManager : MonoBehaviour
     string[] engName = {"bais", "mil", "fire", "doc", "pol", "rain"};
     string[] korName = {"±âº» Çï±â", "±º¿ë Çï±â", "È­¿° Çï±â", "±¸±Þ Çï±â", "°æÂû Çï±â", "¹«Áö°³ Çï±â"};
     public GameObject[] lok;
+    [SerializeField] DataManager dataManager;
     bool isbuy;
     public Dictionary<string, int> keys = new Dictionary<string, int>();
+    private string json;
+
     private void Start()
     {
+        json = PlayerPrefs.GetString("data");
+        dataManager.skins = JsonConvert.DeserializeObject<DataManager>(json).skins;
+
         if (!PlayerPrefs.HasKey($"isBuy{engName[0]}"))
         {
             PlayerPrefs.SetInt($"isBuy{engName[0]}", 1);
@@ -80,7 +87,7 @@ public class CustomManager : MonoBehaviour
             Social.ReportProgress(GPGSIds.achievement_3, 100.0f, (bool isSucces) => { Debug.Log("Doc"); });
         }
     }
-    private void Work(int price, int index)
+    public void Work(int price, int index)
     {
 
         if (PlayerPrefs.GetInt($"isBuy{engName[index]}") == 1)
@@ -90,10 +97,10 @@ public class CustomManager : MonoBehaviour
         }
         else if (keys["coin"] >= price)
         {
+            dataManager.skins.Add(index);
             play.material = mat[index];
             lok[index].SetActive(false);
             keys["coin"] = keys["coin"] - price;
-
             PlayerPrefs.SetInt($"isBuy{engName[index]}", 1);
             priceText[index].text = korName[index] + "º¸À¯";
             PlayerPrefs.SetInt("onmat", index);
@@ -101,5 +108,10 @@ public class CustomManager : MonoBehaviour
             isbuy = true;
         }
     }
-    
+    private void OnApplicationQuit()
+    {
+        string data = JsonConvert.SerializeObject(dataManager);
+        PlayerPrefs.SetString("data", data);
+    }
+
 }
