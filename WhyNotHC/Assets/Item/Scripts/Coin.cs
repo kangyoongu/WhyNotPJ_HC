@@ -15,7 +15,6 @@ public class Coin : MonoBehaviour
         {
             PlayerPrefs.SetInt("coin", 0);
         }
-
         custom.keys.Add("coin", PlayerPrefs.GetInt("coin"));
         coin.text = custom.keys["coin"].ToString();
     }
