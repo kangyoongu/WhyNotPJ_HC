@@ -22,6 +22,7 @@ public class GPManager : MonoBehaviour
     [SerializeField] GameOver gameOver;
     [SerializeField] CustomManager customManager;
     DataManager dataManager = new DataManager();
+    string json;
 
 
 
@@ -116,6 +117,8 @@ public class GPManager : MonoBehaviour
             customManager.keys["coin"] = dataManager.coin;
             coin.text = dataManager.coin.ToString();
             gameOver.Main_Best.text = dataManager.bestScore.ToString();
+            json = PlayerPrefs.GetString("data"); // 스킨 data
+            dataManager.skins = JsonConvert.DeserializeObject<DataManager>(json).skins;// list에 넣기
             for (int i = 0; i < dataManager.skins.Count; i++)
             {
                 customManager.Work(0, dataManager.skins[i]);

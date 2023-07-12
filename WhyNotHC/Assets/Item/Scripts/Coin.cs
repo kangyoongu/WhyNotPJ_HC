@@ -16,7 +16,6 @@ public class Coin : MonoBehaviour
             PlayerPrefs.SetInt("coin", 0);
         }
         custom.keys.Add("coin", PlayerPrefs.GetInt("coin"));
-        custom.keys["coin"] = 10000;
         coin.text = custom.keys["coin"].ToString();
     }
     //coin태그에 닿으면 coin +1

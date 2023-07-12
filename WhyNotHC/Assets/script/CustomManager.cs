@@ -21,9 +21,7 @@ public class CustomManager : MonoBehaviour
 
     private void Start()
     {
-        json = PlayerPrefs.GetString("data");
-        dataManager.skins = JsonConvert.DeserializeObject<DataManager>(json).skins;
-
+        
         if (!PlayerPrefs.HasKey($"isBuy{engName[0]}"))
         {
             PlayerPrefs.SetInt($"isBuy{engName[0]}", 1);
@@ -42,6 +40,10 @@ public class CustomManager : MonoBehaviour
                 priceText[i].text = $"{korName[i]} º¸À¯";
             }
         }
+
+        json = PlayerPrefs.GetString("data");
+        dataManager.skins = JsonConvert.DeserializeObject<DataManager>(json).skins;
+        Work(0, 0);
     }
     public void OnClickBas()
     {
