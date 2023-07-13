@@ -338,6 +338,7 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/Google.Play.Core.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Google.Play.Games.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Google.Play.Games.ref.dll"
+-r:"Library/Bee/artifacts/1300b0aE.dag/Google.Play.Review.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/PsdPlugin.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.2D.Animation.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.2D.Animation.Runtime.ref.dll"
