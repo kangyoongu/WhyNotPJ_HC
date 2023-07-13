@@ -15,6 +15,7 @@ using Unity.VisualScripting;
 using Google.Play.AppUpdate;
 using System.Collections;
 using Google.Play.Common;
+using Google.Play.Review;
 
 public class GPManager : MonoBehaviour
 {
@@ -230,5 +231,23 @@ public class GPManager : MonoBehaviour
             appUpdateOptions_i
             );
         yield return startUpdateRequest;
+    }
+    public void Review()
+    {
+        var reviewManager = new ReviewManager();
+        var playReviewInfoAsyncOperation = reviewManager.RequestReviewFlow();
+
+        playReviewInfoAsyncOperation.Completed += playReviewInfoAsync =>
+        {
+            if (playReviewInfoAsync.Error == ReviewErrorCode.NoError)
+            {
+                var playReviewInfo = playReviewInfoAsync.GetResult();
+                reviewManager.LaunchReviewFlow(playReviewInfo);
+            }
+            else
+            {
+                Debug.Log(playReviewInfoAsync.Error);
+            }
+        };
     }
 }

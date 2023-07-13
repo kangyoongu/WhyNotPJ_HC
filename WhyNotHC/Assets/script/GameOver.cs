@@ -40,6 +40,8 @@ public class GameOver : MonoBehaviour
     [SerializeField] Sprite timeSetting;
     [SerializeField] Sprite image1Setting;
     [SerializeField] GoogleUIManager google;
+    [SerializeField] GPManager gpManager;
+    bool isReviewDone;
     [SerializeField] GameObject birdGenerator;
     public Image dark;
     float time = 0;
@@ -57,6 +59,7 @@ public class GameOver : MonoBehaviour
         start = FindObjectOfType<StartManager>();
         audioSource = GetComponent<AudioSource>();
         google = FindObjectOfType<GoogleUIManager>();
+        gpManager = FindObjectOfType<GPManager>();
         
         if (!PlayerPrefs.HasKey("best"))
         {
@@ -228,6 +231,11 @@ public class GameOver : MonoBehaviour
         if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
         {
             PlayerPrefs.SetInt("best", int.Parse(playing.text));
+            if (PlayerPrefs.GetInt("best") >= 100 && !isReviewDone)
+            {
+                gpManager.Review();
+                isReviewDone = true;
+            }
         }
         SceneManager.LoadScene("moving");
         /*bests.text = PlayerPrefs.GetInt("best").ToString();
