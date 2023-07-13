@@ -21,7 +21,6 @@ public class CustomManager : MonoBehaviour
 
     private void Start()
     {
-        
         if (!PlayerPrefs.HasKey($"isBuy{engName[0]}"))
         {
             PlayerPrefs.SetInt($"isBuy{engName[0]}", 1);

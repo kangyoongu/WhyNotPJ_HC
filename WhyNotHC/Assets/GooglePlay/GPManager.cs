@@ -12,6 +12,9 @@ using Unity.Mathematics;
 using Newtonsoft.Json;
 using System.Text;
 using Unity.VisualScripting;
+using Google.Play.AppUpdate;
+using System.Collections;
+using Google.Play.Common;
 
 public class GPManager : MonoBehaviour
 {
@@ -22,6 +25,7 @@ public class GPManager : MonoBehaviour
     [SerializeField] GameOver gameOver;
     [SerializeField] CustomManager customManager;
     DataManager dataManager = new DataManager();
+    AppUpdateManager appUpdateManager;
     string json;
 
 
@@ -30,6 +34,12 @@ public class GPManager : MonoBehaviour
     {
         //var config = new PlayGamesClientConfiguration.Builder().EnableSavedGames().Build();
         PlayGamesPlatform.Activate();
+        StartCoroutine(CheckForUpdate());
+    }
+    IEnumerator Init()
+    {
+        yield return new WaitForSeconds(1f);
+        appUpdateManager = new AppUpdateManager();
     }
 
     async void Start()
@@ -184,5 +194,41 @@ public class GPManager : MonoBehaviour
             LogText.text = "삭제 성공";
         }
         else { LogText.text = "삭제 실패"; }
+    }
+
+    IEnumerator CheckForUpdate()
+    {
+        yield return StartCoroutine(Init());
+        PlayAsyncOperation<AppUpdateInfo, AppUpdateErrorCode> appUpdateInfoOperation = appUpdateManager.GetAppUpdateInfo();
+        yield return appUpdateInfoOperation;
+
+        if(appUpdateInfoOperation.IsSuccessful)
+        {
+            var appUpdateInfoResult = appUpdateInfoOperation.GetResult();
+
+            if(appUpdateInfoResult.UpdateAvailability == UpdateAvailability.UpdateAvailable)
+            {
+                Debug.Log(UpdateAvailability.UpdateAvailable);
+            }
+            else
+            {
+                Debug.Log("No Update");
+            }
+
+            var appUpdateOptions = AppUpdateOptions.ImmediateAppUpdateOptions();
+            StartCoroutine(StartImmediateUpdate(appUpdateInfoResult, appUpdateOptions));
+        }
+        else
+        {
+            Debug.Log(appUpdateInfoOperation.Error);
+        }
+    }
+    IEnumerator StartImmediateUpdate(AppUpdateInfo appUpdateInfoOp_i, AppUpdateOptions appUpdateOptions_i)
+    {
+        var startUpdateRequest = appUpdateManager.StartUpdate(
+            appUpdateInfoOp_i,
+            appUpdateOptions_i
+            );
+        yield return startUpdateRequest;
     }
 }
