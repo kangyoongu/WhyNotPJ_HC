@@ -231,7 +231,23 @@ public class GameOver : MonoBehaviour
         if (int.Parse(playing.text) > PlayerPrefs.GetInt("best"))
         {
             PlayerPrefs.SetInt("best", int.Parse(playing.text));
-            if (PlayerPrefs.GetInt("best") >= 100 && !isReviewDone)
+            if(PlayerPrefs.GetInt("best") >= 100)
+            {
+                Social.ReportProgress(GPGSIds.achievement_6, 100.0f, (bool isSucces) => { Debug.Log("score 100"); });
+            }
+            if (PlayerPrefs.GetInt("best") >= 300)
+            {
+                Social.ReportProgress(GPGSIds.achievement_7, 100.0f, (bool isSucces) => { Debug.Log("score 300"); });
+            }
+            if (PlayerPrefs.GetInt("best") >= 500)
+            {
+                Social.ReportProgress(GPGSIds.achievement_8, 100.0f, (bool isSucces) => { Debug.Log("score 500"); });
+            }
+            if(PlayerPrefs.GetInt("best") >= 1000)
+            {
+                Social.ReportProgress(GPGSIds.achievement____, 100.0f, (bool isSucces) => { Debug.Log("score 1000"); });
+            }
+            if (PlayerPrefs.GetInt("best") >= 50 && !isReviewDone)
             {
                 gpManager.Review();
                 isReviewDone = true;
