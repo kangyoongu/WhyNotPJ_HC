@@ -106,6 +106,11 @@ public class GPManager : MonoBehaviour
         }
     }
 
+    //public void LogOut()
+    //{
+    //    ((PlayGamesPlatform)Social.Active).SignOut();
+    //}
+
     ISavedGameClient SavedGame()
     {
         return PlayGamesPlatform.Instance.SavedGame;
