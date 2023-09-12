@@ -72,7 +72,6 @@ public class GameOver : MonoBehaviour
     {
         if(die == true)
         {
-            google.AddLeaderBoard(int.Parse(google.score.text));
             dark2.SetActive(true);
             time += Time.deltaTime * 150;
             dark.color = new Color32(0, 0, 0, (byte)Mathf.Clamp(time, 0, 255));
@@ -235,15 +234,15 @@ public class GameOver : MonoBehaviour
             {
                 Social.ReportProgress(GPGSIds.achievement_6, 100.0f, (bool isSucces) => { Debug.Log("score 100"); });
             }
-            if (PlayerPrefs.GetInt("best") >= 300)
+            else if (PlayerPrefs.GetInt("best") >= 300)
             {
                 Social.ReportProgress(GPGSIds.achievement_7, 100.0f, (bool isSucces) => { Debug.Log("score 300"); });
             }
-            if (PlayerPrefs.GetInt("best") >= 500)
+            else if (PlayerPrefs.GetInt("best") >= 500)
             {
                 Social.ReportProgress(GPGSIds.achievement_8, 100.0f, (bool isSucces) => { Debug.Log("score 500"); });
             }
-            if(PlayerPrefs.GetInt("best") >= 1000)
+            else if(PlayerPrefs.GetInt("best") >= 1000)
             {
                 Social.ReportProgress(GPGSIds.achievement____, 100.0f, (bool isSucces) => { Debug.Log("score 1000"); });
             }
@@ -253,6 +252,9 @@ public class GameOver : MonoBehaviour
                 isReviewDone = true;
             }
         }
+        
+        Social.ReportScore(PlayerPrefs.GetInt("Best"), GPGSIds.leaderboard_landing_king,
+            (bool success) => { });
         SceneManager.LoadScene("moving");
         /*bests.text = PlayerPrefs.GetInt("best").ToString();
         Main_Best.text = PlayerPrefs.GetInt("best").ToString();

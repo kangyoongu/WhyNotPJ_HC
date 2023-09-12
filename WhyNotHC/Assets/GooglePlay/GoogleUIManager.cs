@@ -14,17 +14,17 @@ public class GoogleUIManager : MonoBehaviour
 {
     public Text score;
     [SerializeField] GameObject save;
-    //½ºÄÚ¾îº¸µå
+    //ï¿½ï¿½ï¿½Ú¾îº¸ï¿½ï¿½
     public void ShowLeaderBordUI_Ranking()
     {
         PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkI0ryr_eIQEAIQAQ");
         Debug.Log("Rank");
     }
-    //½ºÄÚ¾î µî·Ï
-    public void AddLeaderBoard(int score)
-        => Social.ReportScore(score, GPGSIds.leaderboard_landing_king,
-            (bool success) => { });
-    //¾÷Àû UI
+    //ï¿½ï¿½ï¿½Ú¾ï¿½ ï¿½ï¿½ï¿½
+    //public void AddLeaderBoard(int score)
+      //  => Social.ReportScore(score, GPGSIds.leaderboard_landing_king,
+        //    (bool success) => { });
+    //ï¿½ï¿½ï¿½ï¿½ UI
     public void ShowAchiv()
     {
         Social.ShowAchievementsUI();
@@ -38,21 +38,4 @@ public class GoogleUIManager : MonoBehaviour
     {
         save.SetActive(false);
     }
-
-    //save
-    //public void Save()
-    //{
-    //    DataManager dataManager = new DataManager()
-    //    {
-    //        //mat = PlayerPrefs.GetInt("onmat") ,
-    //        //coin = PlayerPrefs.GetInt("coin"),
-    //        //bestScore  = PlayerPrefs.GetInt("onmat"),
-    //        //isBuySkin = PlayerPrefs.GetInt("onmat"),
-
-
-    //    };
-    //   string json =  JsonConvert.SerializeObject(dataManager);
-    //byte[] datas=    Encoding.UTF8.GetBytes(json);
-    //}
-
 }
